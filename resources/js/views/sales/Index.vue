@@ -52,6 +52,7 @@ const currentPage = ref(localStorage.getItem('currentSalesPage')? localStorage.g
 const role = ref(false);
 
 onMounted(async()=> {
+    console.log('goods :>> ', goods.value);
     await getGoods();
     getResults(currentPage.value);
     checkRole(user);

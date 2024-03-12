@@ -1,11 +1,12 @@
+
 <template>
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-6 mb-2 text-center">
-          <p class="fs-1 fw-7">FAQ</p>
+          <p class="fs-1 fw-7">{{ $t('users') }}</p>
         </div>
       </div>
-      <div v-if="!edit">
+      <div>
         <div class="row justify-content-center">
           <div class="col-6 mb-3">
             <div class="input-container">
@@ -29,15 +30,17 @@
               <span class="text-muted mt-1 fw-bold fs-7">Over 500 new products</span> -->
             </h3>
             <div class="card-toolbar">
-              <button @click="add" class="btn btn-sm btn-light-primary">
-              <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
-              <span class="svg-icon svg-icon-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
-                  <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
-                </svg>
-              </span>
-              <!--end::Svg Icon-->{{ $t('apply') }}</button>
+                <router-link :to="{ name: 'users.create' }">
+                    <button class="btn btn-sm btn-light-primary">
+                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+                        <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->{{ $t('apply') }}</button>
+                </router-link>
             </div>
           </div>
           <!--end::Header-->
@@ -110,104 +113,38 @@
           />
         </div>
       </div>
-      <form v-if="edit"  @submit.prevent="submitForm" class="card p-7"> 
-          <div class="mb-3 row">
-              <label for="inputPassword" class="col-sm-3 col-form-label ">{{ $t('question') }}</label>
-              <div class="col-sm-9">
-              <input v-model="faq.question" type="text" class="form-control" id="inputPassword">
-              <div class="text-danger mt-1">
-              </div>
-              <div class="text-danger mt-1">
-                  <div >
-                    <div v-for="message in validationErrors?.question">
-                        {{ message }}
-                    </div>
-                  </div>
-              </div>
-              </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="inputPassword" class="col-sm-3 col-form-label "><span class="">{{ $t('answer') }}</span></label>
-                <div class="col-sm-9">
-                    <textarea v-model="faq.answer" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
-                </div>
-                <div class="text-danger mt-1">
-                    <div >
-                      <div v-for="message in validationErrors?.question">
-                          {{ message }}
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mb-3 row ">
-                <div class="row d-flex justify-content-end">
-                    <div class="col-sm-2">
-                        <button @click = "edit = false" class="btn btn-light btn-active-light-primary me-2" style="width: 100%;" >
-                            <span>{{ $t('cancel') }}</span>
-                        </button>
-                    </div>
-                    <div class="col-sm-2">
-                        <button class="btn btn-primary" style="width: 100%;" >
-                            <span v-if="edit === 'create'">{{ $t('add') }}</span>
-                            <span v-if="edit === 'update'">{{ $t('update') }}</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-          </form>
     </div>
-  </template>  
-  <script setup>
-  import { ref, computed, watch, reactive, watchEffect } from 'vue';
-  import { defineRule, useField, useForm } from "vee-validate";
-  import { Bootstrap5Pagination } from 'laravel-vue-pagination';
-  import { useRouter } from 'vue-router';
-  import { useStore } from 'vuex';
-  import { onMounted } from 'vue';
-  import { required, min } from "@/validation/rules";
-  import useFaqs from '../../composables/faqs';
-  
-  defineRule('required', required)
+  </template> 
+<script setup>
+import {ref, onMounted, watch, watchEffect, computed} from "vue";
+import { Bootstrap5Pagination } from 'laravel-vue-pagination';
+import useUsers from "../../../composables/users";
+import {useAbility} from '@casl/vue'
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
-  const  router = useRouter();
-  const store = useStore();
-  const locale = computed(() => store.state.lang.locale);
-  const schema = {
-    question: 'required',
-    answer: 'required'
-  }
-  
-const { validate, errors } = useForm({validationSchema: schema})
-const { value: question } = useField('question', null, { initialValue: ''})
-const { value: answer } = useField('answer', null, { initialValue: ''})
-const { faqs, storeFaq, updateFaq, deleteFaq, validationErrors, isLoading, getFaqs } = useFaqs()
+const locale = computed(() => store.state.lang.locale);
 
-const faq = reactive({
-  question,
-  answer
-})
-  const user = computed(()=> store.state.auth.user);
-  const columns = ref([]);
-  const edit = ref(false);
-  const currentPage = ref(localStorage.getItem('currentFaqPage') ? localStorage.getItem('currentFaqPage') : 1);
-  
-  onMounted(async()=>{
-    await getFaqs();
-    console.log('currentPage.value', currentPage.value)
+const store = useStore()
+const  router = useRouter();
+const page = ref(5)
+const { getUsers, deleteUser} = useUsers()
+const users = computed(()=> store.state.users.users)
+const itemsPerPage = ref(5)
+const currentPage = ref(localStorage.getItem('currentUserPage') ? localStorage.getItem('currentUserPage') : 1);
+let paginationData = ref([]);
+const columns = ref([]);
+const searchTerm = ref('');
+
+onMounted(() => {
+    getUsers()
     getResults(currentPage.value)
-  })
-  const searchTerm = ref('');
-  const itemsPerPage = ref(5);
-  
-  let paginationData = ref([]);
-  
-  const handleSearch = () => {
-    getResults(1);
-  }
+})
+
   // Computed property to filter items based on search term
   const filteredItems = computed(() => {
-    if (faqs.value) {
-      return faqs.value.filter(item => {
+    if (users.value) {
+      return users.value.filter(item => {
         return Object.values(item).some(value =>
           String(value).toLowerCase().includes(searchTerm.value.toLowerCase())
         );
@@ -215,8 +152,8 @@ const faq = reactive({
     }
   });
   
-  const getResults = (page) => {
-      localStorage.setItem('currentFaqPage', page)
+const getResults = (page) => {
+      localStorage.setItem('currentUserPage', page)
       if (!page) {
           page = 1;
       }
@@ -233,32 +170,44 @@ const faq = reactive({
         total: filteredItems.value.length / itemsPerPage.value
       };
   }
-  
+watchEffect(()=> getResults(currentPage.value))
+
+
+
   const updateColumns = () => {
     if (locale.value === 'en') {
       columns.value = [ 
         { text: 'No', value: 'id' },
-        { text: 'Question', value: 'question' },
-        { text: 'Answer', value: 'answer' },
+        { text: 'Name', value: 'name' },
+        { text: 'Email', value: 'email' },
+        { text: 'Cell Phone', value: 'cellPhone' },
+        { text: 'Post Code', value: 'postCode' },
+        { text: 'Company Name', value: 'companyName' },
+        { text: 'Position', value: 'position' },
         { text: 'actions', value: 'actions' },
       ];
     } else {
       columns.value = [ 
         { text: 'No', value: 'id' },
-        { text: '问题', value: 'question' },
-        { text: '回答', value: 'answer' },
+        { text: '用户名', value: 'name' },
+        { text: '电子邮件', value: 'email' },
+        { text: '手机', value: 'cellPhone' },
+        { text: '邮编', value: 'postCode' },
+        { text: '公司名', value: 'companyName' },
+        { text: '职位', value: 'position' },
         { text: '行动', value: 'actions' },
       ];
     }
   };
-  // Initialize columns based on initial locale
-  updateColumns();
-  watch(locale, updateColumns);
-  watchEffect( async()=>{
-    getResults(currentPage.value)
-  })
 
-  
+    // Initialize columns based on initial locale
+    updateColumns();
+  watch(locale, updateColumns);
+
+  const handleSearch = () => {
+    getResults(1);
+  }
+
   let sortDirection = 1;
   let sortedColumn = '';
   
@@ -294,39 +243,16 @@ const faq = reactive({
     }
   };
 
-const add = () => {
- edit.value = 'create'
-}
-  const deleteItem = (item) => {
-    deleteFaq(item.id);
-  }
-  
-function submitForm() {
-  validate().then(form => {
-    if (form.valid) {
-      if (edit.value === 'create') {
-          storeFaq(faq);
-          getFaqs();
-          edit.value = false;
-        } else if (edit.value === 'update') {
-          updateFaq(faq);
-          getFaqs();
-          edit.value = false;
-        }
-      }
-  })
-}
   const updateEdit = (item) => {
-    edit.value = 'update';
-    faq.question = item.question;question;
-    faq.answer = item.answer;
-    faq.id = item.id;
+    router.push({ name: 'users.edit', params: { id: item.id } });
   }
-  
-  </script>
-  
-  <style>
-  .input-container {
+
+  const deleteItem = (item) => {
+    deleteUser(item.id)
+  }
+</script>
+<style>
+.input-container {
       position: relative;
   }
   
@@ -369,5 +295,4 @@ function submitForm() {
   .v-enter-from,
   .v-leave-to {
     opacity: 0;
-  }
-  </style>
+  }</style>

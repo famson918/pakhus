@@ -20,32 +20,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $orderColumn = request('order_column', 'created_at');
-        if (!in_array($orderColumn, ['id', 'name', 'created_at'])) {
-            $orderColumn = 'created_at';
-        }
-        $orderDirection = request('order_direction', 'desc');
-        if (!in_array($orderDirection, ['asc', 'desc'])) {
-            $orderDirection = 'desc';
-        }
-        $users = User::
-        when(request('search_id'), function ($query) {
-            $query->where('id', request('search_id'));
-        })
-            ->when(request('search_title'), function ($query) {
-                $query->where('name', 'like', '%'.request('search_title').'%');
-            })
-            ->when(request('search_global'), function ($query) {
-                $query->where(function($q) {
-                    $q->where('id', request('search_global'))
-                        ->orWhere('name', 'like', '%'.request('search_global').'%');
+        $user = User::all();
 
-                });
-            })
-            ->orderBy($orderColumn, $orderDirection)
-            ->paginate(50);
-
-        return UserResource::collection($users);
+        return response()->json($user);
     }
 
     /**
@@ -60,6 +37,10 @@ class UserController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->cellPhone = $request->cellPhone;
+        $user->postCode = $request->postCode;
+        $user->companyName = $request->companyName;
+        $user->position = $request->position;
         $user->password = Hash::make($request->password);
 
         if ($user->save()) {
@@ -95,6 +76,10 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->cellPhone = $request->cellPhone;
+        $user->postCode = $request->postCode;
+        $user->companyName = $request->companyName;
+        $user->position = $request->position;
         if(!empty($request->password)) {
             $user->password = Hash::make($request->password) ?? $user->password;
         }

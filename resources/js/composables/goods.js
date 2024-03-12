@@ -13,6 +13,7 @@ export default function useProposals() {
     const getGoods = async () => {
         axios.get('/api/goods')
             .then(response => {
+                console.log('response goods .data:>> ', response.data.data);
                 store.dispatch('good/getGoods', response.data.data)
             })
     }
@@ -45,6 +46,7 @@ export default function useProposals() {
             }
         })
             .then(response => {
+                getGoods()
                 console.log('response', response)
                 if (locale.value === 'en') {
                     swal({

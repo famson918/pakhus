@@ -22,7 +22,14 @@ class Good extends Model implements HasMedia
         'maximumNumberOfSampleOrders',
         'sampleOrderDeliveryTime',
         'sampleOrderPrice',
-        'productDescription'
+        'productDescription',
+        'time1',
+        'time2',
+        'time3',
+        'time4',
+        'option1',
+        'option2',
+        'option3',
     ];
 
     public function user()

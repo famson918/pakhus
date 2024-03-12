@@ -83,10 +83,50 @@
                         <tbody>
                             <tr>
                             <th scope="row">预计时间(一)</th>
-                            <td>5</td>
-                            <td>10</td>
-                            <td>15</td>
-                            <td>协商</td>
+                            <td>
+                                <input v-model="goods.time1" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.time1 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.time1">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <input v-model="goods.time2" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.time2 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.time2">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <input v-model="goods.time3" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.time3 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.time3">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <input v-model="goods.time4" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.time4 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.time4">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </td>
                             </tr>
                         </tbody>
                     </table>
@@ -109,9 +149,39 @@
                         <tbody>
                             <tr>
                             <th scope="row">选项</th>
-                            <td>商标 定制</td>
-                            <td>包装 定制</td>
-                            <td>图形 定制</td>
+                            <td>
+                                <input v-model="goods.option1" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.option1 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.option1">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <input v-model="goods.option2" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.option2 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.option2">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <input v-model="goods.option3" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.option3 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.option3">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </td>
                             </tr>
                         </tbody>
                     </table>
@@ -269,6 +339,13 @@ const schema = {
     sampleOrderPrice: 'required',
     sampleOrderDeliveryTime: 'required',
     productDescription: 'required',    
+    time1: 'required',
+    time2:'required',
+    time3:'required',
+    time4:'required',
+    option1: 'required',
+    option2:'required',
+    option3:'required',
 }
 const { validate, errors } = useForm({validationSchema: schema})
 const { value: productName } = useField("productName", null, { initialValue: ''})
@@ -279,6 +356,13 @@ const { value: maximumNumberOfSampleOrders } = useField("maximumNumberOfSampleOr
 const { value: sampleOrderPrice } = useField("sampleOrderPrice", null, { initialValue: ''})
 const { value: sampleOrderDeliveryTime } = useField("sampleOrderDeliveryTime", null, { initialValue: ''})
 const { value: productDescription } = useField("productDescription", null, { initialValue: ''})
+const { value: time1 } = useField("time1", null, { initialValue: ''})
+const { value: time2 } = useField("time2", null, { initialValue: ''})
+const { value: time3 } = useField("time3", null, { initialValue: ''})
+const { value: time4 } = useField("time4", null, { initialValue: ''})
+const { value: option1 } = useField("option1", null, { initialValue: ''})
+const { value: option3 } = useField("option3", null, { initialValue: ''})
+const { value: option2 } = useField("option2", null, { initialValue: ''})
 
 const { storeGood, isLoading, validationErrors, getGood } = useGoods();
 
@@ -290,7 +374,14 @@ const goods = reactive({
     maximumNumberOfSampleOrders,
     sampleOrderDeliveryTime,
     sampleOrderPrice,
-    productDescription
+    productDescription,
+    time1,
+    time2,
+    time3,
+    time4,
+    option1,
+    option2,
+    option3
 })
 
 const selectedPictures = {

@@ -92,16 +92,22 @@
         </div>
         <!--begin::Body-->
       </div>
-      <div v-if="proposals.length > 5">
-        <Bootstrap5Pagination
-            :data="paginationData"
-            class="mb-1 justify-content-center"
-            :limit="3"
-            :keep-length="false"
-            :show-disabled="false"
-            @pagination-change-page="getResults"
-        />
-      </div>
+      <div class="d-flex justify-content-between">
+        <select class="form-select float-left" v-model="itemsPerPage" style="width: 80px;">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+        </select>
+          <Pagination
+              :data="paginationData"
+              class="mb-1 bg-white border border-secondary rounded p-2 float-right"
+              :limit="3"
+              :keep-length="false"
+              :show-disabled="false"
+              @pagination-change-page="getResults"
+          />
+        </div>
     </div>
     <div v-if="edit">
       <CreateVue :edit="edit" :editableData="editableData" @updateEdit="updateEdit"/>
@@ -130,11 +136,10 @@ const columns = ref([]);
 const editableData = ref([]);
 const edit = ref(false)
 const searchTerm = ref('');
-const itemsPerPage = 8;
+const itemsPerPage = ref(5);
 let confirmText = ref();
-
+const currentPage = ref(localStorage.getItem('currentProposalPage') ? localStorage.getItem('currentProposalPage') : 1);
 let paginationData = ref([]);
-const currentPage = ref(localStorage.getItem('currentPage') ? parseInt(localStorage.getItem('currentPage')) : 1);
 
 onMounted(async()=>{
   await checkRole(user);
@@ -170,7 +175,7 @@ const filteredItems = computed(() => {
 });
 
 const getResults = (page) => {
-    localStorage.setItem('currentPage', page)
+    localStorage.setItem('currentProposalPage', page)
     if (!page) {
         page = 1;
     }
@@ -179,14 +184,16 @@ const getResults = (page) => {
       current_page: page,
       data: filteredItems.value,
       from: page,
-      last_page: filteredItems.value.length / itemsPerPage + 1,
-      next_page_url: page < filteredItems.value.length /itemsPerPage ? 'http://example.com/page/2' : null,
+      last_page: filteredItems.value.length / itemsPerPage.value + 1,
+      next_page_url: page < filteredItems.value.length /itemsPerPage.value ? 'http://example.com/page/2' : null,
       per_page: 1,
       prev_page_url: page > 1 ? 'http://example.com/page/1' : null,
       to: page + 1,
-      total: filteredItems.value.length / itemsPerPage
+      total: filteredItems.value.length / itemsPerPage.value
     };
 }
+
+watchEffect(()=> getResults(currentPage.value))
 
 const updateColumns = () => {
   if (locale.value === 'en') {
@@ -255,8 +262,8 @@ const sortedItems = computed(() => {
 
 // Computed property to paginate items
 const displayedItems = computed(() => {
-  const startIndex = (currentPage.value - 1) * itemsPerPage;
-  return sortedItems.value.slice(startIndex, startIndex + itemsPerPage);
+  const startIndex = (currentPage.value - 1) * itemsPerPage.value;
+  return sortedItems.value.slice(startIndex, startIndex + itemsPerPage.value);
 });
 
 // Function to handle sorting when column header is clicked

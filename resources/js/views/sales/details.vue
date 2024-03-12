@@ -55,10 +55,18 @@
                         <tbody>
                             <tr>
                             <th scope="row">预计时间(一)</th>
-                            <td>5</td>
-                            <td>10</td>
-                            <td>15</td>
-                            <td>协商</td>
+                            <td>
+                                <input v-model="good.time1" type="text" class="form-control" id="inputPassword" readonly>
+                            </td>
+                            <td>
+                                <input v-model="good.time2" type="text" class="form-control" id="inputPassword" readonly>
+                            </td>
+                            <td>
+                                <input v-model="good.time3" type="text" class="form-control" id="inputPassword" readonly>
+                            </td>
+                            <td>
+                                <input v-model="good.time4" type="text" class="form-control" id="inputPassword" readonly>
+                            </td>
                             </tr>
                         </tbody>
                     </table>
@@ -75,9 +83,15 @@
                         <tbody>
                             <tr>
                             <th scope="row">选项</th>
-                            <td>商标 定制</td>
-                            <td>包装 定制</td>
-                            <td>图形 定制</td>
+                            <td>
+                                <input v-model="good.option1" type="text" class="form-control" id="inputPassword" readonly>
+                            </td>
+                            <td>
+                                <input v-model="good.option2" type="text" class="form-control" id="inputPassword" readonly>
+                            </td>
+                            <td>
+                                <input v-model="good.option3" type="text" class="form-control" id="inputPassword" readonly>
+                            </td>
                             </tr>
                         </tbody>
                     </table>

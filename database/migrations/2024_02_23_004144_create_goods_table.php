@@ -21,6 +21,13 @@ return new class extends Migration
             $table->string('sampleOrderDeliveryTime');
             $table->string('sampleOrderPrice');
             $table->string('productDescription');
+            $table->string('time1');
+            $table->string('time2');
+            $table->string('time3');
+            $table->string('time4');
+            $table->string('option1');
+            $table->string('option2');
+            $table->string('option3');
             $table->timestamps();
         });
     }

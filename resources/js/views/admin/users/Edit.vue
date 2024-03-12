@@ -40,6 +40,64 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">{{ $t('postCode') }}</label>
+                            <input v-model="user.postCode" id="password" type="text" class="form-control">
+                            <div class="text-danger mt-1">
+                                {{ errors.postCode }}
+                            </div>
+                            <div class="text-danger mt-1">
+                                <div v-for="message in validationErrors?.postCode">
+                                    {{ message }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">{{ $t('cellPhone') }}</label>
+                            <input v-model="user.cellPhone" id="password" type="text" class="form-control">
+                            <div class="text-danger mt-1">
+                                {{ errors.cellPhone }}
+                            </div>
+                            <div class="text-danger mt-1">
+                                <div v-for="message in validationErrors?.cellPhone">
+                                    {{ message }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">{{ $t('companyName') }}</label>
+                            <input v-model="user.companyName" id="password" type="text" class="form-control">
+                            <div class="text-danger mt-1">
+                                {{ errors.companyName }}
+                            </div>
+                            <div class="text-danger mt-1">
+                                <div v-for="message in validationErrors?.companyName">
+                                    {{ message }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">{{ $t('position') }}</label>
+                            <input v-model="user.position" id="password" type="text" class="form-control">
+                            <div class="text-danger mt-1">
+                                {{ errors.position }}
+                            </div>
+                            <div class="text-danger mt-1">
+                                <div v-for="message in validationErrors?.position">
+                                    {{ message }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <router-link to="/admin/users" class="btn btn-light btn-active-light-primary me-2" >
+                                <span>{{ $t('cancel') }}</span>
+                            </router-link>
+                            <button :disabled="isLoading" class="btn btn-primary">
+                                <div v-show="isLoading" class=""></div>
+                                <span v-if="isLoading">{{ $t(processing) }}</span>
+                                <span v-else>{{ $t('save') }}</span>
+                            </button>
+                        </div>
                         <!-- Role -->
                         <!-- <div class="mb-3">
                             <label for="user-category" class="form-label">
@@ -56,13 +114,6 @@
                             </div>
                         </div> -->
                         <!-- Buttons -->
-                        <div class="mt-4">
-                            <button :disabled="isLoading" class="btn btn-primary">
-                                <div v-show="isLoading" class=""></div>
-                                <span v-if="isLoading">{{ $t('processing') }}</span>
-                                <span v-else>{{ $t('password') }}</span>
-                            </button>
-                        </div>
                     </form>
                 </div>
             </div>
@@ -87,6 +138,10 @@
     const schema = {
         name: 'required',
         email: 'required',
+        postCode: 'required',
+        cellPhone:'required',
+        companyName:'required',
+        position:'required',
         password: 'min:8',
     }
 
@@ -96,13 +151,21 @@
     const { value: name } = useField('name', null, { initialValue: '' });
     const { value: email } = useField('email', null, { initialValue: '' });
     const { value: password } = useField('password', null, { initialValue: '' });
-    const { value: role_id } = useField('role_id', null, { initialValue: '', label: 'role' });
+    const { value: postCode } = useField('postCode', null, { initialValue: '' });
+    const { value: cellPhone } = useField('cellPhone', null, { initialValue: '' });
+    const { value: companyName } = useField('companyName', null, { initialValue: '' });
+    const { value: position } = useField('position', null, { initialValue: '' });
+    // const { value: role_id } = useField('role_id', null, { initialValue: '', label: 'role' });
 
     const user = reactive({
         name,
         email,
         password,
-        role_id,
+        postCode,
+        cellPhone,
+        companyName,
+        position,
+        // role_id,
     })
 
     const route = useRoute()
@@ -117,7 +180,11 @@
     watchEffect(() => {
         user.id = postData.value.id
         user.name = postData.value.name
-        user.email = postData.value.email
-        user.role_id = postData.value.role_id
+        user.email = postData.value.email,
+        user.postCode = postData.value.postCode,
+        user.cellPhone = postData.value.cellPhone,
+        user.companyName = postData.value.companyName,
+        user.position = postData.value.position
+        // user.role_id = postData.value.role_id
     })
 </script>

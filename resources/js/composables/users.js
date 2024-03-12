@@ -15,22 +15,11 @@ export default function useUsers() {
     const store = useStore()
     const locale = computed(() => store.state.lang.locale)
 
-    const getUsers = async (
-        page = 1,
-        search_id = '',
-        search_title = '',
-        search_global = '',
-        order_column = 'created_at',
-        order_direction = 'desc'
-    ) => {
-        axios.get('/api/users?page=' + page +
-            '&search_id=' + search_id +
-            '&search_title=' + search_title +
-            '&search_global=' + search_global +
-            '&order_column=' + order_column +
-            '&order_direction=' + order_direction)
+    const getUsers = async () => {
+        axios.get('/api/users')
             .then(response => {
-                store.dispatch('users/getUsers', response.data.data)
+                console.log('response.data.data :>> ', response.data);
+                store.dispatch('users/getUsers', response.data)
                 users.value = response.data;
             })
     }
@@ -57,6 +46,7 @@ export default function useUsers() {
 
         axios.post('/api/users', serializedPost)
             .then(response => {
+                getUsers()
                 router.push({name: 'users.index'})
                 if (locale.value === 'en') {
                     swal({
@@ -92,6 +82,7 @@ export default function useUsers() {
 
         axios.put('/api/users/' + user.id, user)
             .then(response => {
+                getUsers()
                 router.push({name: 'users.index'})
                 if (locale.value === 'en') {
                     swal({

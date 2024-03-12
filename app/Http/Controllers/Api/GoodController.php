@@ -28,7 +28,14 @@ class GoodController extends Controller
             'maximumNumberOfSampleOrders' => $request['maximumNumberOfSampleOrders'],
             'sampleOrderDeliveryTime' => $request['sampleOrderDeliveryTime'],
             'sampleOrderPrice' => $request['sampleOrderPrice'],
-            'productDescription' => $request['productDescription']
+            'productDescription' => $request['productDescription'],
+            'time1' => $request['time1'],
+            'time2' => $request['time2'],
+            'time3' => $request['time3'],
+            'time4' => $request['time4'],
+            'option1' => $request['option1'],
+            'option2' => $request['option2'],
+            'option3' => $request['option3'],
         ]);
         try {
             for ($i = 1; $i <= 6; $i++) {
@@ -48,7 +55,7 @@ class GoodController extends Controller
         } catch (Exception $e) {
             error_log($e->getMessage());
         }
-        return response()->json($request);
+        return response()->json($good);
     }
 
     public function updateGood(Request $request)
@@ -62,6 +69,12 @@ class GoodController extends Controller
         $good-> sampleOrderDeliveryTime = $request['sampleOrderDeliveryTime'];
         $good-> sampleOrderPrice = $request['sampleOrderPrice'];
         $good-> productDescription = $request['productDescription'];
+        $good-> time1 = $request['time1'];
+        $good-> time2 = $request['time2'];
+        $good-> time3 = $request['time3'];
+        $good-> option1 = $request['option1'];
+        $good-> option2 = $request['option2'];
+        $good-> option2 = $request['option3'];
 
         try {
             for ($i = 1; $i <= 6; $i++) {
