@@ -1,0 +1,792 @@
+{
+  "Create.css": {
+    "file": "assets/Create-cfb6897b.css",
+    "src": "UploadInput.css"
+  },
+  "DropZone.css": {
+    "file": "assets/DropZone-55cd13a8.css",
+    "src": "DropZone.css"
+  },
+  "UploadInput.css": {
+    "file": "assets/Create-cfb6897b.css",
+    "src": "UploadInput.css"
+  },
+  "_Create-2252ff71.js": {
+    "css": [
+      "assets/Create-cfb6897b.css"
+    ],
+    "file": "assets/Create-2252ff71.js",
+    "imports": [
+      "resources/js/app.js",
+      "_rules-ff33fc86.js",
+      "_UploadInput-3fa695e6.js"
+    ],
+    "isDynamicEntry": true
+  },
+  "_DropZone-75fded32.js": {
+    "css": [
+      "assets/DropZone-55cd13a8.css"
+    ],
+    "file": "assets/DropZone-75fded32.js",
+    "imports": [
+      "resources/js/app.js",
+      "__plugin-vue_export-helper-c27b6911.js"
+    ]
+  },
+  "_LocaleSwitcher-e1c23f1b.js": {
+    "file": "assets/LocaleSwitcher-e1c23f1b.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_UploadInput-3fa695e6.js": {
+    "css": [
+      "assets/Create-cfb6897b.css"
+    ],
+    "file": "assets/UploadInput-3fa695e6.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "__plugin-vue_export-helper-c27b6911.js": {
+    "file": "assets/_plugin-vue_export-helper-c27b6911.js"
+  },
+  "_categories-615de4af.js": {
+    "file": "assets/categories-615de4af.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_faqs-6d48b30d.js": {
+    "file": "assets/faqs-6d48b30d.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_goods-f8f6f1c8.js": {
+    "file": "assets/goods-f8f6f1c8.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_permissions-0fa0a043.js": {
+    "file": "assets/permissions-0fa0a043.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_posts-054f5c79.js": {
+    "file": "assets/posts-054f5c79.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_roles-5d2404f3.js": {
+    "file": "assets/roles-5d2404f3.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_rules-ff33fc86.js": {
+    "file": "assets/rules-ff33fc86.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_users-9afde98c.js": {
+    "file": "assets/users-9afde98c.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf": {
+    "file": "assets/fa-brands-400-5656d596.ttf",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2": {
+    "file": "assets/fa-brands-400-3a8924cd.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf": {
+    "file": "assets/fa-regular-400-5d02dc9b.ttf",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2": {
+    "file": "assets/fa-regular-400-2bccecf0.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf": {
+    "file": "assets/fa-solid-900-fbbf06d7.ttf",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2": {
+    "file": "assets/fa-solid-900-9fc85f3a.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.ttf": {
+    "file": "assets/fa-v4compatibility-09663a36.ttf",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.ttf"
+  },
+  "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2": {
+    "file": "assets/fa-v4compatibility-4d4a2d7f.woff2",
+    "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2"
+  },
+  "public/images/barcode.png": {
+    "file": "assets/barcode-99623728.png",
+    "src": "public/images/barcode.png"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-ea5be324.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "assets": [
+      "assets/la-brands-400-c0e32387.eot",
+      "assets/la-brands-400-ff70c9bc.woff2",
+      "assets/la-brands-400-14c63377.woff",
+      "assets/la-brands-400-fbc98702.ttf",
+      "assets/la-brands-400-4da18191.svg",
+      "assets/la-regular-400-7dc456f0.eot",
+      "assets/la-regular-400-51ca2c00.woff2",
+      "assets/la-regular-400-7711fabc.woff",
+      "assets/la-regular-400-4b6ab8d0.ttf",
+      "assets/la-regular-400-884ce19c.svg",
+      "assets/la-solid-900-8a57f8a9.eot",
+      "assets/la-solid-900-10a68e01.woff2",
+      "assets/la-solid-900-a0d21b2a.woff",
+      "assets/la-solid-900-07ce3559.ttf",
+      "assets/la-solid-900-0ce0cc40.svg",
+      "assets/bootstrap-icons-76506e12.woff2",
+      "assets/bootstrap-icons-c3ae486b.woff",
+      "assets/fa-brands-400-e4299464.eot",
+      "assets/fa-brands-400-8ea87917.woff2",
+      "assets/fa-brands-400-f9217f66.woff",
+      "assets/fa-brands-400-cda59d6e.ttf",
+      "assets/fa-brands-400-a3b98177.svg",
+      "assets/fa-regular-400-79d08806.eot",
+      "assets/fa-regular-400-e42a8844.woff2",
+      "assets/fa-regular-400-cb9e9e69.woff",
+      "assets/fa-regular-400-e8711bbb.ttf",
+      "assets/fa-regular-400-be0a0849.svg",
+      "assets/fa-solid-900-373c04fd.eot",
+      "assets/fa-solid-900-9834b82a.woff2",
+      "assets/fa-solid-900-3f6d3488.woff",
+      "assets/fa-solid-900-af639750.ttf",
+      "assets/fa-solid-900-9674eb1b.svg",
+      "assets/fa-brands-400-3a8924cd.woff2",
+      "assets/fa-brands-400-5656d596.ttf",
+      "assets/fa-regular-400-2bccecf0.woff2",
+      "assets/fa-regular-400-5d02dc9b.ttf",
+      "assets/fa-solid-900-9fc85f3a.woff2",
+      "assets/fa-solid-900-fbbf06d7.ttf",
+      "assets/fa-v4compatibility-4d4a2d7f.woff2",
+      "assets/fa-v4compatibility-09663a36.ttf"
+    ],
+    "css": [
+      "assets/app-ea5be324.css"
+    ],
+    "dynamicImports": [
+      "resources/js/layouts/Guest.vue",
+      "resources/js/layouts/User.vue",
+      "resources/js/views/admin/posts/Index.vue",
+      "resources/js/views/admin/posts/Create.vue",
+      "resources/js/views/admin/posts/Edit.vue",
+      "resources/js/views/login/Login.vue",
+      "resources/js/views/home/index.vue",
+      "resources/js/views/register/index.vue",
+      "resources/js/views/faqs/Index.vue",
+      "resources/js/views/proposals/Index.vue",
+      "_Create-2252ff71.js",
+      "resources/js/views/faqs/faqs.vue",
+      "resources/js/views/sales/create.vue",
+      "resources/js/views/sales/details.vue",
+      "resources/js/views/sales/Edit.vue",
+      "resources/js/views/sales/Manager.vue",
+      "resources/js/views/sales/Index.vue",
+      "resources/js/views/admin/profile/index.vue",
+      "resources/js/views/admin/categories/Index.vue",
+      "resources/js/views/admin/categories/Create.vue",
+      "resources/js/views/admin/categories/Edit.vue",
+      "resources/js/views/admin/permissions/Index.vue",
+      "resources/js/views/admin/permissions/Create.vue",
+      "resources/js/views/admin/permissions/Edit.vue",
+      "resources/js/views/admin/roles/Index.vue",
+      "resources/js/views/admin/roles/Create.vue",
+      "resources/js/views/admin/roles/Edit.vue",
+      "resources/js/views/admin/users/Index.vue",
+      "resources/js/views/admin/users/Create.vue",
+      "resources/js/views/admin/users/Edit.vue",
+      "resources/js/views/auth/passwords/Reset.vue",
+      "resources/js/views/errors/404.vue",
+      "resources/js/lang/en.json",
+      "resources/js/lang/zh-CN.json"
+    ],
+    "file": "assets/app-92ca493c.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/assets/media/illustrations/sketchy-1/14.png": {
+    "file": "assets/14-82c6d7d0.png",
+    "src": "resources/js/assets/media/illustrations/sketchy-1/14.png"
+  },
+  "resources/js/assets/media/svg/illustrations/landing.svg": {
+    "file": "assets/landing-aecfbe84.svg",
+    "src": "resources/js/assets/media/svg/illustrations/landing.svg"
+  },
+  "resources/js/assets/plugins/global/fonts/@fortawesome/fa-brands-400.eot": {
+    "file": "assets/fa-brands-400-e4299464.eot",
+    "src": "resources/js/assets/plugins/global/fonts/@fortawesome/fa-brands-400.eot"
+  },
+  "resources/js/assets/plugins/global/fonts/@fortawesome/fa-brands-400.svg": {
+    "file": "assets/fa-brands-400-a3b98177.svg",
+    "src": "resources/js/assets/plugins/global/fonts/@fortawesome/fa-brands-400.svg"
+  },
+  "resources/js/assets/plugins/global/fonts/@fortawesome/fa-brands-400.ttf": {
+    "file": "assets/fa-brands-400-cda59d6e.ttf",
+    "src": "resources/js/assets/plugins/global/fonts/@fortawesome/fa-brands-400.ttf"
+  },
+  "resources/js/assets/plugins/global/fonts/@fortawesome/fa-brands-400.woff": {
+    "file": "assets/fa-brands-400-f9217f66.woff",
+    "src": "resources/js/assets/plugins/global/fonts/@fortawesome/fa-brands-400.woff"
+  },
+  "resources/js/assets/plugins/global/fonts/@fortawesome/fa-brands-400.woff2": {
+    "file": "assets/fa-brands-400-8ea87917.woff2",
+    "src": "resources/js/assets/plugins/global/fonts/@fortawesome/fa-brands-400.woff2"
+  },
+  "resources/js/assets/plugins/global/fonts/@fortawesome/fa-regular-400.eot": {
+    "file": "assets/fa-regular-400-79d08806.eot",
+    "src": "resources/js/assets/plugins/global/fonts/@fortawesome/fa-regular-400.eot"
+  },
+  "resources/js/assets/plugins/global/fonts/@fortawesome/fa-regular-400.svg": {
+    "file": "assets/fa-regular-400-be0a0849.svg",
+    "src": "resources/js/assets/plugins/global/fonts/@fortawesome/fa-regular-400.svg"
+  },
+  "resources/js/assets/plugins/global/fonts/@fortawesome/fa-regular-400.ttf": {
+    "file": "assets/fa-regular-400-e8711bbb.ttf",
+    "src": "resources/js/assets/plugins/global/fonts/@fortawesome/fa-regular-400.ttf"
+  },
+  "resources/js/assets/plugins/global/fonts/@fortawesome/fa-regular-400.woff": {
+    "file": "assets/fa-regular-400-cb9e9e69.woff",
+    "src": "resources/js/assets/plugins/global/fonts/@fortawesome/fa-regular-400.woff"
+  },
+  "resources/js/assets/plugins/global/fonts/@fortawesome/fa-regular-400.woff2": {
+    "file": "assets/fa-regular-400-e42a8844.woff2",
+    "src": "resources/js/assets/plugins/global/fonts/@fortawesome/fa-regular-400.woff2"
+  },
+  "resources/js/assets/plugins/global/fonts/@fortawesome/fa-solid-900.eot": {
+    "file": "assets/fa-solid-900-373c04fd.eot",
+    "src": "resources/js/assets/plugins/global/fonts/@fortawesome/fa-solid-900.eot"
+  },
+  "resources/js/assets/plugins/global/fonts/@fortawesome/fa-solid-900.svg": {
+    "file": "assets/fa-solid-900-9674eb1b.svg",
+    "src": "resources/js/assets/plugins/global/fonts/@fortawesome/fa-solid-900.svg"
+  },
+  "resources/js/assets/plugins/global/fonts/@fortawesome/fa-solid-900.ttf": {
+    "file": "assets/fa-solid-900-af639750.ttf",
+    "src": "resources/js/assets/plugins/global/fonts/@fortawesome/fa-solid-900.ttf"
+  },
+  "resources/js/assets/plugins/global/fonts/@fortawesome/fa-solid-900.woff": {
+    "file": "assets/fa-solid-900-3f6d3488.woff",
+    "src": "resources/js/assets/plugins/global/fonts/@fortawesome/fa-solid-900.woff"
+  },
+  "resources/js/assets/plugins/global/fonts/@fortawesome/fa-solid-900.woff2": {
+    "file": "assets/fa-solid-900-9834b82a.woff2",
+    "src": "resources/js/assets/plugins/global/fonts/@fortawesome/fa-solid-900.woff2"
+  },
+  "resources/js/assets/plugins/global/fonts/bootstrap-icons/bootstrap-icons.woff": {
+    "file": "assets/bootstrap-icons-c3ae486b.woff",
+    "src": "resources/js/assets/plugins/global/fonts/bootstrap-icons/bootstrap-icons.woff"
+  },
+  "resources/js/assets/plugins/global/fonts/bootstrap-icons/bootstrap-icons.woff2": {
+    "file": "assets/bootstrap-icons-76506e12.woff2",
+    "src": "resources/js/assets/plugins/global/fonts/bootstrap-icons/bootstrap-icons.woff2"
+  },
+  "resources/js/assets/plugins/global/fonts/line-awesome/la-brands-400.eot": {
+    "file": "assets/la-brands-400-c0e32387.eot",
+    "src": "resources/js/assets/plugins/global/fonts/line-awesome/la-brands-400.eot"
+  },
+  "resources/js/assets/plugins/global/fonts/line-awesome/la-brands-400.svg": {
+    "file": "assets/la-brands-400-4da18191.svg",
+    "src": "resources/js/assets/plugins/global/fonts/line-awesome/la-brands-400.svg"
+  },
+  "resources/js/assets/plugins/global/fonts/line-awesome/la-brands-400.ttf": {
+    "file": "assets/la-brands-400-fbc98702.ttf",
+    "src": "resources/js/assets/plugins/global/fonts/line-awesome/la-brands-400.ttf"
+  },
+  "resources/js/assets/plugins/global/fonts/line-awesome/la-brands-400.woff": {
+    "file": "assets/la-brands-400-14c63377.woff",
+    "src": "resources/js/assets/plugins/global/fonts/line-awesome/la-brands-400.woff"
+  },
+  "resources/js/assets/plugins/global/fonts/line-awesome/la-brands-400.woff2": {
+    "file": "assets/la-brands-400-ff70c9bc.woff2",
+    "src": "resources/js/assets/plugins/global/fonts/line-awesome/la-brands-400.woff2"
+  },
+  "resources/js/assets/plugins/global/fonts/line-awesome/la-regular-400.eot": {
+    "file": "assets/la-regular-400-7dc456f0.eot",
+    "src": "resources/js/assets/plugins/global/fonts/line-awesome/la-regular-400.eot"
+  },
+  "resources/js/assets/plugins/global/fonts/line-awesome/la-regular-400.svg": {
+    "file": "assets/la-regular-400-884ce19c.svg",
+    "src": "resources/js/assets/plugins/global/fonts/line-awesome/la-regular-400.svg"
+  },
+  "resources/js/assets/plugins/global/fonts/line-awesome/la-regular-400.ttf": {
+    "file": "assets/la-regular-400-4b6ab8d0.ttf",
+    "src": "resources/js/assets/plugins/global/fonts/line-awesome/la-regular-400.ttf"
+  },
+  "resources/js/assets/plugins/global/fonts/line-awesome/la-regular-400.woff": {
+    "file": "assets/la-regular-400-7711fabc.woff",
+    "src": "resources/js/assets/plugins/global/fonts/line-awesome/la-regular-400.woff"
+  },
+  "resources/js/assets/plugins/global/fonts/line-awesome/la-regular-400.woff2": {
+    "file": "assets/la-regular-400-51ca2c00.woff2",
+    "src": "resources/js/assets/plugins/global/fonts/line-awesome/la-regular-400.woff2"
+  },
+  "resources/js/assets/plugins/global/fonts/line-awesome/la-solid-900.eot": {
+    "file": "assets/la-solid-900-8a57f8a9.eot",
+    "src": "resources/js/assets/plugins/global/fonts/line-awesome/la-solid-900.eot"
+  },
+  "resources/js/assets/plugins/global/fonts/line-awesome/la-solid-900.svg": {
+    "file": "assets/la-solid-900-0ce0cc40.svg",
+    "src": "resources/js/assets/plugins/global/fonts/line-awesome/la-solid-900.svg"
+  },
+  "resources/js/assets/plugins/global/fonts/line-awesome/la-solid-900.ttf": {
+    "file": "assets/la-solid-900-07ce3559.ttf",
+    "src": "resources/js/assets/plugins/global/fonts/line-awesome/la-solid-900.ttf"
+  },
+  "resources/js/assets/plugins/global/fonts/line-awesome/la-solid-900.woff": {
+    "file": "assets/la-solid-900-a0d21b2a.woff",
+    "src": "resources/js/assets/plugins/global/fonts/line-awesome/la-solid-900.woff"
+  },
+  "resources/js/assets/plugins/global/fonts/line-awesome/la-solid-900.woff2": {
+    "file": "assets/la-solid-900-10a68e01.woff2",
+    "src": "resources/js/assets/plugins/global/fonts/line-awesome/la-solid-900.woff2"
+  },
+  "resources/js/lang/en.json": {
+    "file": "assets/en-137d8777.js",
+    "isDynamicEntry": true,
+    "src": "resources/js/lang/en.json"
+  },
+  "resources/js/lang/zh-CN.json": {
+    "file": "assets/zh-CN-b86ff0aa.js",
+    "isDynamicEntry": true,
+    "src": "resources/js/lang/zh-CN.json"
+  },
+  "resources/js/layouts/Guest.css": {
+    "file": "assets/Guest-da9c34a5.css",
+    "src": "resources/js/layouts/Guest.css"
+  },
+  "resources/js/layouts/Guest.vue": {
+    "css": [
+      "assets/Guest-da9c34a5.css"
+    ],
+    "file": "assets/Guest-d1ab16ef.js",
+    "imports": [
+      "resources/js/app.js",
+      "_LocaleSwitcher-e1c23f1b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/layouts/Guest.vue"
+  },
+  "resources/js/layouts/User.css": {
+    "file": "assets/User-70afa61f.css",
+    "src": "resources/js/layouts/User.css"
+  },
+  "resources/js/layouts/User.vue": {
+    "css": [
+      "assets/User-70afa61f.css"
+    ],
+    "file": "assets/User-468a3d7b.js",
+    "imports": [
+      "resources/js/app.js",
+      "__plugin-vue_export-helper-c27b6911.js",
+      "_LocaleSwitcher-e1c23f1b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/layouts/User.vue"
+  },
+  "resources/js/views/admin/categories/Create.vue": {
+    "file": "assets/Create-f1d2f8ba.js",
+    "imports": [
+      "resources/js/app.js",
+      "_categories-615de4af.js",
+      "_rules-ff33fc86.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/categories/Create.vue"
+  },
+  "resources/js/views/admin/categories/Edit.vue": {
+    "file": "assets/Edit-866fb12e.js",
+    "imports": [
+      "resources/js/app.js",
+      "_categories-615de4af.js",
+      "_rules-ff33fc86.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/categories/Edit.vue"
+  },
+  "resources/js/views/admin/categories/Index.vue": {
+    "file": "assets/Index-c8386b3a.js",
+    "imports": [
+      "resources/js/app.js",
+      "_categories-615de4af.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/categories/Index.vue"
+  },
+  "resources/js/views/admin/permissions/Create.vue": {
+    "file": "assets/Create-f4105c28.js",
+    "imports": [
+      "resources/js/app.js",
+      "_permissions-0fa0a043.js",
+      "_rules-ff33fc86.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/permissions/Create.vue"
+  },
+  "resources/js/views/admin/permissions/Edit.vue": {
+    "file": "assets/Edit-53e16b04.js",
+    "imports": [
+      "resources/js/app.js",
+      "_permissions-0fa0a043.js",
+      "_rules-ff33fc86.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/permissions/Edit.vue"
+  },
+  "resources/js/views/admin/permissions/Index.vue": {
+    "file": "assets/Index-bee7f709.js",
+    "imports": [
+      "resources/js/app.js",
+      "_permissions-0fa0a043.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/permissions/Index.vue"
+  },
+  "resources/js/views/admin/posts/Create.vue": {
+    "file": "assets/Create-468166ad.js",
+    "imports": [
+      "resources/js/app.js",
+      "_DropZone-75fded32.js",
+      "_categories-615de4af.js",
+      "_posts-054f5c79.js",
+      "_rules-ff33fc86.js",
+      "__plugin-vue_export-helper-c27b6911.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/posts/Create.vue"
+  },
+  "resources/js/views/admin/posts/Edit.vue": {
+    "file": "assets/Edit-a0766516.js",
+    "imports": [
+      "resources/js/app.js",
+      "_categories-615de4af.js",
+      "_posts-054f5c79.js",
+      "_rules-ff33fc86.js",
+      "_DropZone-75fded32.js",
+      "__plugin-vue_export-helper-c27b6911.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/posts/Edit.vue"
+  },
+  "resources/js/views/admin/posts/Index.vue": {
+    "file": "assets/Index-5c9b59f0.js",
+    "imports": [
+      "resources/js/app.js",
+      "_posts-054f5c79.js",
+      "_categories-615de4af.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/posts/Index.vue"
+  },
+  "resources/js/views/admin/profile/index.vue": {
+    "file": "assets/index-28d867b0.js",
+    "imports": [
+      "resources/js/app.js",
+      "_rules-ff33fc86.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/profile/index.vue"
+  },
+  "resources/js/views/admin/roles/Create.vue": {
+    "file": "assets/Create-8b0936ed.js",
+    "imports": [
+      "resources/js/app.js",
+      "_roles-5d2404f3.js",
+      "_rules-ff33fc86.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/roles/Create.vue"
+  },
+  "resources/js/views/admin/roles/Edit.css": {
+    "file": "assets/Edit-9f9a06ce.css",
+    "src": "resources/js/views/admin/roles/Edit.css"
+  },
+  "resources/js/views/admin/roles/Edit.vue": {
+    "css": [
+      "assets/Edit-9f9a06ce.css"
+    ],
+    "file": "assets/Edit-3afe7beb.js",
+    "imports": [
+      "resources/js/app.js",
+      "_roles-5d2404f3.js",
+      "_rules-ff33fc86.js",
+      "__plugin-vue_export-helper-c27b6911.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/roles/Edit.vue"
+  },
+  "resources/js/views/admin/roles/Index.vue": {
+    "file": "assets/Index-1e808b66.js",
+    "imports": [
+      "resources/js/app.js",
+      "_roles-5d2404f3.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/roles/Index.vue"
+  },
+  "resources/js/views/admin/users/Create.vue": {
+    "file": "assets/Create-cda768cc.js",
+    "imports": [
+      "resources/js/app.js",
+      "_roles-5d2404f3.js",
+      "_users-9afde98c.js",
+      "_rules-ff33fc86.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/users/Create.vue"
+  },
+  "resources/js/views/admin/users/Edit.vue": {
+    "file": "assets/Edit-66a2a29b.js",
+    "imports": [
+      "resources/js/app.js",
+      "_roles-5d2404f3.js",
+      "_users-9afde98c.js",
+      "_rules-ff33fc86.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/users/Edit.vue"
+  },
+  "resources/js/views/admin/users/Index.vue": {
+    "file": "assets/Index-5a5c9b58.js",
+    "imports": [
+      "resources/js/app.js",
+      "_users-9afde98c.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/admin/users/Index.vue"
+  },
+  "resources/js/views/auth/passwords/Reset.vue": {
+    "file": "assets/Reset-c1d9faa2.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/auth/passwords/Reset.vue"
+  },
+  "resources/js/views/errors/404.vue": {
+    "file": "assets/404-a1fc0792.js",
+    "imports": [
+      "resources/js/app.js",
+      "__plugin-vue_export-helper-c27b6911.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/errors/404.vue"
+  },
+  "resources/js/views/faqs/Index.css": {
+    "file": "assets/Index-07ceaef6.css",
+    "src": "resources/js/views/faqs/Index.css"
+  },
+  "resources/js/views/faqs/Index.vue": {
+    "css": [
+      "assets/Index-07ceaef6.css"
+    ],
+    "file": "assets/Index-a4d8ab1c.js",
+    "imports": [
+      "resources/js/app.js",
+      "_faqs-6d48b30d.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/faqs/Index.vue"
+  },
+  "resources/js/views/faqs/faqs.css": {
+    "file": "assets/Index-d7f68b81.css",
+    "src": "resources/js/views/sales/Manager.css"
+  },
+  "resources/js/views/faqs/faqs.vue": {
+    "css": [
+      "assets/Index-d7f68b81.css"
+    ],
+    "file": "assets/faqs-4974b0c9.js",
+    "imports": [
+      "resources/js/app.js",
+      "_rules-ff33fc86.js",
+      "_faqs-6d48b30d.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/faqs/faqs.vue"
+  },
+  "resources/js/views/home/index.css": {
+    "file": "assets/index-5ab7f672.css",
+    "src": "resources/js/views/home/index.css"
+  },
+  "resources/js/views/home/index.vue": {
+    "assets": [
+      "assets/landing-aecfbe84.svg"
+    ],
+    "css": [
+      "assets/index-5ab7f672.css"
+    ],
+    "file": "assets/index-412ca84d.js",
+    "imports": [
+      "resources/js/app.js",
+      "__plugin-vue_export-helper-c27b6911.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/home/index.vue"
+  },
+  "resources/js/views/login/Login.css": {
+    "file": "assets/Login-0eccf9c6.css",
+    "src": "resources/js/views/login/Login.css"
+  },
+  "resources/js/views/login/Login.vue": {
+    "assets": [
+      "assets/14-82c6d7d0.png"
+    ],
+    "css": [
+      "assets/Login-0eccf9c6.css"
+    ],
+    "file": "assets/Login-84c606cc.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/login/Login.vue"
+  },
+  "resources/js/views/proposals/Index.css": {
+    "file": "assets/Index-d7f68b81.css",
+    "src": "resources/js/views/sales/Manager.css"
+  },
+  "resources/js/views/proposals/Index.vue": {
+    "css": [
+      "assets/Index-d7f68b81.css"
+    ],
+    "file": "assets/Index-515ee7fd.js",
+    "imports": [
+      "resources/js/app.js",
+      "_Create-2252ff71.js",
+      "_rules-ff33fc86.js",
+      "_UploadInput-3fa695e6.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/proposals/Index.vue"
+  },
+  "resources/js/views/register/index.css": {
+    "file": "assets/index-5568869d.css",
+    "src": "resources/js/views/register/index.css"
+  },
+  "resources/js/views/register/index.vue": {
+    "assets": [
+      "assets/14-82c6d7d0.png"
+    ],
+    "css": [
+      "assets/index-5568869d.css"
+    ],
+    "file": "assets/index-ce813d7f.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/register/index.vue"
+  },
+  "resources/js/views/sales/Edit.css": {
+    "file": "assets/create-23a17cb8.css",
+    "src": "resources/js/views/sales/Edit.css"
+  },
+  "resources/js/views/sales/Edit.vue": {
+    "css": [
+      "assets/create-23a17cb8.css"
+    ],
+    "file": "assets/Edit-409cfa91.js",
+    "imports": [
+      "resources/js/app.js",
+      "_UploadInput-3fa695e6.js",
+      "_rules-ff33fc86.js",
+      "_goods-f8f6f1c8.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/sales/Edit.vue"
+  },
+  "resources/js/views/sales/Index.css": {
+    "file": "assets/Index-5226e07c.css",
+    "src": "resources/js/views/sales/Index.css"
+  },
+  "resources/js/views/sales/Index.vue": {
+    "css": [
+      "assets/Index-5226e07c.css"
+    ],
+    "file": "assets/Index-2a483486.js",
+    "imports": [
+      "resources/js/app.js",
+      "_goods-f8f6f1c8.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/sales/Index.vue"
+  },
+  "resources/js/views/sales/Manager.css": {
+    "file": "assets/Index-d7f68b81.css",
+    "src": "resources/js/views/sales/Manager.css"
+  },
+  "resources/js/views/sales/Manager.vue": {
+    "css": [
+      "assets/Index-d7f68b81.css"
+    ],
+    "file": "assets/Manager-8cd62036.js",
+    "imports": [
+      "resources/js/app.js",
+      "_goods-f8f6f1c8.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/sales/Manager.vue"
+  },
+  "resources/js/views/sales/create.css": {
+    "file": "assets/create-23a17cb8.css",
+    "src": "resources/js/views/sales/Edit.css"
+  },
+  "resources/js/views/sales/create.vue": {
+    "css": [
+      "assets/create-23a17cb8.css"
+    ],
+    "file": "assets/create-b299af4d.js",
+    "imports": [
+      "resources/js/app.js",
+      "_UploadInput-3fa695e6.js",
+      "_rules-ff33fc86.js",
+      "_goods-f8f6f1c8.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/sales/create.vue"
+  },
+  "resources/js/views/sales/details.css": {
+    "file": "assets/details-85570fae.css",
+    "src": "resources/js/views/sales/details.css"
+  },
+  "resources/js/views/sales/details.vue": {
+    "assets": [
+      "assets/barcode-99623728.png"
+    ],
+    "css": [
+      "assets/details-85570fae.css"
+    ],
+    "file": "assets/details-a01ea925.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/views/sales/details.vue"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-ec0fd34b.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
+  }
+}

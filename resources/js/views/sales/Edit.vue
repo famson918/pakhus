@@ -1,0 +1,374 @@
+<template>
+    <div class="container card p-7" style="max-height: 100vh; overflow-y: auto;">
+        <form @submit.prevent="submitForm">
+            <div class="mb-3 row">
+                <div class="row col-6">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">{{ $t('productName') }}</label>
+                    <div class="col-sm-8">
+                        <input v-model="goods.productName" type="text" class="form-control" id="inputPassword">
+                        <div class="text-danger mt-1">
+                            {{ errors.productName }}
+                        </div>
+                        <div class="text-danger mt-1">
+                            <div v-for="message in validationErrors?.productName">
+                                {{ message }}
+                            </div>
+                        </div>
+                    </div>
+                </div>       
+            </div>
+            <div class="mb-3 row">
+                <div class="row col-6">
+                    <label for="inputPassword" class="col-sm-6 col-form-label">{{ $t('price') }}</label>
+                    <div class="col-sm-5">
+                        <input v-model="goods.startPrice" type="text" class="form-control" id="inputPassword">
+                        <div class="text-danger mt-1">
+                            {{ errors.startPrice }}
+                        </div>
+                        <div class="text-danger mt-1">
+                            <div v-for="message in validationErrors?.startPrice">
+                                {{ message }}
+                            </div>
+                        </div>
+                    </div>
+                    <label for="inputPassword" class="col-sm-1 col-form-label">{{ $t('yuan') }}</label>
+                </div>       
+                <div class="row col-6">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">~</label>
+                    <label for="inputPassword" class="col-sm-4 col-form-label"> {{ $t('bigPrice') }}</label>
+                    <div class="col-sm-5">
+                        <input v-model="goods.endPrice" type="text" class="form-control" id="inputPassword">
+                        <div class="text-danger mt-1">
+                            {{ errors.endPrice }}
+                        </div>
+                        <div class="text-danger mt-1">
+                            <div v-for="message in validationErrors?.endPrice">
+                                {{ message }}
+                            </div>
+                        </div>
+                    </div>
+                    <label for="inputPassword" class="col-sm-1 col-form-label">{{ $t('yuan') }}</label>
+                </div>       
+            </div>
+            <div class="mb-3 row">
+                <div class="row col-6">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">{{ $t('minimumOrderQuantity') }}</label>
+                    <div class="col-sm-8">
+                        <input v-model="goods.minimumOrderQuantity" type="text" class="form-control" id="inputPassword">
+                        <div class="text-danger mt-1">
+                            {{ errors.minimumOrderQuantity }}
+                        </div>
+                        <div class="text-danger mt-1">
+                            <div v-for="message in validationErrors?.minimumOrderQuantity">
+                                {{ message }}
+                            </div>
+                        </div>
+                    </div>
+                </div>       
+            </div>
+            <div class="mb-3 row">
+                <div class="row col-6">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">{{ $t('timeRequired') }}</label>
+                    <div class="col-sm-8">
+                        <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col" style="background-color: lightblue;">数量(套餐）</th>
+                            <th scope="col" style="background-color: lightblue;">1 - 1</th>
+                            <th scope="col" style="background-color: lightblue;">2 - 100</th>
+                            <th scope="col" style="background-color: lightblue;">101 - 1000</th>
+                            <th scope="col" style="background-color: lightblue;">>1000</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <th scope="row">预计时间(一)</th>
+                            <td>5</td>
+                            <td>10</td>
+                            <td>15</td>
+                            <td>协商</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>       
+            </div>
+            <div class="mb-3 row">
+                <div class="row col-6">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">{{ $t('customization') }}</label>
+                    <div class="col-sm-8">
+                        <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col" style="background-color: lightblue;">数量(套餐）</th>
+                            <th scope="col" style="background-color: lightblue;">>50</th>
+                            <th scope="col" style="background-color: lightblue;">>100</th>
+                            <th scope="col" style="background-color: lightblue;">>1000</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <th scope="row">选项</th>
+                            <td>商标 定制</td>
+                            <td>包装 定制</td>
+                            <td>图形 定制</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>       
+            </div>
+            <div class="mb-3 row">
+                <div class="row col-6">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">{{ $t('maximumNumberOfSampleOrders') }}</label>
+                    <div class="col-sm-8">
+                        <input v-model="maximumNumberOfSampleOrders" type="text" class="form-control" id="inputPassword">
+                        <div class="text-danger mt-1">
+                            {{ errors.maximumNumberOfSampleOrders }}
+                        </div>
+                        <div class="text-danger mt-1">
+                            <div v-for="message in validationErrors?.maximumNumberOfSampleOrders">
+                                {{ message }}
+                            </div>
+                        </div>
+                    </div>
+                </div>       
+            </div>
+            <div class="mb-3 row">
+                <div class="row col-6">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">{{ $t('sampleOrderPrice') }}</label>
+                    <div class="col-sm-8">
+                        <input v-model="sampleOrderPrice" type="text" class="form-control" id="inputPassword">
+                        <div class="text-danger mt-1">
+                            {{ errors.sampleOrderPrice }}
+                        </div>
+                        <div class="text-danger mt-1">
+                            <div v-for="message in validationErrors?.sampleOrderPrice">
+                                {{ message }}
+                            </div>
+                        </div>
+                    </div>
+                </div>       
+            </div>
+            <div class="mb-3 row">
+                <div class="row col-6">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">{{ $t('sampleOrderDeliveryTime') }}</label>
+                    <div class="col-sm-5">
+                        <input v-model="sampleOrderDeliveryTime" type="text" class="form-control" id="inputPassword">
+                        <div class="text-danger mt-1">
+                            {{ errors.sampleOrderDeliveryTime }}
+                        </div>
+                        <div class="text-danger mt-1">
+                            <div v-for="message in validationErrors?.sampleOrderDeliveryTime">
+                                {{ message }}
+                            </div>
+                        </div>
+                    </div>
+                    <label for="inputPassword" class="col-sm-3 col-form-label">{{ $t('withinADay') }}</label>
+                </div>       
+            </div>
+            <div class="mb-3 row">
+                <div class="row col-6 mb-3">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">#1 {{$t('uploadPictures')}}</label>
+                    <div class="col-sm-8" v-if="good">
+                        <UploadInput :buttonLabel="attachment" :image="good.media[0]" @fileSelected="handleFileSelected1" />
+                    </div>
+                </div>       
+                <div class="row col-6 mb-3">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">#2 {{$t('uploadPictures')}}</label>
+                    <div class="col-sm-8" v-if="good">
+                        <UploadInput :buttonLabel="attachment" :image="good.media[1]" @fileSelected="handleFileSelected2" />
+                    </div>
+                </div>       
+                <div class="row col-6 mb-3">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">#3 {{$t('uploadPictures')}}</label>
+                    <div class="col-sm-8" v-if="good">
+                        <UploadInput :buttonLabel="attachment" :image="good.media[2]"  @fileSelected="handleFileSelected3" />
+                    </div>
+                </div>       
+                <div class="row col-6 mb-3">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">#4 {{$t('uploadPictures')}}</label>
+                    <div class="col-sm-8" v-if="good">
+                        <UploadInput :buttonLabel="attachment" :image="good.media[3]" @fileSelected="handleFileSelected4" />
+                    </div>
+                </div>       
+                <div class="row col-6 mb-3">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">#5 {{$t('uploadPictures')}}</label>
+                    <div class="col-sm-8" v-if="good">
+                        <UploadInput :buttonLabel="attachment" :image="good.media[4]" @fileSelected="handleFileSelected5" />
+                    </div>
+                </div>       
+                <div class="row col-6 mb-3">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">#6 {{$t('uploadPictures')}}</label>
+                    <div class="col-sm-8" v-if="good">
+                        <UploadInput :buttonLabel="attachment" :image="good.media[5]" @fileSelected="handleFileSelected6" />
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="row col-12">
+                    <label for="inputPassword" class="col-sm-12 col-form-label">{{$t('productDescription')}}</label>
+                    <div class="col-sm-12">
+                        <textarea v-model="goods.productDescription" class="form-control" id="exampleFormControlTextarea1" rows="15"></textarea>
+                    </div>
+                </div>       
+            </div>
+            <div class="mb-3 row ">
+                <div class="row justify-content-end">
+                    <div class="col-sm-3">
+                        <a @click="goGoods" class="btn btn-light btn-active-light-primary me-2" style="width: 100%;" >
+                            <span >{{ $t('cancel') }}</span>
+                        </a>
+                    </div>
+                    <div class="col-sm-3">
+                        <button :disabled="isLoading" class="btn btn-primary" style="width: 100%;" >
+                            <div v-show="isLoading" class=""></div>
+                            <span v-if="isLoading">{{ $t('processing') }}</span>
+                            <span v-else>{{ $t('registerGoods') }}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</template>
+<script setup>
+import { ref, computed, watch, reactive, onMounted, watchEffect } from 'vue';
+import UploadInput from '../../components/UploadInput.vue';
+import { useStore } from 'vuex';
+import { defineRule, useField, useForm } from "vee-validate";
+import useGoods from '../../composables/goods';
+import { required } from "@/validation/rules";
+import { useRoute } from 'vue-router';
+
+defineRule('required', required)
+
+const store = useStore();
+const route = useRoute()
+
+const locale = computed(() => store.state.lang.locale);
+let attachment = ref();
+
+const updateText = () => {
+    if (locale.value === 'en') {
+            attachment.value = 'Upload';
+    } else {
+            attachment.value = '文件附件';
+    }
+}
+updateText();
+
+watch(locale, updateText)
+
+
+const image1 = ref({});
+const image2 = ref({});
+const image3 = ref({});
+const image4 = ref({});
+const image5 = ref({});
+const image6 = ref({});
+const schema = {
+    productName: 'required',
+    startPrice: 'required',
+    endPrice: 'required',
+    minimumOrderQuantity: 'required',
+    maximumNumberOfSampleOrders: 'required',
+    sampleOrderPrice: 'required',
+    sampleOrderDeliveryTime: 'required',
+    productDescription: 'required',    
+}
+const { validate, errors } = useForm({validationSchema: schema})
+const { value: productName } = useField("productName", null, { initialValue: ''})
+const { value: startPrice } = useField("startPrice", null, { initialValue: ''})
+const { value: endPrice } = useField("endPrice", null, { initialValue: ''})
+const { value: minimumOrderQuantity } = useField("minimumOrderQuantity", null, { initialValue: ''})
+const { value: maximumNumberOfSampleOrders } = useField("maximumNumberOfSampleOrders", null, { initialValue: ''})
+const { value: sampleOrderPrice } = useField("sampleOrderPrice", null, { initialValue: ''})
+const { value: sampleOrderDeliveryTime } = useField("sampleOrderDeliveryTime", null, { initialValue: ''})
+const { value: productDescription } = useField("productDescription", null, { initialValue: ''})
+
+const { updateGood, isLoading, validationErrors, getGood } = useGoods();
+
+const good = ref();
+
+onMounted(async() => {
+    await axios.get('/api/get-good/' + route.params.id).then(({ data }) => {
+        good.value = data;
+    })
+})
+const goods = reactive({
+    productName,
+    startPrice,
+    endPrice,
+    minimumOrderQuantity,
+    maximumNumberOfSampleOrders,
+    sampleOrderDeliveryTime,
+    sampleOrderPrice,
+    productDescription
+})
+
+const selectedPictures = {
+    file1:  null,
+    file2:  null,
+    file3: null,
+    file4: null,
+    file5: null,
+    file6: null
+}
+
+function submitForm() {
+    validate().then( async form => {
+        if (form.valid) {
+            const goodsWithPictures = {
+                ...goods,
+                picture1: selectedPictures.file1,
+                picture2: selectedPictures.file2,
+                picture3: selectedPictures.file3,
+                picture4: selectedPictures.file4,
+                picture5: selectedPictures.file5,
+                picture6: selectedPictures.file6,
+            };
+            console.log('goodWithPictures', goodsWithPictures)
+            updateGood(goodsWithPictures);
+        }
+    })
+}
+
+const handleFileSelected1 = (file) => {
+  selectedPictures.file1 = file;
+};
+const handleFileSelected2 = (file) => {
+  selectedPictures.file2 = file;
+};
+const handleFileSelected3 = (file) => {
+  selectedPictures.file3 = file;
+};
+const handleFileSelected4 = (file) => {
+  selectedPictures.file4 = file;
+};
+const handleFileSelected5 = (file) => {
+  selectedPictures.file5 = file;
+};
+const handleFileSelected6 = (file) => {
+  selectedPictures.file6 = file;
+};
+
+watchEffect(() => {
+    if (good.value) {
+        goods.id = good.value.id;
+        goods.productName = good.value.productName;
+        goods.startPrice = good.value.startPrice;
+        goods.endPrice = good.value.endPrice;
+        goods.minimumOrderQuantity = good.value.minimumOrderQuantity;
+        goods.maximumNumberOfSampleOrders = good.value.maximumNumberOfSampleOrders;
+        goods.sampleOrderDeliveryTime = good.value.sampleOrderDeliveryTime;
+        goods.sampleOrderPrice = good.value.sampleOrderPrice;
+        goods.productDescription = good.value.productDescription;
+    }
+})
+</script>
+<style>
+.lightBlue {
+    background-color: lightblue;
+}
+</style>
