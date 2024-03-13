@@ -51,10 +51,10 @@
                     <!--begin::Table head-->
                     <thead>
                         <tr class="fw-bolder text-muted bg-light">
-                            <th class="ps-4 min-w-325px rounded-start">Product</th>
-                            <th class="min-w-125px">Start Price</th>
-                            <th class="min-w-125px">End Price</th>
-                            <th class="min-w-200px">Sample Order Price</th>
+                            <th class="ps-4 min-w-325px rounded-start">{{ $t('productName') }}</th>
+                            <th class="min-w-125px">{{ $t('startPrice') }}</th>
+                            <th class="min-w-125px">{{ $t('endPrice') }}</th>
+                            <th class="min-w-200px">{{ $t('sampleOrderPrice') }}</th>
                             <!-- <th class="min-w-150px">Status</th> -->
                             <th class="min-w-200px text-end rounded-end"></th>
                         </tr>

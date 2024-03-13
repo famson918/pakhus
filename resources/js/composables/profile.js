@@ -1,12 +1,14 @@
 import { ref, inject, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import store from "../store";
+import { useI18n } from 'vue-i18n';
 
 export default function useProfile() {
     const profile = ref({
         name: '',
         email: '',
     })
+    const { t } = useI18n();
 
     const router = useRouter()
     const validationErrors = ref({})
@@ -33,18 +35,10 @@ export default function useProfile() {
                 if (data.success) {
                     store.commit('auth/SET_USER', data.data)
                     // router.push({name: 'profile.index'})
-                    if (locale.value === 'en') {
                         swal({
                             icon: 'success',
-                            title: 'Profile updated successfully'
+                            title: t('profileUpdatedSuccessMessage')
                         })
-                    } else {
-                        swal({
-                            icon: 'success',
-                            title: '个人资料更新成功'
-                        })
-                    }
-              
                 }
             })
             .catch(error => {

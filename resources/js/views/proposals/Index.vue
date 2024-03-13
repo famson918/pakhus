@@ -124,6 +124,10 @@ import { useStore } from 'vuex';
 import { onMounted } from 'vue';
 import CreateVue from './Create.vue';
 import useProposals from "../../composables/proposals"
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+
 
 const  router = useRouter();
 const store = useStore();
@@ -195,55 +199,35 @@ const getResults = (page) => {
 
 watchEffect(()=> getResults(currentPage.value))
 
+
 const updateColumns = () => {
-  if (locale.value === 'en') {
-    if (role.value) {
-      columns.value = [ 
-        { text: 'Id', value: 'id' },
-        { text: 'Product Name', value: 'productName' },
-        { text: 'Contact Information', value: 'contactInformation' },
-        { text: 'Application Date', value: 'created_at' },
-        { text: 'Confirm', value: 'confirm' },
-        { text: 'Status', value: 'status' },
-      ];
-    } else {
-      columns.value = [ 
-        { text: 'Id', value: 'id' },
-        { text: 'Product Name', value: 'productName' },
-        { text: 'Contact Information', value: 'contactInformation' },
-        { text: 'Application Date', value: 'created_at' },
-        { text: 'Status', value: 'status' },
-      ];
-    }
-    confirmText.value = 'Confirm';
+  console.log('locale', locale.value)
+  if (role.value) {
+    columns.value = [
+      { text: t('id'), value: 'id' },
+      { text: t('productName'), value: 'productName' },
+      { text: t('contactInformation'), value: 'contactInformation' },
+      { text: t('created_at'), value: 'created_at' },
+      { text: t('confirm'), value: 'confirm' },
+      { text: t('status'), value: 'status' },
+    ];``
   } else {
-    if (role.value) {
-      columns.value = [ 
-        { text: '委托ID', value: 'id' },
-        { text: '产品名', value: 'productName' },
-        { text: '联系方式', value: 'contactInformation' },
-        { text: '申请日', value: 'created_at' },
-        { text: '委托信息', value: 'confirm' },
-        { text: '进行状态', value: 'status' },
-      ];
-    } else {
-      columns.value = [ 
-        { text: '委托ID', value: 'id' },
-        { text: '产品名', value: 'productName' },
-        { text: '联系方式', value: 'contactInformation' },
-        { text: '申请日', value: 'created_at' },
-        { text: '进行状态', value: 'status' },
-      ];
-    }
-    confirmText.value = '确认';
+    columns.value = [
+      { text: t('id'), value: 'id' },
+      { text: t('productName'), value: 'productName' },
+      { text: t('contactInformation'), value: 'contactInformation' },
+      { text: t('created_at'), value: 'created_at' },
+      { text: t('status'), value: 'status' },
+    ];
   }
+
+  confirmText.value = t('confirmText');
 };
 // Initialize columns based on initial locale
 updateColumns();
 
 // Watch for changes in the locale and update columns accordingly
-watch(locale, updateColumns);
-watch(role, updateColumns);
+watchEffect(()=> updateColumns());
 
 let sortDirection = 1;
 let sortedColumn = '';

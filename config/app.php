@@ -86,6 +86,7 @@ return [
     'locales' => [
         'en' => 'EN',
         'zh-CN' => '中文',
+        'kr' => '한국어',
     ],
 
     /*

@@ -1,7 +1,8 @@
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { ref, inject } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
+import { useI18n } from 'vue-i18n';
 
 export default function useProposals() {
     const proposals = ref({})
@@ -11,6 +12,8 @@ export default function useProposals() {
         category_id: '',
         thumbnail: ''
     })
+    const { t } = useI18n();
+
     const router = useRouter()
     const store = useStore()
     const locale = computed(() => store.state.lang.locale);
@@ -21,7 +24,6 @@ export default function useProposals() {
     const getProposals = async () => {
         axios.get('/api/proposals')
             .then(response => {
-                console.log('response', response)
                 store.dispatch('proposal/getProposals', response.data.data)
             })
     }
@@ -53,23 +55,13 @@ export default function useProposals() {
         })
             .then(response => {
                 router.push({name: 'proposals.index'})
-                if (locale.value === 'en') {
                     swal({
                         position: "top-end",
                         icon: 'success',
-                        title: 'Proposal saved successfully',
+                        title: t('proposalSavedSuccessMessage'),
                         showConfirmButton: false,
                         timer: 1500
                     })
-                } else {
-                    swal({
-                        position: "top-end",
-                        icon: 'success',
-                        title: '提案已成功保存',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
             })
             .catch(error => {
                 if (error.response?.data) {
@@ -88,23 +80,13 @@ export default function useProposals() {
         axios.put('/api/proposals/',  proposal)
             .then(response => {
                 router.push({name: 'proposals.index'})
-                if (locale.value === 'en') {
                     swal({
                         position: "top-end",
                         icon: 'success',
-                        title: 'Proposal saved successfully',
+                        title: t('proposalUpdatedSuccessMessage'),
                         showConfirmButton: false,
                         timer: 1500
                     })
-                } else {
-                    swal({
-                        position: "top-end",
-                        icon: 'success',
-                        title: '提案已成功保存',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
                 store.dispatch('proposal/edit', false)
             })
             .catch(error => {
@@ -117,23 +99,13 @@ export default function useProposals() {
 
     const deletePost = async (id) => {
         let message = {}
-        if (locale.value === 'en') {
-            message.title = 'Are you sure?'
-            message.text = 'You won\'t be able to revert this action!'
-            message.confirmButtonText = 'Yes, delete it!'
+            message.title = t('areYouSure')
+            message.text = t('youCanCancel')
+            message.confirmButtonText = t('yesDeleteIt')
             message.confirmButtonColor = '#ef4444'
             message.timer = 20000
             message.timerProgressBar = true
             message.reverseButtons = true
-        } else {
-            message.title = '你确定吗？'
-            message.text = '您将无法恢复此操作！'
-            message.confirmButtonText = '是的，删除它！'
-            message.confirmButtonColor = '#ef4444'
-            message.timer = 20000
-            message.timerProgressBar = true
-            message.reverseButtons = true
-        };
         swal(message)
             .then(result => {
                 if (result.isConfirmed) {

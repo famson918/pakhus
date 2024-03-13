@@ -121,6 +121,9 @@ import useUsers from "../../../composables/users";
 import {useAbility} from '@casl/vue'
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const locale = computed(() => store.state.lang.locale);
 
@@ -174,34 +177,21 @@ watchEffect(()=> getResults(currentPage.value))
 
 
   const updateColumns = () => {
-    if (locale.value === 'en') {
       columns.value = [ 
-        { text: 'No', value: 'id' },
-        { text: 'Name', value: 'name' },
-        { text: 'Email', value: 'email' },
-        { text: 'Cell Phone', value: 'cellPhone' },
-        { text: 'Post Code', value: 'postCode' },
-        { text: 'Company Name', value: 'companyName' },
-        { text: 'Position', value: 'position' },
-        { text: 'actions', value: 'actions' },
+        { text: t('id'), value: 'id' },
+        { text: t('name'), value: 'name' },
+        { text: t('email'), value: 'email' },
+        { text: t('cellPhone'), value: 'cellPhone' },
+        { text: t('postCode'), value: 'postCode' },
+        { text: t('companyName'), value: 'companyName' },
+        { text: t('position'), value: 'position' },
+        { text: t('actions'), value: 'actions' },
       ];
-    } else {
-      columns.value = [ 
-        { text: 'No', value: 'id' },
-        { text: '用户名', value: 'name' },
-        { text: '电子邮件', value: 'email' },
-        { text: '手机', value: 'cellPhone' },
-        { text: '邮编', value: 'postCode' },
-        { text: '公司名', value: 'companyName' },
-        { text: '职位', value: 'position' },
-        { text: '行动', value: 'actions' },
-      ];
-    }
   };
 
     // Initialize columns based on initial locale
     updateColumns();
-  watch(locale, updateColumns);
+    watchEffect(()=> updateColumns());
 
   const handleSearch = () => {
     getResults(1);

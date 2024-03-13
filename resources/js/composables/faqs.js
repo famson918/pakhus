@@ -2,9 +2,11 @@ import { computed } from 'vue'
 import { ref, inject } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
+import { useI18n } from 'vue-i18n';
 
 export default function useFaqs() {
     const faqs = ref([])
+    const { t } = useI18n();
     const router = useRouter()
     const store = useStore()
     const locale = computed(() => store.state.lang.locale);
@@ -46,23 +48,13 @@ export default function useFaqs() {
         })
             .then(response => {
                 // router.push({name: 'proposals.index'})
-                if (locale.value === 'en') {
                     swal({
                         position: "top-end",
                         icon: 'success',
-                        title: 'Faq saved successfully',
+                        title: t('faqSavedSuccessMessage'),
                         showConfirmButton: false,
                         timer: 1500
                     })
-                } else {
-                    swal({
-                        position: "top-end",
-                        icon: 'success',
-                        title: '提案已成功保存',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
             })
             .catch(error => {
                 if (error.response?.data) {
@@ -82,23 +74,13 @@ export default function useFaqs() {
             .then(response => {
                 console.log('response', response)
                 // router.push({name: 'proposals.index'})
-                if (locale.value === 'en') {
                     swal({
                         position: "top-end",
                         icon: 'success',
-                        title: 'Faq saved successfully',
+                        title: t('faqUpdatedSuccessMessage'),
                         showConfirmButton: false,
                         timer: 1500
                     })
-                } else {
-                    swal({
-                        position: "top-end",
-                        icon: 'success',
-                        title: '提案已成功保存',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
                 store.dispatch('proposal/edit', false)
             })
             .catch(error => {
@@ -111,23 +93,14 @@ export default function useFaqs() {
 
     const deleteFaq = async (id) => {
         let message = {}
-        if (locale.value === 'en') {
-            message.title = 'Are you sure?'
-            message.text = 'You won\'t be able to revert this action!'
-            message.confirmButtonText = 'Yes, delete it!'
-            message.confirmButtonColor = '#ef4444'
-            message.timer = 20000
-            message.timerProgressBar = true
-            message.reverseButtons = true
-        } else {
-            message.title = '你确定吗？'
-            message.text = '您将无法恢复此操作！'
-            message.confirmButtonText = '是的，删除它！'
-            message.confirmButtonColor = '#ef4444'
-            message.timer = 20000
-            message.timerProgressBar = true
-            message.reverseButtons = true
-        };
+        message.title = t('areYouSure')
+        message.text = t('youCanCancel')
+        message.confirmButtonText = t('yesDeleteIt')
+        message.confirmButtonColor = '#ef4444'
+        message.timer = 20000
+        message.timerProgressBar = true
+        message.reverseButtons = true
+        
         swal(message)
             .then(result => {
                 if (result.isConfirmed) {
@@ -135,23 +108,13 @@ export default function useFaqs() {
                         .then(response => {
                             getFaqs()
                             // router.push({name: 'proposals.index'})
-                            if (locale.value === 'en') {
                                 swal({
                                     position: "top-end",
                                     icon: 'success',
-                                    title: 'Faq deleted successfully',
+                                    title: t('faqDeletedSuccessMessage'),
                                     showConfirmButton: false,
                                     timer: 1500
                                 })
-                            } else {
-                                swal({
-                                    position: "top-end",
-                                    icon: 'success',
-                                    title: '常见问题删除成功',
-                                    showConfirmButton: false,
-                                    timer: 1500
-                                })
-                            }
                         })
                         .catch(error => {
                             swal({

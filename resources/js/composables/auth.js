@@ -1,8 +1,10 @@
+import { useI18n } from 'vue-i18n';
 import { ref, reactive, inject, computed } from 'vue'
 import { useRouter } from "vue-router";
 import { AbilityBuilder, createMongoAbility } from '@casl/ability';
 import { ABILITY_TOKEN } from '@casl/vue';
 import { useStore } from 'vuex';
+
 
 let user = reactive({
     name: '',
@@ -10,6 +12,7 @@ let user = reactive({
 })
 
 export default function useAuth() {
+    const { t } = useI18n();
     const processing = ref(false)
     const validationErrors = ref({})
     const router = useRouter()
@@ -60,23 +63,13 @@ export default function useAuth() {
                 localStorage.setItem('token', response.data.token)
                 await store.dispatch('auth/getUser')
                 await loginUser()
-                if (locale.value === 'en') {
                     swal({
                         position: "top-end",
                         icon: 'success',
-                        title: 'Login successfully',
+                        title: t('loginSuccessMessage'),
                         showConfirmButton: false,
                         timer: 1500
                     })
-                } else {
-                    swal({
-                        position: "top-end",
-                        icon: 'success',
-                        title: '登入成功',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
                 await router.push({ name: 'proposals.index' })
             })
             .catch(error => {
@@ -96,23 +89,13 @@ export default function useAuth() {
             .then(async response => {
                 await store.dispatch('auth/getUser')
                 await loginUser()
-                if (locale.value === 'en') {
                     swal({
                         position: "top-end",
                         icon: 'success',
-                        title: 'Register successfully',
+                        title: t('registrationSuccessMessage'),
                         showConfirmButton: false,
                         timer: 1500
                     })
-                } else {
-                    swal({
-                        position: "top-end",
-                        icon: 'success',
-                        title: '註冊成功',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
                 await router.push({ name: 'auth.login' })
             })
             .catch(error => {
@@ -155,45 +138,25 @@ export default function useAuth() {
 
         await axios.post('/api/reset-password', resetForm)
             .then(async response => {
-                 if (locale.value === 'en') {
                     swal({
                         position: "top-end",
                         icon: 'success',
-                        title: 'Password successfully changed.',
+                        title: t('resetPasswordSuccessMessage'),
                         showConfirmButton: false,
                         timer: 1500
                     })
-                } else {
-                    swal({
-                        position: "top-end",
-                        icon: 'success',
-                        title: '密码修改成功。',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
                 // await router.push({ name: 'auth.login' })
             })
             .catch(error => {
                 console.log('error.response.status', error.response.status)
                 if (error.response.status === 400) {
-                    if (locale.value === 'en') {
                         swal({
                             position: "top-end",
                             icon: 'warning',
-                            title: 'Current password is incorrect',
+                            title: t('currentPasswordFailMessage'),
                             showConfirmButton: false,
                             timer: 2500
                         })
-                    } else {
-                        swal({
-                            position: "top-end",
-                            icon: 'warning',
-                            title: '当前密码不正确',
-                            showConfirmButton: false,
-                            timer: 2500
-                        })
-                    }
                 }
                 if (error.response?.data) {
                     validationErrors.value = error.response.data.errors
