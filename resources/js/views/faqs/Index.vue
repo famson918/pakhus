@@ -1,11 +1,11 @@
 <template>
-    <div class="card  overflow-auto align-items-center" style="background-color: #f0f2fc;">
+    <div class="card  overflow-auto" style="background-color: #f0f2fc;">
         <!--begin::Body-->
-        <div class="card-body p-lg-15">
+        <div class="card-body">
             <!--begin::Classic content-->
-            <div class="mb-13">
+            <div>
                 <!--begin::Intro-->
-                <div class="mb-15">
+                <div>
                     <!--begin::Title-->
                     <!-- <h4 class="fs-2x text-gray-800 w-bolder mb-6">FAQ</h4> -->
                     <!--end::Title-->
@@ -15,7 +15,7 @@
                 </div>
                 <!--end::Intro-->
                 <!--begin::Row-->
-                <div class="row mb-12">
+                <div class="row">
                     <!--begin::Col-->
                     <div v-if="faqs" class="col-md-12 pe-md-10 mb-10 mb-md-0" style="max-height: 100vh; width: 100vh; ">
                         <!--begin::Title-->
@@ -24,7 +24,7 @@
                         <!--begin::Accordion-->
                         <!--begin::Section-->
                         <div v-for="(faq, index) in faqs" :key="index">
-                            <div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" :data-bs-target="'#kt_job_' + index">
+                            <div class="d-flex collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" :data-bs-target="'#kt_job_' + index">
                                 <!-- Icon -->
                                 <div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
                                 <!-- SVG Icon Toggle On -->
