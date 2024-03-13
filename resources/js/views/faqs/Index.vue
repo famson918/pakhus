@@ -7,7 +7,7 @@
                 <!--begin::Intro-->
                 <div class="mb-15">
                     <!--begin::Title-->
-                    <h4 class="fs-2x text-gray-800 w-bolder mb-6">FAQ</h4>
+                    <!-- <h4 class="fs-2x text-gray-800 w-bolder mb-6">FAQ</h4> -->
                     <!--end::Title-->
                     <!--begin::Text-->
                     <!-- <p class="fw-bold fs-4 text-gray-600 mb-2">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</p> -->
@@ -44,7 +44,7 @@
                                 </span>
                                 </div>
                                 <!-- Title -->
-                                <h4 class="text-gray-700 fw-bolder cursor-pointer mb-0">{{ faq.question }}</h4>
+                                <h4 class="text-gray-850 fw-bolder cursor-pointer mb-0">{{ faq.question }}</h4>
                             </div>
                             <div :id="'kt_job_' + index" class="collapse fs-6 ms-1">
                                 <!-- Text -->

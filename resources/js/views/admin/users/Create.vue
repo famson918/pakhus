@@ -30,7 +30,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">{{ $t('password') }}</label>
-                            <input v-model="post.password" id="password" type="password" class="form-control">
+                            <input v-model="post.password" id="password" type="text" class="form-control">
                             <div class="text-danger mt-1">
                                 {{ errors.password }}
                             </div>
