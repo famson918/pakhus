@@ -3,9 +3,9 @@
     <!--begin::Brand-->
     <div class="aside-logo flex-column-auto" id="kt_aside_logo">
         <!--begin::Logo-->
-        <a>
+        <router-link to="/"> 
             <h1 style="color: white;">Pakhus</h1>
-        </a>
+        </router-link>
         <!--end::Logo-->
         <!--begin::Aside toggler-->
         <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle" data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body" data-kt-toggle-name="aside-minimize">
@@ -81,7 +81,7 @@
                         <span class="menu-title fs-5">FAQ</span>
                     </router-link>
                 </div>
-                <div  @click="hideSidebar"  v-if="role" class="menu-item">
+                <div  @click="hideSidebar"  v-if="role ==='admin'" class="menu-item">
                     <router-link @click="setActiveMenuItem('salesManager')" :class="{ active: activeMenuItem === 'salesManager' }" to="/salesManager" class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/abstract/abs027.svg-->
@@ -109,7 +109,7 @@
                         <span class="menu-title fs-5">{{$t('frequently_asked_questions')}}</span>
                     </router-link>
                 </div> -->
-                <div @click="hideSidebar" v-if="role" class="menu-item">
+                <div @click="hideSidebar" v-if="role === 'admin'" class="menu-item">
                     <router-link to="/faqs"  @click="setActiveMenuItem('faqs')" :class="{ active: activeMenuItem === 'faqs' }" class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/layouts/lay010.svg-->
@@ -124,7 +124,7 @@
                         <span class="menu-title fs-5">{{$t('faqList')}}</span>
                     </router-link>
                 </div>
-                <div @click="hideSidebar" v-if="role" class="menu-item">
+                <div @click="hideSidebar" v-if="role === 'admin'" class="menu-item">
                     <router-link to="/users" @click="setActiveMenuItem('users')" :class="{ active: activeMenuItem === 'users' }" class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/layouts/lay010.svg-->
@@ -154,24 +154,15 @@ import LocaleSwitcher from '../LocaleSwitcher.vue';
 import useAuth from "@/composables/auth";
 import { computed, onMounted, ref, provide, inject  } from 'vue';
 import { useStore } from 'vuex';
+import { watchEffect, watch } from 'vue';
 const store = useStore();
 const user = computed(()=> store.state.auth.user)
 const {processing, logout} = useAuth();
 const {can} = useAbility();
-const role = ref(false);
+const role = computed(()=> store.state.auth.role)
 
-onMounted(async()=> {
-    checkRole(user);
-})
-const checkRole = (user) => {
-    const inputString = user.value.email;
-    const isAdmin = inputString.toLowerCase().includes("admin");
-    if (isAdmin) {
-        role.value = true
-    } else {
-        role.value = false
-    }
-}
+onMounted(() => {console.log("role==========", role.value)})
+
 const activeMenuItem = ref(null);
 
 const setActiveMenuItem = (menuItem) => {

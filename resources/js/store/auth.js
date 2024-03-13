@@ -4,7 +4,8 @@ export default {
     namespaced: true,
     state: {
         authenticated: false,
-        user: {}
+        user: {},
+        role: '',
     },
     getters: {
         authenticated(state) {
@@ -20,7 +21,11 @@ export default {
         },
         SET_USER(state, value) {
             state.user = value
-        }
+        },
+        CHECK_ADMIN(state, value) {
+            console.log('check admin', value)
+            state.role = value
+        },
     },
     actions: {
         login({commit}) {
@@ -35,8 +40,17 @@ export default {
         getUser({commit}) {
             return axios.get('/api/user').then(({data}) => {
                 if (data.success) {
+                    console.log('getUser success ', data.data)
                     commit('SET_USER', data.data)
                     commit('SET_AUTHENTICATED', true)
+                    const inputString = data.data.email;
+                    console.log('data.data.email', data.data.email)
+                    const isAdmin = inputString.toLowerCase().includes("admin");
+                    if (isAdmin) {
+                        commit('CHECK_ADMIN', 'admin')
+                    } else {
+                        commit('CHECK_ADMIN', 'user')
+                    }
                     // router.push({name: 'dashboard'})
                 }
                 // else {
@@ -50,8 +64,10 @@ export default {
             })
         },
         logout({commit}) {
+            console.log('logout')
             commit('SET_USER', {})
             commit('SET_AUTHENTICATED', false)
+            commit('CHECK_ADMIN', {})
             localStorage.removeItem('token')
         }
     }
