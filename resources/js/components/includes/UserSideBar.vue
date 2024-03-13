@@ -37,7 +37,7 @@
             </span>
             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
                 <div @click="hideSidebar" class="menu-item">
-                    <router-link @click="setActiveMenuItem('proposals')" :class="{ active: activeMenuItem === 'proposals' }" to="/admin/proposals" class="menu-link">
+                    <router-link @click="setActiveMenuItem('proposals')" :class="{ active: activeMenuItem === 'proposals' }" to="/proposals" class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
                             <span class="svg-icon svg-icon-2">
@@ -52,7 +52,7 @@
                     </router-link>
                 </div>
                 <div  @click="hideSidebar" class="menu-item">
-                    <router-link @click="setActiveMenuItem('sales')" :class="{ active: activeMenuItem === 'sales' }" to="/admin/sales" class="menu-link">
+                    <router-link @click="setActiveMenuItem('sales')" :class="{ active: activeMenuItem === 'sales' }" to="/sales" class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/abstract/abs027.svg-->
                             <span class="svg-icon svg-icon-2">
@@ -66,8 +66,23 @@
                         <span class="menu-title fs-5">{{$t('sales_project_proposal')}}</span>
                     </router-link>
                 </div>
+                <div  @click="hideSidebar" class="menu-item">
+                    <router-link @click="setActiveMenuItem('faq')" :class="{ active: activeMenuItem === 'faq' }" to="/faq" class="menu-link">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/abstract/abs027.svg-->
+                            <span class="svg-icon svg-icon-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path opacity="0.3" d="M21.25 18.525L13.05 21.825C12.35 22.125 11.65 22.125 10.95 21.825L2.75 18.525C1.75 18.125 1.75 16.725 2.75 16.325L4.04999 15.825L10.25 18.325C10.85 18.525 11.45 18.625 12.05 18.625C12.65 18.625 13.25 18.525 13.85 18.325L20.05 15.825L21.35 16.325C22.35 16.725 22.35 18.125 21.25 18.525ZM13.05 16.425L21.25 13.125C22.25 12.725 22.25 11.325 21.25 10.925L13.05 7.62502C12.35 7.32502 11.65 7.32502 10.95 7.62502L2.75 10.925C1.75 11.325 1.75 12.725 2.75 13.125L10.95 16.425C11.65 16.725 12.45 16.725 13.05 16.425Z" fill="black" />
+                                    <path d="M11.05 11.025L2.84998 7.725C1.84998 7.325 1.84998 5.925 2.84998 5.525L11.05 2.225C11.75 1.925 12.45 1.925 13.15 2.225L21.35 5.525C22.35 5.925 22.35 7.325 21.35 7.725L13.05 11.025C12.45 11.325 11.65 11.325 11.05 11.025Z" fill="black" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title fs-5">FAQ</span>
+                    </router-link>
+                </div>
                 <div  @click="hideSidebar"  v-if="role" class="menu-item">
-                    <router-link @click="setActiveMenuItem('salesManager')" :class="{ active: activeMenuItem === 'salesManager' }" to="/admin/salesManager" class="menu-link">
+                    <router-link @click="setActiveMenuItem('salesManager')" :class="{ active: activeMenuItem === 'salesManager' }" to="/salesManager" class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/abstract/abs027.svg-->
                             <span class="svg-icon svg-icon-2">
@@ -95,7 +110,7 @@
                     </router-link>
                 </div> -->
                 <div @click="hideSidebar" v-if="role" class="menu-item">
-                    <router-link to="/admin/faqs"  @click="setActiveMenuItem('faqs')" :class="{ active: activeMenuItem === 'faqs' }" class="menu-link">
+                    <router-link to="/faqs"  @click="setActiveMenuItem('faqs')" :class="{ active: activeMenuItem === 'faqs' }" class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/layouts/lay010.svg-->
                             <span class="svg-icon svg-icon-2">
@@ -110,7 +125,7 @@
                     </router-link>
                 </div>
                 <div @click="hideSidebar" v-if="role" class="menu-item">
-                    <router-link to="/admin/users" @click="setActiveMenuItem('users')" :class="{ active: activeMenuItem === 'users' }" class="menu-link">
+                    <router-link to="/users" @click="setActiveMenuItem('users')" :class="{ active: activeMenuItem === 'users' }" class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/layouts/lay010.svg-->
                             <span class="svg-icon svg-icon-2">

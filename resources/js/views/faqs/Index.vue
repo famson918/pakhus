@@ -1,5 +1,5 @@
 <template>
-    <div class="card  overflow-auto mt-13 align-items-center" style="background-color: #f0f2fc;">
+    <div class="card  overflow-auto align-items-center" style="background-color: #f0f2fc;">
         <!--begin::Body-->
         <div class="card-body p-lg-15">
             <!--begin::Classic content-->

@@ -38,6 +38,9 @@
                     <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <div class="d-flex align-items-center" >
+                                <div v-if="!user.name"class="flex-equal text-end ms-1">
+									<router-link to="/login"  class="btn btn-success">{{ $t('login') }}</router-link>
+								</div>
                                 <LocaleSwitcher class="p-3"/>
                                 <li class="nav-item dropdown p-3">
                                     <a v-if="user.name" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

@@ -36,7 +36,7 @@ export default [
         redirect: {
             name: 'home.index'
         },
-        component: GuestLayout,
+        component: UserLayout,
         children: [
             {
                 path: 'login',
@@ -61,11 +61,8 @@ export default [
         ]
     },
     {
-        path: '/admin',
+        path: '/',
         component: UserLayout,
-        // redirect: {
-        //     name: 'admin.index'
-        // },
         beforeEnter: requireLogin,
         children: [
             {
@@ -120,78 +117,6 @@ export default [
                 path: 'profile',
                 component: () => import('../views/admin/profile/index.vue'),
                 meta: { breadCrumb: 'Profile' }
-            },
-            {
-                name: 'posts.index',
-                path: 'posts',
-                component: PostsIndex,
-                meta: { breadCrumb: 'Posts' }
-            },
-            {
-                name: 'posts.create',
-                path: 'posts/create',
-                component: PostsCreate,
-                meta: { breadCrumb: 'Add new post' }
-            },
-            {
-                name: 'posts.edit',
-                path: 'posts/edit/:id',
-                component: PostsEdit,
-                meta: { breadCrumb: 'Edit post' }
-            },
-            {
-                name: 'categories.index',
-                path: 'categories',
-                component: () => import('../views/admin/categories/Index.vue'),
-                meta: { breadCrumb: 'Categories' }
-            },
-            {
-                name: 'categories.create',
-                path: 'categories/create',
-                component: () => import('../views/admin/categories/Create.vue'),
-                meta: { breadCrumb: 'Add new category' }
-            },
-            {
-                name: 'categories.edit',
-                path: 'categories/edit/:id',
-                component: () => import('../views/admin/categories/Edit.vue'),
-                meta: { breadCrumb: 'Edit Category' }
-            },
-            {
-                name: 'permissions.index',
-                path: 'permissions',
-                component: () => import('../views/admin/permissions/Index.vue'),
-                meta: { breadCrumb: 'Permissions' }
-            },
-            {
-                name: 'permissions.create',
-                path: 'permissions/create',
-                component: () => import('../views/admin/permissions/Create.vue'),
-                meta: { breadCrumb: 'Create Permission' }
-            },
-            {
-                name: 'permissions.edit',
-                path: 'permissions/edit/:id',
-                component: () => import('../views/admin/permissions/Edit.vue'),
-                meta: { breadCrumb: 'Permission Edit' }
-            },
-            {
-                name: 'roles.index',
-                path: 'roles',
-                component: () => import('../views/admin/roles/Index.vue'),
-                meta: { breadCrumb: 'Roles' }
-            },
-            {
-                name: 'roles.create',
-                path: 'roles/create',
-                component: () => import('../views/admin/roles/Create.vue'),
-                meta: { breadCrumb: 'Create Role' }
-            },
-            {
-                name: 'roles.edit',
-                path: 'roles/edit/:id',
-                component: () => import('../views/admin/roles/Edit.vue'),
-                meta: { breadCrumb: 'Role Edit' }
             },
             {
                 name: 'users.index',
