@@ -148,5 +148,7 @@
     "userSavedSuccessMessage": "User saved successfully!",
     "userUpdatedSuccessMessage": "User updated successfully!",
     "userDeletedSuccessMessage": "User deleted successfully!",
-    "profileUpdatedSuccessMessage": "Profile udpated successfully!"
+    "profileUpdatedSuccessMessage": "Profile udpated successfully!",
+    "download": "Download",
+    "upload": "Upload"
 }

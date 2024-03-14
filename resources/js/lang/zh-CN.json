@@ -148,5 +148,7 @@
     "userSavedSuccessMessage": "用户保存成功！",
     "userUpdatedSuccessMessage": "用户更新成功！",
     "userDeletedSuccessMessage": "用户删除成功！",
-    "profileUpdatedSuccessMessage": "个人资料更新成功！"
+    "profileUpdatedSuccessMessage": "个人资料更新成功！",
+    "download": "下载",
+    "upload": "上传"
 }

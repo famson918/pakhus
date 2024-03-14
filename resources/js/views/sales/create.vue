@@ -310,7 +310,10 @@ import { defineRule, useField, useForm } from "vee-validate";
 import useGoods from '../../composables/goods';
 import { required } from "@/validation/rules";
 import { useRouter } from 'vue-router';
+import { watchEffect } from 'vue';
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 defineRule('required', required)
 
 const store = useStore();
@@ -320,16 +323,11 @@ const locale = computed(() => store.state.lang.locale);
 let attachment = ref();
 
 const updateText = () => {
-    if (locale.value === 'en') {
-            attachment.value = 'Upload';
-    } else {
-            attachment.value = '文件附件';
-    }
+    attachment.value = t('upload');
 }
 updateText();
 
-watch(locale, updateText)
-
+watchEffect(() => {updateText()})
 const schema = {
     productName: 'required',
     startPrice: 'required',

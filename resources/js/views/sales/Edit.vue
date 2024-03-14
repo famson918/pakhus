@@ -310,6 +310,9 @@ import { defineRule, useField, useForm } from "vee-validate";
 import useGoods from '../../composables/goods';
 import { required } from "@/validation/rules";
 import { useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 defineRule('required', required)
 
@@ -320,15 +323,11 @@ const locale = computed(() => store.state.lang.locale);
 let attachment = ref();
 
 const updateText = () => {
-    if (locale.value === 'en') {
-            attachment.value = 'Upload';
-    } else {
-            attachment.value = '文件附件';
-    }
+    attachment.value = t('upload');
 }
 updateText();
 
-watch(locale, updateText)
+watchEffect(() => {updateText()})
 
 
 const image1 = ref({});
@@ -424,7 +423,6 @@ const handleFileSelected6 = (file) => {
 };
 
 watchEffect(() => {
-    console.log('good.value :>> ', good.value);
     if (good.value) {
         goods.id = good.value.id;
         goods.productName = good.value.productName;

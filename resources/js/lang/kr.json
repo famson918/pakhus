@@ -148,5 +148,7 @@
     "userSavedSuccessMessage": "사용자 저장 성공!",
     "userUpdatedSuccessMessage": "사용자 업데이트 성공!",
     "userDeletedSuccessMessage": "사용자 삭제 성공!",
-    "profileUpdatedSuccessMessage": "프로필 업데이트 성공!"
+    "profileUpdatedSuccessMessage": "프로필 업데이트 성공!",
+    "download": "다운로드",
+    "upload": "업로드"
 }

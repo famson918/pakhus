@@ -240,7 +240,10 @@ import useProposals from "../../composables/proposals"
 import { required, min } from "@/validation/rules";
 import { reactive, onMounted, ref, computed, watch } from "vue";
 import { useStore } from 'vuex';
+import { watchEffect } from "vue";
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 
 defineRule('required', required)
 defineRule('min', min)
@@ -254,23 +257,15 @@ let formattedNumber = ref();
 let attachment = ref();
 
 const updateText = () => {
-    if (locale.value === 'en') {
-        if (edit) {
-            attachment.value = 'Download'
-        } else {
-            attachment.value = 'Upload';
-        }
+    if (edit) {
+        attachment.value = t('download')
     } else {
-        if (edit) {
-            attachment.value = '下载'
-        } else {
-            attachment.value = '文件附件';
-        }
+        attachment.value = t('upload');
     }
 }
 updateText();
 
-watch(locale, updateText)
+watchEffect(()=> { updateText() });
 
 onMounted(() => {
      if (edit && editableData) {
