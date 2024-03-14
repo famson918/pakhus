@@ -132,7 +132,7 @@ const  router = useRouter();
 const page = ref(5)
 const { getUsers, deleteUser} = useUsers()
 const users = computed(()=> store.state.users.users)
-const itemsPerPage = ref(5)
+const itemsPerPage = ref(25)
 const currentPage = ref(localStorage.getItem('currentUserPage') ? localStorage.getItem('currentUserPage') : 1);
 let paginationData = ref([]);
 const columns = ref([]);

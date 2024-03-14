@@ -140,15 +140,15 @@ const columns = ref([]);
 const editableData = ref([]);
 const edit = ref(false)
 const searchTerm = ref('');
-const itemsPerPage = ref(5);
+const itemsPerPage = ref(25);
 let confirmText = ref();
 const currentPage = ref(localStorage.getItem('currentProposalPage') ? localStorage.getItem('currentProposalPage') : 1);
 let paginationData = ref([]);
 
 onMounted(async()=>{
-  await checkRole(user);
-  await getProposals();
+  getProposals();
   getResults(currentPage.value)
+  checkRole(user);
 })
 
 
@@ -201,7 +201,6 @@ watchEffect(()=> getResults(currentPage.value))
 
 
 const updateColumns = () => {
-  console.log('locale', locale.value)
   if (role.value) {
     columns.value = [
       { text: t('id'), value: 'id' },
@@ -212,6 +211,7 @@ const updateColumns = () => {
       { text: t('status'), value: 'status' },
     ];``
   } else {
+    console.log('locale--', proposals.value)
     columns.value = [
       { text: t('id'), value: 'id' },
       { text: t('productName'), value: 'productName' },

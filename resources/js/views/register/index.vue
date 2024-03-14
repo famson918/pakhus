@@ -121,14 +121,6 @@
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
-							<div class="fv-row mb-10">
-								<label class="form-check form-check-custom form-check-solid form-check-inline">
-									<input class="form-check-input" type="checkbox" name="toc" value="1" />
-									<span class="form-check-label fw-bold text-gray-700 fs-6">{{$t('iAgree')}}
-									<a href="#" class="ms-1 link-primary">{{ $t('terms') }}</a>.</span>
-								</label>
-							</div>
-							<!--end::Input group-->
 							<!--begin::Actions-->
 							<div class="text-center">
 								<button type="submit" id="kt_sign_up_submit" :class="{ 'opacity-25': processing }" :disabled="processing" class="btn btn-lg btn-primary">
@@ -138,6 +130,14 @@
 								</button>
 							</div>
 							<!--end::Actions-->
+							<div class="fv-row mb-10">
+								<label class="form-check form-check-custom form-check-solid form-check-inline">
+									<input class="form-check-input" type="checkbox" name="toc" value="1" />
+									<span class="form-check-label fw-bold text-gray-700 fs-6">{{$t('iAgree')}}
+									<a href="#" class="ms-1 link-primary">{{ $t('terms') }}</a>.</span>
+								</label>
+							</div>
+							<!--end::Input group-->
 						</form>
 						<!--end::Form-->
 					</div>

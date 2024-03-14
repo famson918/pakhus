@@ -58,6 +58,21 @@ export default [
                 name: 'faq.index',
                 component: () => import('../views/faqs/Index.vue'),
             },
+            {
+                path: 'proposals',
+                name: 'proposals.index',
+                component: () => import('../views/proposals/Index.vue'),
+            },
+            {
+                path: 'sales',
+                name: 'sales.index',
+                component: () => import('../views/sales/Index.vue'),
+            },
+            {
+                path: 'sales/:id',
+                name: 'sales.details',
+                component: () => import('../views/sales/details.vue'),
+            },
         ]
     },
     {
@@ -65,11 +80,11 @@ export default [
         component: UserLayout,
         beforeEnter: requireLogin,
         children: [
-            {
-                path: 'proposals',
-                name: 'proposals.index',
-                component: () => import('../views/proposals/Index.vue'),
-            },
+            // {
+            //     path: 'proposals',
+            //     name: 'proposals.index',
+            //     component: () => import('../views/proposals/Index.vue'),
+            // },
             {
                 path: 'proposals/create',
                 name: 'proposals.create',
@@ -90,11 +105,7 @@ export default [
                 name: 'sales.create',
                 component: () => import('../views/sales/create.vue'),
             },
-            {
-                path: 'sales/:id',
-                name: 'sales.details',
-                component: () => import('../views/sales/details.vue'),
-            },
+
             {
                 path: 'salesManager/:id',
                 name: 'salesManager.edit',
@@ -106,12 +117,7 @@ export default [
                 component: () => import('../views/sales/Manager.vue'),
                 beforeEnter: requireLogin,
             },
-            {
-                path: 'sales',
-                name: 'sales.index',
-                component: () => import('../views/sales/Index.vue'),
-                beforeEnter: requireLogin,
-            },
+
             {
                 name: 'profile.index',
                 path: 'profile',

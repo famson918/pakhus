@@ -22,8 +22,9 @@ export default function useProposals() {
     const swal = inject('$swal')
 
     const getProposals = async () => {
-        axios.get('/api/proposals')
+        axios.get('/api/get-proposals')
             .then(response => {
+                console.log('response.data.data :>> ', response.data.data);
                 store.dispatch('proposal/getProposals', response.data.data)
             })
     }

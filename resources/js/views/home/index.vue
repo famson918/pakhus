@@ -4,20 +4,19 @@
 			<!--begin::Header Section-->
 			<div class="mb-0" id="home">
 				<!--begin::Wrapper-->
-				<div class="bgi-no-repeat bgi-size-contain bgi-position-x-center bgi-position-y-bottom landing-dark-bg back-ground-image">
+				<div class="bgi-no-repeat bgi-size-contain bgi-position-x-center bgi-position-y-bottom">
 					<!--begin::Landing hero-->
 					<div class="d-flex flex-column flex-center w-100 min-h-350px min-h-lg-500px px-9">
 						<!--begin::Heading-->
 						<div class="text-center mb-1 mb-lg-1 py-10 py-lg-10">
 							<!--begin::Title-->
-                            <h1 class="text-white lh-base fw-bolder fs-2x fs-lg-3x mb-1">Supporting Your Better Start.</h1>
-                            <p class="text-white lh-base fw-bolder fs-2x fs-lg-1x mb-1">为了委托人的事业项目原型及大量生产</p>
-                            <h1 class="text-white lh-base fw-bolder fs-2x fs-lg-1x mb-1">提供到为止的整个过程或委托人想要的范围的服务。</h1>
-                            <h1 class="text-white lh-base fw-bolder fs-2x fs-lg-1x mb-1">而且营销/为了对销售有自信的人</h1>
-							<h1 class="text-white lh-base fw-bolder fs-2x fs-lg-1x mb-1">
-							<span style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
-								<span id="kt_landing_hero_text">Pakhus亲自选择的委托·买入建议销售项目</span>
-							</span>给您做。</h1>
+                            <h1 class="lh-base fw-bolder fs-2x fs-lg-3x mb-1">Supporting Your Better Start.</h1>
+                            <p class=" lh-base fs-2x fs-lg-1x mb-1">为了委托人的事业项目原型及大量生产</p>
+                            <p class=" lh-base fs-2x fs-lg-1x mb-1">提供到为止的整个过程或委托人想要的范围的服务。</p>
+                            <p class=" lh-base fs-2x fs-lg-1x mb-1">而且营销/为了对销售有自信的人</p>
+							<h1 class=" lh-base fw-bolder fs-2x fs-lg-1x mb-1">
+								Pakhus亲自选择的委托·买入建议销售项目给您做。</h1>
+							<img src="../../assets/media/logos/12.jpg"/>
 							<!--end::Title-->
 						</div>
 						<!--end::Heading-->
@@ -26,11 +25,11 @@
 				</div>
 				<!--end::Wrapper-->
 				<!--begin::Curve bottom-->
-				<div class="landing-curve landing-dark-color mb-10 mb-lg-20">
+				<!-- <div class=" mb-10 mb-lg-20">
 					<svg viewBox="15 12 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M0 11C3.93573 11.3356 7.85984 11.6689 11.7725 12H1488.16C1492.1 11.6689 1496.04 11.3356 1500 11V12H1488.16C913.668 60.3476 586.282 60.6117 11.7725 12H0V11Z" fill="currentColor"></path>
 					</svg>
-				</div>
+				</div> -->
 				<!--end::Curve bottom-->
 			</div>
 			<!--end::Header Section-->
@@ -41,11 +40,10 @@
 					<!--begin::Heading-->
 					<div class="text-center mb-17">
 						<!--begin::Title-->
-                        <h1 class="lh-base fw-bolder fs-2x fs-lg-1x mb-15">
+                        <p class="lh-base fs-2x fs-lg-1x mb-15">
                             Pakhus是
-							<span style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
-								<span id="kt_landing_hero_text">利润最大化</span>
-							</span>为了，我会尽最大努力的。。</h1>
+							<span class="fw-bolder">利润最大化</span>
+							为了，我会尽最大努力的。。</p>
 						<!--end::Title-->
 					</div>
 					<!--end::Heading-->
@@ -74,7 +72,7 @@
 
 <style scoped>
 .back-ground-image {
-    background-image: url(../../assets/media/svg/illustrations/landing.svg);
+    /* background-image: url(../../assets/media/svg/illustrations/landing.svg); */
 }
 body {
     font-family: 'Nunito', sans-serif;

@@ -147,20 +147,27 @@
 </template>
 <script setup>
 import axios from 'axios';
-import { ref, onMounted } from 'vue';
-import { useRoute } from "vue-router";
-
+import { ref, onMounted, computed } from 'vue';
+import { useRoute, useRouter } from "vue-router";
+import { useStore } from 'vuex';
 const good = ref();
 const route = useRoute()
+const store = useStore();
+const router = useRouter();
 
+const authenticated = computed(()=> store.state.auth.authenticated)
 const isModalOpen = ref(false);
 
 function openModal() {
-  isModalOpen.value = true;
+    if (authenticated.value) {
+      isModalOpen.value = true;
+  } else {
+    router.push({ name: 'auth.login' })
+  }
 }
 
 function closeModal() {
-  isModalOpen.value = false;
+    isModalOpen.value = false;
 }
 
 onMounted(async () => {

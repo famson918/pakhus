@@ -178,7 +178,7 @@
     getResults(currentPage.value)
   })
   const searchTerm = ref('');
-  const itemsPerPage = ref(5);
+  const itemsPerPage = ref(25);
   
   
   const handleSearch = () => {

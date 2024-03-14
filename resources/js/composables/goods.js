@@ -13,7 +13,7 @@ export default function useProposals() {
     const locale = computed(() => store.state.lang.locale);
 
     const getGoods = async () => {
-        axios.get('/api/goods')
+        axios.get('/api/get-goods')
             .then(response => {
                 store.dispatch('good/getGoods', response.data.data)
             })
