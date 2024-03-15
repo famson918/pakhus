@@ -157,7 +157,7 @@ const handleSearch = () => {
 }
 // Computed property to filter items based on search term
 const filteredItems = computed(() => {
-    const inputString = user.value.email;
+    const inputString = user.value.email ? user.value.email : '';
     const isAdmin = inputString ? inputString.toLowerCase().includes("admin") : '';
     if (isAdmin) {
         if (proposals.value) {
@@ -179,6 +179,7 @@ const filteredItems = computed(() => {
 });
 
 const getResults = (page) => {
+    let data = filteredItems.value ? filteredItems.value :  []
     localStorage.setItem('currentProposalPage', page)
     if (!page) {
         page = 1;
@@ -186,14 +187,14 @@ const getResults = (page) => {
     currentPage.value = page;
     paginationData.value = {
       current_page: page,
-      data: filteredItems.value,
+      data: data,
       from: page,
-      last_page: filteredItems.value.length / itemsPerPage.value + 1,
-      next_page_url: page < filteredItems.value.length /itemsPerPage.value ? 'http://example.com/page/2' : null,
+      last_page: data.length / itemsPerPage.value + 1,
+      next_page_url: page < data.length /itemsPerPage.value ? 'http://example.com/page/2' : null,
       per_page: 1,
       prev_page_url: page > 1 ? 'http://example.com/page/1' : null,
       to: page + 1,
-      total: filteredItems.value.length / itemsPerPage.value
+      total: data.length / itemsPerPage.value
     };
 }
 
@@ -247,7 +248,8 @@ const sortedItems = computed(() => {
 // Computed property to paginate items
 const displayedItems = computed(() => {
   const startIndex = (currentPage.value - 1) * itemsPerPage.value;
-  return sortedItems.value.slice(startIndex, startIndex + itemsPerPage.value);
+  let data = sortedItems.value ? sortedItems.value : []
+  return data.slice(startIndex, startIndex + itemsPerPage.value);
 });
 
 // Function to handle sorting when column header is clicked
@@ -306,7 +308,7 @@ const updateEdit = (newValue) => {
 }
 
 const checkRole = (user) => {
-    const inputString = user.value.email;
+    const inputString = user.value.email ? user.value.email : '';
     const isAdmin = inputString.toLowerCase().includes("admin");
     if (isAdmin) {
         role.value = true

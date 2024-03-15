@@ -21,7 +21,7 @@
             <!-- <a href="../../demo1/dist/index.html">
                 <img alt="Logo" src="assets/media/logos/logo-1.svg" class="h-20px h-lg-30px" />
             </a> -->
-            <router-link to="/" class="fs-1 fw-8">Pakhus</router-link>
+            <router-link to="/" class="fs-1 fw-8">Pakhus1</router-link>
         </div>
         <!--end::Logo-->
         <!--begin::Mobile logo-->

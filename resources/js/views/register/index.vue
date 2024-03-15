@@ -134,7 +134,7 @@
 								<label class="form-check form-check-custom form-check-solid form-check-inline">
 									<input class="form-check-input" type="checkbox" name="toc" value="1" />
 									<span class="form-check-label fw-bold text-gray-700 fs-6">{{$t('iAgree')}}
-									<a href="#" class="ms-1 link-primary">{{ $t('terms') }}</a>.</span>
+									<router-link to="/policy" class="ms-1 link-primary">{{ $t('terms') }}</router-link>.</span>
 								</label>
 							</div>
 							<!--end::Input group-->

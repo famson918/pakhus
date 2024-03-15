@@ -68,21 +68,61 @@
             </div>
             <div class="mb-3 row">
                 <div class="row col-6">
-                    <label for="inputPassword" class="col-sm-4 col-form-label">{{ $t('timeRequired') }}</label>
-                    <div class="col-sm-8">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">{{ $t('timeRequired') }}</label>
+                    <div class="col-sm-10">
                         <table class="table">
                         <thead>
                             <tr>
-                            <th scope="col" style="background-color: lightblue;">数量(套餐）</th>
-                            <th scope="col" style="background-color: lightblue;">1 - 1</th>
-                            <th scope="col" style="background-color: lightblue;">2 - 100</th>
-                            <th scope="col" style="background-color: lightblue;">101 - 1000</th>
-                            <th scope="col" style="background-color: lightblue;">>1000</th>
+                            <th scope="col" class="col-sm-3"  style="background-color: lightblue;">{{ $t('amountperset') }}</th>
+                            <th scope="col" style="background-color: lightblue;">
+                                <input v-model="goods.time11" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.time11 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.time11">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </th>
+                            <th scope="col" style="background-color: lightblue;">
+                                <input v-model="goods.time12" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.time12 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.time12">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </th>
+                            <th scope="col" style="background-color: lightblue;">
+                                <input v-model="goods.time13" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.time13 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.time13">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </th>
+                            <th scope="col" style="background-color: lightblue;">>
+                                <input v-model="goods.time14" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.time14 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.time14">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                            <th scope="row">预计时间(一)</th>
+                            <th scope="row">{{ $t('predicttime') }}</th>
                             <td>
                                 <input v-model="goods.time1" type="text" class="form-control" id="inputPassword">
                                 <div class="text-danger mt-1">
@@ -135,20 +175,50 @@
             </div>
             <div class="mb-3 row">
                 <div class="row col-6">
-                    <label for="inputPassword" class="col-sm-4 col-form-label">{{ $t('customization') }}</label>
-                    <div class="col-sm-8">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">{{ $t('customization') }}</label>
+                    <div class="col-sm-10">
                         <table class="table">
                         <thead>
                             <tr>
-                            <th scope="col" style="background-color: lightblue;">数量(套餐）</th>
-                            <th scope="col" style="background-color: lightblue;">>50</th>
-                            <th scope="col" style="background-color: lightblue;">>100</th>
-                            <th scope="col" style="background-color: lightblue;">>1000</th>
+                            <th scope="col" class="col-sm-3" style="background-color: lightblue;">{{ $t('amountperset') }}</th>
+                            <th scope="col" style="background-color: lightblue;">
+                                <input v-model="goods.option11" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.option11 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.option11">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </th>
+                            <th scope="col" style="background-color: lightblue;">
+                                <input v-model="goods.option12" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.option12 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.option12">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </th>
+                            <th scope="col" style="background-color: lightblue;">
+                                <input v-model="goods.option13" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.option13 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.option13">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                            <th scope="row">选项</th>
+                            <th scope="row">{{ $t('optional') }}</th>
                             <td>
                                 <input v-model="goods.option1" type="text" class="form-control" id="inputPassword">
                                 <div class="text-danger mt-1">
@@ -437,9 +507,16 @@ watchEffect(() => {
         goods.time2 = good.value.time2;
         goods.time3 = good.value.time3;
         goods.time4 = good.value.time4;
+        goods.time11 = good.value.time11;
+        goods.time12 = good.value.time12;
+        goods.time13 = good.value.time13;
+        goods.time14 = good.value.time14;
         goods.option1 = good.value.option1;
         goods.option2 = good.value.option2;
         goods.option3 = good.value.option3;
+        goods.option11 = good.value.option11;
+        goods.option12 = good.value.option12;
+        goods.option13 = good.value.option13;
     }
 })
 </script>

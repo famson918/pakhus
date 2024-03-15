@@ -3,9 +3,10 @@
         <UserSideBar/>
         <div class="container-fluid">
             <AdminNavbar />
-            <div class="main d-flex justify-content-center mt-5 content flex-fill overflow-auto" style="height:90vh">
+            <div class="main d-flex justify-content-center mt-5 content flex-fill overflow-auto" style="height: 75vh;">
                 <router-view></router-view>
             </div>
+            <Footer></Footer>
         </div>
     </div>
 </template>
@@ -17,6 +18,7 @@ import UserSideBar from "../components/includes/UserSideBar.vue";
 import Breadcrumb from "../components/includes/Breadcrumb.vue";
 import AdminNavbar1 from "../components/includes/AdminNavbar1.vue";
 import AdminNavbar from "../components/includes/AdminNavbar.vue";
+import Footer from "../components/Footer.vue";
 
 const route = useRoute();
 const sidebarClass = ref('');

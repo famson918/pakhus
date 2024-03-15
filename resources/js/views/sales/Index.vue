@@ -20,7 +20,6 @@
                     </router-link>
             </div>
         </div>
-        <div v-if="goods.length > 5">
             <Bootstrap5Pagination
                 :data="paginationData"
                 class="mb-1 justify-content-center mt-5"
@@ -29,7 +28,6 @@
                 :show-disabled="false"
                 @pagination-change-page="getResults"
             />
-        </div>
     </div>
 </template>
 <script setup>
@@ -65,24 +63,26 @@ const getResults = (page) => {
     if (!page) {
         page = 1;
     }
+    let data = goods.value ? goods.value : []
     currentPage.value = page;
     paginationData.value = {
         current_page: page,
-        data: goods.value,
+        data: data,
         from: page,
-        last_page: goods.value.length / itemsPerPage + 1,
-        next_page_url: page < goods.value.length /itemsPerPage ? '' : null,
+        last_page: data.length / itemsPerPage + 1,
+        next_page_url: page < data.length /itemsPerPage ? '' : null,
         per_page: 1,
         prev_page_url: page > 1 ? '' : null,
         to: page + 1,
-        total: goods.value.length / itemsPerPage
+        total: data.length / itemsPerPage
     };
 }
 
 // Computed property to paginate items
 const displayedItems = computed(() => {
   const startIndex = (currentPage.value - 1) * itemsPerPage;
-  return goods.value.slice(startIndex, startIndex + itemsPerPage);
+  let data = goods.value ? goods.value : []
+  return data.slice(startIndex, startIndex + itemsPerPage);
 });
 
 
@@ -97,7 +97,7 @@ const removeGood = async (item) => {
 
 
 const checkRole = (user) => {
-    const inputString = user.value.email;
+    const inputString = user.value.email ? user.value.email : '';
     const isAdmin = inputString.toLowerCase().includes("admin");
     if (isAdmin) {
         role.value = true

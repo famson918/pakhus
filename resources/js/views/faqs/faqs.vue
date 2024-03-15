@@ -235,16 +235,20 @@ const faq = reactive({
   }
   
   const updateColumns = () => {
-    if (locale.value === 'en') {
+    if (locale.value === 'ko') {
+      columns.value = [        
+        { text: '질문', value: 'question' },
+        { text: '답변', value: 'answer' },
+        { text: '행위', value: 'actions' },
+      ];
+    } else if (locale.value === 'en') {
       columns.value = [ 
-        { text: 'No', value: 'id' },
         { text: 'Question', value: 'question' },
         { text: 'Answer', value: 'answer' },
         { text: 'actions', value: 'actions' },
       ];
     } else {
       columns.value = [ 
-        { text: 'No', value: 'id' },
         { text: '问题', value: 'question' },
         { text: '回答', value: 'answer' },
         { text: '行动', value: 'actions' },

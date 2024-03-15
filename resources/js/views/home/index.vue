@@ -11,11 +11,13 @@
 						<div class="text-center mb-1 mb-lg-1 py-10 py-lg-10">
 							<!--begin::Title-->
                             <h1 class="lh-base fw-bolder fs-2x fs-lg-3x mb-1">Supporting Your Better Start.</h1>
-                            <p class=" lh-base fs-2x fs-lg-1x mb-1">为了委托人的事业项目原型及大量生产</p>
-                            <p class=" lh-base fs-2x fs-lg-1x mb-1">提供到为止的整个过程或委托人想要的范围的服务。</p>
-                            <p class=" lh-base fs-2x fs-lg-1x mb-1">而且营销/为了对销售有自信的人</p>
+                            <p class=" lh-base fs-2x fs-lg-1x mb-1">{{ $t('home11') }}</p>
+                            <p class=" lh-base fs-2x fs-lg-1x mb-1">{{ $t('home12') }}</p>
+                            <p class=" lh-base fs-2x fs-lg-1x mb-1">{{ $t('home13') }}</p>
 							<h1 class=" lh-base fw-bolder fs-2x fs-lg-1x mb-1">
-								Pakhus亲自选择的委托·买入建议销售项目给您做。</h1>
+								{{ $t('home14') }}</h1>
+							<h1 class=" lh-base fw-bolder fs-2x fs-lg-1x mb-1">
+								{{ $t('home15') }}</h1>
 							<img src="../../assets/media/logos/12.jpg"/>
 							<!--end::Title-->
 						</div>
@@ -41,9 +43,9 @@
 					<div class="text-center mb-17">
 						<!--begin::Title-->
                         <p class="lh-base fs-2x fs-lg-1x mb-15">
-                            Pakhus是
-							<span class="fw-bolder">利润最大化</span>
-							为了，我会尽最大努力的。。</p>
+                            {{ $t('home1') }}
+							<span class="fw-bolder">{{ $t('home2') }}</span>
+							{{ $t('home3') }}</p>
 						<!--end::Title-->
 					</div>
 					<!--end::Heading-->

@@ -45,16 +45,16 @@
                     <table class="table">
                         <thead>
                             <tr>
-                            <th scope="col" style="background-color: lightblue;">数量(套餐）</th>
-                            <th scope="col" style="background-color: lightblue;">1 - 1</th>
-                            <th scope="col" style="background-color: lightblue;">2 - 100</th>
-                            <th scope="col" style="background-color: lightblue;">101 - 1000</th>
-                            <th scope="col" style="background-color: lightblue;">>1000</th>
+                            <th scope="col" style="background-color: lightblue;">{{ $t('amountperset') }}</th>
+                            <th scope="col" style="background-color: lightblue;">{{ good.time11 }}</th>
+                            <th scope="col" style="background-color: lightblue;">{{ good.time12 }}</th>
+                            <th scope="col" style="background-color: lightblue;">{{ good.time13 }}</th>
+                            <th scope="col" style="background-color: lightblue;">>{{ good.time14 }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                            <th scope="row">预计时间(一)</th>
+                            <th scope="row">{{ $t('predicttime') }}</th>
                             <td>
                                 <input v-model="good.time1" type="text" class="form-control" id="inputPassword" readonly>
                             </td>
@@ -70,19 +70,19 @@
                             </tr>
                         </tbody>
                     </table>
-                    <h3 class="mt-5"><i class="fa-solid fa-play"></i>定制</h3>
+                    <h3 class="mt-5"><i class="fa-solid fa-play"></i>{{ $t('customization') }}</h3>
                     <table class="table">
                         <thead>
                             <tr>
-                            <th scope="col" style="background-color: lightblue;">数量(套餐）</th>
-                            <th scope="col" style="background-color: lightblue;">>50</th>
-                            <th scope="col" style="background-color: lightblue;">>100</th>
-                            <th scope="col" style="background-color: lightblue;">>1000</th>
+                            <th scope="col" style="background-color: lightblue;">{{ $t('amountperset') }}</th>
+                            <th scope="col" style="background-color: lightblue;">{{ good.option11 }}</th>
+                            <th scope="col" style="background-color: lightblue;">>{{ good.option12 }}</th>
+                            <th scope="col" style="background-color: lightblue;">>{{ good.option13 }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                            <th scope="row">选项</th>
+                            <th scope="row">{{ $t('optional') }}</th>
                             <td>
                                 <input v-model="good.option1" type="text" class="form-control" id="inputPassword" readonly>
                             </td>

@@ -203,7 +203,7 @@
                 <button :disabled="isLoading" class="btn btn-primary col-4">
                     <div v-show="isLoading" class=""></div>
                     <span v-if="isLoading">{{ $t('processing') }}</span>
-                    <span v-else>{{ $t('register') }}</span>
+                    <span v-else>{{ $t('register1') }}</span>
                 </button>
             </div>
             <div v-if="edit" class="mb-3 row ">

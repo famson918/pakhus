@@ -29,10 +29,17 @@ class GoodController extends Controller
             'sampleOrderDeliveryTime' => $request['sampleOrderDeliveryTime'],
             'sampleOrderPrice' => $request['sampleOrderPrice'],
             'productDescription' => $request['productDescription'],
+            'time11' => $request['time11'],
+            'time12' => $request['time12'],
+            'time13' => $request['time13'],
+            'time14' => $request['time14'],
             'time1' => $request['time1'],
             'time2' => $request['time2'],
             'time3' => $request['time3'],
             'time4' => $request['time4'],
+            'option11' => $request['option11'],
+            'option12' => $request['option12'],
+            'option13' => $request['option13'],
             'option1' => $request['option1'],
             'option2' => $request['option2'],
             'option3' => $request['option3'],
@@ -69,12 +76,20 @@ class GoodController extends Controller
         $good-> sampleOrderDeliveryTime = $request['sampleOrderDeliveryTime'];
         $good-> sampleOrderPrice = $request['sampleOrderPrice'];
         $good-> productDescription = $request['productDescription'];
+        $good-> time11 = $request['time11'];
+        $good-> time12 = $request['time12'];
+        $good-> time13 = $request['time13'];
+        $good-> time14 = $request['time14'];
         $good-> time1 = $request['time1'];
         $good-> time2 = $request['time2'];
         $good-> time3 = $request['time3'];
+        $good-> time4 = $request['time4'];
+        $good-> option11 = $request['option11'];
+        $good-> option12 = $request['option12'];
+        $good-> option13 = $request['option13'];
         $good-> option1 = $request['option1'];
         $good-> option2 = $request['option2'];
-        $good-> option2 = $request['option3'];
+        $good-> option3 = $request['option3'];
 
         try {
             for ($i = 1; $i <= 6; $i++) {

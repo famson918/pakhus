@@ -19,8 +19,8 @@
             </div>
             <div class="mb-3 row">
                 <div class="row col-6">
-                    <label for="inputPassword" class="col-sm-6 col-form-label">{{ $t('price') }}</label>
-                    <div class="col-sm-5">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">{{ $t('price') }}</label>
+                    <div class="col-sm-4">
                         <input v-model="goods.startPrice" type="text" class="form-control" id="inputPassword">
                         <div class="text-danger mt-1">
                             {{ errors.startPrice }}
@@ -31,12 +31,12 @@
                             </div>
                         </div>
                     </div>
-                    <label for="inputPassword" class="col-sm-1 col-form-label">{{ $t('yuan') }}</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">{{ $t('yuan') }}</label>
                 </div>       
                 <div class="row col-6">
                     <label for="inputPassword" class="col-sm-2 col-form-label">~</label>
                     <label for="inputPassword" class="col-sm-4 col-form-label"> {{ $t('bigPrice') }}</label>
-                    <div class="col-sm-5">
+                    <div class="col-sm-4">
                         <input v-model="goods.endPrice" type="text" class="form-control" id="inputPassword">
                         <div class="text-danger mt-1">
                             {{ errors.endPrice }}
@@ -47,7 +47,7 @@
                             </div>
                         </div>
                     </div>
-                    <label for="inputPassword" class="col-sm-1 col-form-label">{{ $t('yuan') }}</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">{{ $t('yuan') }}</label>
                 </div>       
             </div>
             <div class="mb-3 row">
@@ -67,22 +67,62 @@
                 </div>       
             </div>
             <div class="mb-3 row">
-                <div class="row col-6">
-                    <label for="inputPassword" class="col-sm-4 col-form-label">{{ $t('timeRequired') }}</label>
-                    <div class="col-sm-8">
+                <div class="row col-11">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">{{ $t('timeRequired') }}</label>
+                    <div class="col-sm-10">
                         <table class="table">
                         <thead>
                             <tr>
-                            <th scope="col" style="background-color: lightblue;">数量(套餐）</th>
-                            <th scope="col" style="background-color: lightblue;">1 - 1</th>
-                            <th scope="col" style="background-color: lightblue;">2 - 100</th>
-                            <th scope="col" style="background-color: lightblue;">101 - 1000</th>
-                            <th scope="col" style="background-color: lightblue;">>1000</th>
+                            <th scope="col" class="col-sm-3" style="background-color: lightblue;">{{ $t('amountperset') }}</th>
+                            <th scope="col" style="background-color: lightblue;">
+                                <input v-model="goods.time11" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.time11 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.time11">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </th>
+                            <th scope="col" style="background-color: lightblue;">
+                                <input v-model="goods.time12" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.time12 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.time12">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </th>
+                            <th scope="col" style="background-color: lightblue;">
+                                <input v-model="goods.time13" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.time13 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.time13">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </th>
+                            <th scope="col" style="background-color: lightblue;">
+                                <input v-model="goods.time14" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.time14 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.time14">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                            <th scope="row">预计时间(一)</th>
+                            <th scope="row">{{ $t('predicttime') }}</th>
                             <td>
                                 <input v-model="goods.time1" type="text" class="form-control" id="inputPassword">
                                 <div class="text-danger mt-1">
@@ -134,21 +174,51 @@
                 </div>       
             </div>
             <div class="mb-3 row">
-                <div class="row col-6">
-                    <label for="inputPassword" class="col-sm-4 col-form-label">{{ $t('customization') }}</label>
-                    <div class="col-sm-8">
+                <div class="row col-11">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">{{ $t('customization') }}</label>
+                    <div class="col-sm-10">
                         <table class="table">
                         <thead>
                             <tr>
-                            <th scope="col" style="background-color: lightblue;">数量(套餐）</th>
-                            <th scope="col" style="background-color: lightblue;">>50</th>
-                            <th scope="col" style="background-color: lightblue;">>100</th>
-                            <th scope="col" style="background-color: lightblue;">>1000</th>
+                            <th scope="col" calss="col-sm-3" style="background-color: lightblue;">{{ $t('amountperset') }}</th>
+                            <th scope="col" style="background-color: lightblue;">
+                                <input v-model="goods.option11" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.option11 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.option11">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </th>
+                            <th scope="col" style="background-color: lightblue;">
+                                <input v-model="goods.option12" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.option12 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.option12">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </th>
+                            <th scope="col" style="background-color: lightblue;">
+                                <input v-model="goods.option13" type="text" class="form-control" id="inputPassword">
+                                <div class="text-danger mt-1">
+                                    {{ errors.option13 }}
+                                </div>
+                                <div class="text-danger mt-1">
+                                    <div v-for="message in validationErrors?.option13">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                            </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                            <th scope="row">选项</th>
+                            <th scope="row">{{ $t('optional') }}</th>
                             <td>
                                 <input v-model="goods.option1" type="text" class="form-control" id="inputPassword">
                                 <div class="text-danger mt-1">
@@ -341,9 +411,16 @@ const schema = {
     time2:'required',
     time3:'required',
     time4:'required',
+    time11:'required',
+    time12:'required',
+    time13:'required',
+    time14:'required',
     option1: 'required',
     option2:'required',
     option3:'required',
+    option11:'required',
+    option12:'required',
+    option13:'required',
 }
 const { validate, errors } = useForm({validationSchema: schema})
 const { value: productName } = useField("productName", null, { initialValue: ''})
@@ -358,9 +435,16 @@ const { value: time1 } = useField("time1", null, { initialValue: ''})
 const { value: time2 } = useField("time2", null, { initialValue: ''})
 const { value: time3 } = useField("time3", null, { initialValue: ''})
 const { value: time4 } = useField("time4", null, { initialValue: ''})
+const { value: time11 } = useField("time11", null, { initialValue: ''})
+const { value: time12 } = useField("time12", null, { initialValue: ''})
+const { value: time13 } = useField("time13", null, { initialValue: ''})
+const { value: time14 } = useField("time14", null, { initialValue: ''})
 const { value: option1 } = useField("option1", null, { initialValue: ''})
 const { value: option3 } = useField("option3", null, { initialValue: ''})
 const { value: option2 } = useField("option2", null, { initialValue: ''})
+const { value: option11 } = useField("option11", null, { initialValue: ''})
+const { value: option12 } = useField("option12", null, { initialValue: ''})
+const { value: option13 } = useField("option13", null, { initialValue: ''})
 
 const { storeGood, isLoading, validationErrors, getGood } = useGoods();
 
@@ -373,10 +457,17 @@ const goods = reactive({
     sampleOrderDeliveryTime,
     sampleOrderPrice,
     productDescription,
+    time11,
+    time12,
+    time13,
+    time14,
     time1,
     time2,
     time3,
     time4,
+    option11,
+    option12,
+    option13,
     option1,
     option2,
     option3

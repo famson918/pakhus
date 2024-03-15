@@ -59,6 +59,11 @@ export default [
                 component: () => import('../views/faqs/Index.vue'),
             },
             {
+                path: 'policy',
+                name: 'policy.index',
+                component: () => import('../views/policy/Index.vue'),
+            },
+            {
                 path: 'proposals',
                 name: 'proposals.index',
                 component: () => import('../views/proposals/Index.vue'),
