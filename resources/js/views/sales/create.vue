@@ -311,37 +311,37 @@
                 <div class="row col-6 mb-3">
                     <label for="inputPassword" class="col-sm-4 col-form-label">#1 {{$t('uploadPictures')}}</label>
                     <div class="col-sm-8">
-                        <UploadInput :buttonLabel="attachment" @fileSelected="handleFileSelected1" />
+                        <UploadInput :buttonLabel="attachment" @fileSelected="handleFileSelected1" :error="errors.file1" />
                     </div>
                 </div>       
                 <div class="row col-6 mb-3">
                     <label for="inputPassword" class="col-sm-4 col-form-label">#2 {{$t('uploadPictures')}}</label>
                     <div class="col-sm-8">
-                        <UploadInput :buttonLabel="attachment" @fileSelected="handleFileSelected2" />
+                        <UploadInput :buttonLabel="attachment" @fileSelected="handleFileSelected2" :error="errors.file2" />
                     </div>
                 </div>       
                 <div class="row col-6 mb-3">
                     <label for="inputPassword" class="col-sm-4 col-form-label">#3 {{$t('uploadPictures')}}</label>
                     <div class="col-sm-8">
-                        <UploadInput :buttonLabel="attachment" @fileSelected="handleFileSelected3" />
+                        <UploadInput :buttonLabel="attachment" @fileSelected="handleFileSelected3"  :error="errors.file3" />
                     </div>
                 </div>       
                 <div class="row col-6 mb-3">
                     <label for="inputPassword" class="col-sm-4 col-form-label">#4 {{$t('uploadPictures')}}</label>
                     <div class="col-sm-8">
-                        <UploadInput :buttonLabel="attachment" @fileSelected="handleFileSelected4" />
+                        <UploadInput :buttonLabel="attachment" @fileSelected="handleFileSelected4" :error="errors.file4"/>
                     </div>
                 </div>       
                 <div class="row col-6 mb-3">
                     <label for="inputPassword" class="col-sm-4 col-form-label">#5 {{$t('uploadPictures')}}</label>
                     <div class="col-sm-8">
-                        <UploadInput :buttonLabel="attachment" @fileSelected="handleFileSelected5" />
+                        <UploadInput :buttonLabel="attachment" @fileSelected="handleFileSelected5" :error="errors.file5" />
                     </div>
                 </div>       
                 <div class="row col-6 mb-3">
                     <label for="inputPassword" class="col-sm-4 col-form-label">#6 {{$t('uploadPictures')}}</label>
                     <div class="col-sm-8">
-                        <UploadInput :buttonLabel="attachment" @fileSelected="handleFileSelected6" />
+                        <UploadInput :buttonLabel="attachment" @fileSelected="handleFileSelected6" :error="errors.file6" />
                     </div>
                 </div>
             </div>
@@ -421,6 +421,12 @@ const schema = {
     option11:'required',
     option12:'required',
     option13:'required',
+    file1: 'required',
+    file2: 'required',
+    file3: 'required',
+    file4: 'required',
+    file5: 'required',
+    file6: 'required',
 }
 const { validate, errors } = useForm({validationSchema: schema})
 const { value: productName } = useField("productName", null, { initialValue: ''})
@@ -445,7 +451,12 @@ const { value: option2 } = useField("option2", null, { initialValue: ''})
 const { value: option11 } = useField("option11", null, { initialValue: ''})
 const { value: option12 } = useField("option12", null, { initialValue: ''})
 const { value: option13 } = useField("option13", null, { initialValue: ''})
-
+const { value: file1 } = useField("file1", null, { initialValue: ''})
+const { value: file2 } = useField("file2", null, { initialValue: ''})
+const { value: file3 } = useField("file3", null, { initialValue: ''})
+const { value: file4 } = useField("file4", null, { initialValue: ''})
+const { value: file5 } = useField("file5", null, { initialValue: ''})
+const { value: file6 } = useField("file6", null, { initialValue: ''})
 const { storeGood, isLoading, validationErrors, getGood } = useGoods();
 
 const goods = reactive({
@@ -473,14 +484,14 @@ const goods = reactive({
     option3
 })
 
-const selectedPictures = {
-    file1:  null,
-    file2:  null,
-    file3: null,
-    file4: null,
-    file5: null,
-    file6: null
-}
+const selectedPictures = reactive({
+    file1,
+    file2,
+    file3,
+    file4,
+    file5,
+    file6
+})
 
 function submitForm() {
     validate().then( async form => {

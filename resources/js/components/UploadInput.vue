@@ -4,6 +4,9 @@
       <input type="file" :id="inputId" @change="handleFileChange" ref="fileInput" style="display: none">
       <button class="col-sm-3 btn btn-primary" @click="openFileInput" type="button">{{ buttonLabel }}</button>
       <img v-if="imageUrl" :src="imageUrl" alt="Selected Image" style="max-width: 100px; max-height: 100px; border: 2px solid darkgray; padding: 10px;">
+      <div v-if="error" class="text-danger mt-1">
+          {{ error }}
+      </div>
   </div>
 </template>
 
@@ -12,7 +15,7 @@ import { ref, onMounted } from 'vue';
 
 const label = ref(' ');
 const imageUrl = ref(''); // To store the URL of the selected image
-const { buttonLabel, image } = defineProps(['buttonLabel', 'image']);
+const { buttonLabel, image, error } = defineProps(['buttonLabel', 'image', 'error']);
 const inputId = 'customFileInput';
 
 const fileInput = ref(null);

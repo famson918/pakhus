@@ -1,5 +1,5 @@
 <template>
-    <div class="container card p-7">
+    <div class="container card p-7" style="max-height: 100vh; overflow-y: auto;">
         <div v-if="!edit" class="row justify-content-center">
             <div class="col-6 mb-2 text-center">
             <p class="fs-1 fw-7">{{ $t('what_is_your_item') }}</p>
@@ -173,21 +173,21 @@
                 <label for="inputPassword" class="col-sm-3 col-form-label"><span class="">{{ $t('productManual') }}</span><span>{{ $t('freeStyle') }}</span></label>
                 <div class="col-sm-9">
                 <DownloadInput v-if="edit" :buttonLabel="attachment" :file="editableData.productManual" />
-                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected1" />
+                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected1" :error="errors.file1"/>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="inputPassword" class="col-sm-3 col-form-label ">{{ $t('productDrawings') }}</label>
                 <div class="col-sm-9">
                 <DownloadInput v-if="edit" :buttonLabel="attachment" :file="editableData.productDrawings" />
-                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected2" />
+                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected2" :error="errors.file2"/>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="inputPassword" class="col-sm-3 col-form-label ">{{ $t('photoData_pictures') }}</label>
                 <div class="col-sm-9">
                 <DownloadInput v-if="edit" :buttonLabel="attachment" :file="editableData.photos"/>
-                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected3" />
+                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected3" :error="errors.file3" />
                 </div>
             </div>
             <div class="mb-3 row">
@@ -197,7 +197,7 @@
                 </div>
             </div>
             <div v-if="!edit" class="mb-3 row justify-content-center">
-                <router-link to="/admin/proposals" class="col-4 btn btn-light btn-active-light-primary me-2">
+                <router-link to="/proposals" class="col-4 btn btn-light btn-active-light-primary me-2">
                     <span >{{ $t('cancel') }}</span>
                 </router-link>
                 <button :disabled="isLoading" class="btn btn-primary col-4">
@@ -295,12 +295,18 @@ const schema = {
     itemName: 'required',
     contactInformation: 'required',
     email: 'required',
+    file1: 'required',
+    file2: 'required',
+    file3: 'required',
 }
 const { validate, errors } = useForm({validationSchema: schema})
 const { value: productName } = useField('productName', null, { initialValue: ''})
 const { value: itemName } = useField('itemName', null, { initialValue: ''})
 const { value: contactInformation } = useField('contactInformation', null, { initialValue: ''})
 const { value: email } = useField('email', null, { initialValue: ''})
+const { value: file1 } = useField('file1', null, { initialValue: ''})
+const { value: file2 } = useField('file2', null, { initialValue: ''})
+const { value: file3 } = useField('file3', null, { initialValue: ''})
 const { storeProposal, updateProposal, validationErrors, isLoading, getProposals } = useProposals()
 const proposal = reactive({
     productName,
@@ -319,11 +325,11 @@ const proposal = reactive({
     status: "notConfirmed"
 })
 
-const selectedFiles = {
-  file1: null,
-  file2: null,
-  file3: null
-};
+const selectedFiles = reactive({
+  file1,
+  file2,
+  file3
+});
 
 function submitForm() {
     validate().then( async form => {
