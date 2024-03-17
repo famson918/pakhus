@@ -88,6 +88,13 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">{{ $t('role') }}</label>
+                                <select v-model="user.role" @change="changeRole" class="form-select  col-2" aria-label="Default select example">
+                                    <option value="user">{{ $t('user') }}</option>
+                                    <option value="admin">{{ $t('admin') }}</option>
+                                </select>
+                            </div>
                         <div class="mt-4">
                             <router-link to="/admin/users" class="btn btn-light btn-active-light-primary me-2" >
                                 <span>{{ $t('cancel') }}</span>
@@ -138,7 +145,7 @@
     const schema = {
         name: 'required',
         email: 'required',
-        // postCode: 'required',
+        role: 'required',
         cellPhone:'required',
         companyName:'required',
         position:'required',
@@ -151,7 +158,7 @@
     const { value: name } = useField('name', null, { initialValue: '' });
     const { value: email } = useField('email', null, { initialValue: '' });
     const { value: password } = useField('password', null, { initialValue: '' });
-    // const { value: postCode } = useField('postCode', null, { initialValue: '' });
+    const { value: role } = useField('role', null, { initialValue: '' });
     const { value: cellPhone } = useField('cellPhone', null, { initialValue: '' });
     const { value: companyName } = useField('companyName', null, { initialValue: '' });
     const { value: position } = useField('position', null, { initialValue: '' });
@@ -161,7 +168,7 @@
         name,
         email,
         password,
-        // postCode,
+        role,
         cellPhone,
         companyName,
         position,
@@ -181,7 +188,7 @@
         user.id = postData.value.id
         user.name = postData.value.name
         user.email = postData.value.email,
-        // user.postCode = postData.value.postCode,
+        user.role = postData.value.role,
         user.cellPhone = postData.value.cellPhone,
         user.companyName = postData.value.companyName,
         user.position = postData.value.position

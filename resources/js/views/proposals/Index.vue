@@ -149,6 +149,7 @@ onMounted(async()=>{
   getProposals();
   getResults(currentPage.value)
   checkRole(user);
+  console.log('user.value :>> ', user.value);
 })
 
 
@@ -157,11 +158,11 @@ const handleSearch = () => {
 }
 // Computed property to filter items based on search term
 const filteredItems = computed(() => {
-    const inputString = user.value.email ? user.value.email : '';
+    const inputString = user.value.role ? user.value.role : '';
     const isAdmin = inputString ? inputString.toLowerCase().includes("admin") : '';
     if (isAdmin) {
         if (proposals.value) {
-          return proposals.value.filter(item => item.status.toLowerCase() !== "cancel").filter(item => {
+          return proposals.value.filter(item => item.status && item.status.toLowerCase() !== "cancel").filter(item => {
             return Object.values(item).some(value =>
               String(value).toLowerCase().includes(searchTerm.value.toLowerCase())
             );
@@ -308,7 +309,7 @@ const updateEdit = (newValue) => {
 }
 
 const checkRole = (user) => {
-    const inputString = user.value.email ? user.value.email : '';
+    const inputString = user.value.role ? user.value.role : '';
     const isAdmin = inputString.toLowerCase().includes("admin");
     if (isAdmin) {
         role.value = true

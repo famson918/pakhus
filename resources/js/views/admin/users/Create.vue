@@ -88,6 +88,13 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">{{ $t('position') }}</label>
+                            <select v-model="post.role" @change="changeRole" class="form-select  col-2" aria-label="Default select example">
+                                <option value="user">{{ $t('user') }}</option>
+                                <option value="admin">{{ $t('admin') }}</option>
+                            </select>
+                        </div>
                         <div class="mt-4">
                             <router-link to="/admin/users" class="btn btn-light btn-active-light-primary me-2" >
                                 <span>{{ $t('cancel') }}</span>
@@ -126,6 +133,7 @@
         companyName: 'required',
         position: 'required',
         password: 'required|min:8',
+        role: 'required',
     }
     // Create a form context with the validation schema
     const { validate, errors } = useForm({ validationSchema: schema })
@@ -136,6 +144,7 @@
     const { value: cellPhone } = useField('cellPhone', null, { initialValue: '' });
     const { value: companyName } = useField('companyName', null, { initialValue: '' });
     const { value: position } = useField('position', null, { initialValue: '' });
+    const { value: role } = useField('role', null, { initialValue: '' });
 
     const post = reactive({
         name,
@@ -144,6 +153,7 @@
         cellPhone,
         companyName,
         position,
+        role
     })
     function submitForm() {
         validate().then(form => { if (form.valid) storeUser(post) })
@@ -151,4 +161,8 @@
     onMounted(() => {
         getRoleList()
     })
+    const changeRole = (event) => {
+        post.role = event.target.value;
+    }
+
 </script>

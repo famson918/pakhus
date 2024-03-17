@@ -24,6 +24,7 @@ class UserResource extends JsonResource
             // 'postCode' => $this->postCode,
             'companyName' => $this->companyName,
             'position' => $this->position,
+            'role' => $this->role,
             'created_at' => $this->created_at->toDateString()
         ];
     }

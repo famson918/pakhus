@@ -97,7 +97,7 @@ const removeGood = async (item) => {
 
 
 const checkRole = (user) => {
-    const inputString = user.value.email ? user.value.email : '';
+    const inputString = user.value.role ? user.value.role : '';
     const isAdmin = inputString.toLowerCase().includes("admin");
     if (isAdmin) {
         role.value = true

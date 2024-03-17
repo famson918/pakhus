@@ -173,5 +173,8 @@
     "footerRegistrationNumber": "Registration Number",
     "footerAddress": "Address",
     "footerEmail": "E-mail",
-    "termsNotAccepted": "You must to accept the terms and conditions."
+    "termsNotAccepted": "You must to accept the terms and conditions.",
+    "user": "User",
+    "admin": "Administrator",
+    "role": "Role"
 }

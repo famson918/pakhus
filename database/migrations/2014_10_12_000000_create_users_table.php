@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('cellPhone')->nullable();
             $table->string('position')->nullable();
             $table->string('companyName')->nullable();
+            $table->string('role')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

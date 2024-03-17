@@ -351,6 +351,14 @@
                     <div class="col-sm-12">
                         <textarea v-model="goods.productDescription" class="form-control" id="exampleFormControlTextarea1" rows="15"></textarea>
                     </div>
+                    <div class="text-danger mt-1">
+                        {{ errors.productDescription }}
+                    </div>
+                    <div class="text-danger mt-1">
+                        <div v-for="message in validationErrors?.productDescription">
+                            {{ message }}
+                        </div>
+                    </div>
                 </div>       
             </div>
             <div class="mb-3 row ">
@@ -427,6 +435,7 @@ const schema = {
     file4: 'required',
     file5: 'required',
     file6: 'required',
+    productDescription: 'required',
 }
 const { validate, errors } = useForm({validationSchema: schema})
 const { value: productName } = useField("productName", null, { initialValue: ''})

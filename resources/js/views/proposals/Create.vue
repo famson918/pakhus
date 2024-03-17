@@ -252,6 +252,7 @@ const store = useStore();
 
 const { edit, editableData } = defineProps(['edit', 'editableData'])
 const locale = computed(() => store.state.lang.locale);
+const user = computed(() => store.state.auth.user);
 
 let formattedNumber = ref();
 let attachment = ref();
@@ -309,6 +310,7 @@ const { value: file2 } = useField('file2', null, { initialValue: ''})
 const { value: file3 } = useField('file3', null, { initialValue: ''})
 const { storeProposal, updateProposal, validationErrors, isLoading, getProposals } = useProposals()
 const proposal = reactive({
+    user_id: user.value.id.toString().padStart(5, '0'),
     productName,
     itemName,
     contactInformation,
@@ -345,6 +347,7 @@ function submitForm() {
                 getProposals();
                 updateEdit()
             } else {
+                console.log('proposalWithFiles :>> ', proposalWithFiles);
                 await storeProposal(proposalWithFiles);
                 getProposals()
             }

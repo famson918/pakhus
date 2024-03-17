@@ -81,7 +81,7 @@
                                 </button>
                             </div>
                             <div class="d-flex justify-content-start flex-column" v-else>
-                               {{item[column.value]}}
+                              {{ format(item, column.value) }}
                             </div>
                         </div>
                     </td>
@@ -182,7 +182,7 @@ watchEffect(()=> getResults(currentPage.value))
         { text: t('name'), value: 'name' },
         { text: t('email'), value: 'email' },
         { text: t('cellPhone'), value: 'cellPhone' },
-        // { text: t('postCode'), value: 'postCode' },
+        { text: t('role'), value: 'role' },
         { text: t('companyName'), value: 'companyName' },
         { text: t('position'), value: 'position' },
         { text: t('actions'), value: 'actions' },
@@ -239,6 +239,13 @@ watchEffect(()=> getResults(currentPage.value))
   const deleteItem = (item) => {
     deleteUser(item.id)
   }
+
+  const format = (item, column) => {
+  if (column === 'id') {
+    return item[column].toString().padStart(5, '0');
+  }
+  return item[column];
+}
 </script>
 <style>
 .input-container {
