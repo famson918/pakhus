@@ -37,12 +37,12 @@
 							</div> -->
 							<!--end::Separator-->
 							<!--begin::Input group-->
-							<div class="row fv-row mb-7">
+							<!-- <div class="row fv-row mb-7"> -->
 								<!--begin::Col-->
-                                <label class="form-label fw-bolder text-dark fs-6">{{ $t('postCode') }}</label>
-                                <input v-model="registerForm.postCode" class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="first-name" autocomplete="off" />
+                                <!-- <label class="form-label fw-bolder text-dark fs-6">{{ $t('postCode') }}</label> -->
+                                <!-- <input v-model="registerForm.postCode" class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="first-name" autocomplete="off" /> -->
 								<!--end::Col-->
-							</div>
+							<!-- </div> -->
 							<div class="row fv-row mb-7">
                                 <label class="form-label fw-bolder text-dark fs-6">{{ $t('name') }}</label>
                                 <input v-model="registerForm.name" class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="last-name" autocomplete="off" />
@@ -72,19 +72,19 @@
 									<!--end::Label-->
 									<!--begin::Input wrapper-->
 									<div class="position-relative mb-3">
-										<input v-model="registerForm.password"  class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="password" autocomplete="off" />
+										<input v-model="registerForm.password"  class="form-control form-control-lg form-control-solid" :type="password" placeholder="" name="password" autocomplete="off" />
 										<span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
-											<i class="bi bi-eye-slash fs-2"></i>
-											<i class="bi bi-eye fs-2 d-none"></i>
+											<i v-on:click="showPassword"  :class="[passwordVisible ? 'bi bi-eye-slash' : 'bi bi-eye', 'fs-2']"></i>
+											<i  class="bi bi-eye fs-2 d-none"></i>
 										</span>
 									</div>
 									<!--end::Input wrapper-->
 									<!--begin::Meter-->
 									<div class="d-flex align-items-center mb-3" data-kt-password-meter-control="highlight">
-										<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
-										<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
-										<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
-										<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
+										<div class="flex-grow-1 bg-active-success rounded h-5px me-2" :class="[passwordStrength > 1 ? 'bg-primary': 'bg-secondary']"></div>
+										<div class="flex-grow-1 bg-active-success rounded h-5px me-2" :class="[passwordStrength > 2 ? 'bg-primary': 'bg-secondary']"></div>
+										<div class="flex-grow-1  bg-active-success rounded h-5px me-2" :class="[passwordStrength > 3 ? 'bg-primary': 'bg-secondary']"></div>
+										<div class="flex-grow-1  bg-active-success rounded h-5px" :class="[passwordStrength >= 4 ? 'bg-primary': 'bg-secondary']"></div>
 									</div>
 									<!--end::Meter-->
 								</div>
@@ -121,6 +121,13 @@
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
+							<div class="fv-row mb-10">
+								<label class="form-check form-check-custom form-check-solid form-check-inline">
+									<input v-model="registerForm.terms" class="form-check-input" type="checkbox" name="toc" value="1" />
+									<span class="form-check-label fw-bold text-gray-700 fs-6">{{$t('iAgree')}}
+									<router-link to="/policy" class="ms-1 link-primary">{{ $t('terms') }}</router-link>.</span>
+								</label>
+							</div>
 							<!--begin::Actions-->
 							<div class="text-center">
 								<button type="submit" id="kt_sign_up_submit" :class="{ 'opacity-25': processing }" :disabled="processing" class="btn btn-lg btn-primary">
@@ -130,13 +137,6 @@
 								</button>
 							</div>
 							<!--end::Actions-->
-							<div class="fv-row mb-10">
-								<label class="form-check form-check-custom form-check-solid form-check-inline">
-									<input class="form-check-input" type="checkbox" name="toc" value="1" />
-									<span class="form-check-label fw-bold text-gray-700 fs-6">{{$t('iAgree')}}
-									<router-link to="/policy" class="ms-1 link-primary">{{ $t('terms') }}</router-link>.</span>
-								</label>
-							</div>
 							<!--end::Input group-->
 						</form>
 						<!--end::Form-->
@@ -152,8 +152,33 @@
 <script setup>
 
 import useAuth from '@/composables/auth'
+import { ref, computed } from 'vue';
 
+const password = ref('password');
+const passwordVisible = ref(false);
 const { registerForm, validationErrors, processing, submitRegister } = useAuth();
+
+const showPassword = () => {
+	passwordVisible.value = !passwordVisible.value;
+	password.value = password.value === 'password'? 'text' : 'password';
+}
+const passwordStrength = computed(() => {
+  const strength = calculatePasswordStrength(registerForm.password);
+  return strength;
+});
+
+function calculatePasswordStrength(password) {
+  // Simple logic to calculate password strength (example)
+  if (password.length >= 8) {
+    return 4; // Strong
+  } else if (password.length >= 6) {
+    return 3; // Medium
+  } else if (password.length >= 4) {
+    return 2; // Weak
+  } else {
+    return 1; // Very Weak
+  }
+}
 
 </script>
 <style>

@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="password" class="form-label">{{ $t('postCode') }}</label>
                             <input v-model="post.postCode" id="password" type="text" class="form-control">
                             <div class="text-danger mt-1">
@@ -51,7 +51,7 @@
                                     {{ message }}
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="mb-3">
                             <label for="password" class="form-label">{{ $t('cellPhone') }}</label>
                             <input v-model="post.cellPhone" id="password" type="text" class="form-control">
@@ -124,7 +124,6 @@
         email: 'required',
         cellPhone: 'required',
         companyName: 'required',
-        postCode: 'required',
         position: 'required',
         password: 'required|min:8',
     }
@@ -135,7 +134,6 @@
     const { value: email } = useField('email', null, { initialValue: '' });
     const { value: password } = useField('password', null, { initialValue: '' });
     const { value: cellPhone } = useField('cellPhone', null, { initialValue: '' });
-    const { value: postCode } = useField('postCode', null, { initialValue: '' });
     const { value: companyName } = useField('companyName', null, { initialValue: '' });
     const { value: position } = useField('position', null, { initialValue: '' });
 
@@ -144,7 +142,6 @@
         email,
         password,
         cellPhone,
-        postCode,
         companyName,
         position,
     })

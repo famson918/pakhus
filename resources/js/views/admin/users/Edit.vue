@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="password" class="form-label">{{ $t('postCode') }}</label>
                             <input v-model="user.postCode" id="password" type="text" class="form-control">
                             <div class="text-danger mt-1">
@@ -51,7 +51,7 @@
                                     {{ message }}
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="mb-3">
                             <label for="password" class="form-label">{{ $t('cellPhone') }}</label>
                             <input v-model="user.cellPhone" id="password" type="text" class="form-control">
@@ -138,7 +138,7 @@
     const schema = {
         name: 'required',
         email: 'required',
-        postCode: 'required',
+        // postCode: 'required',
         cellPhone:'required',
         companyName:'required',
         position:'required',
@@ -151,7 +151,7 @@
     const { value: name } = useField('name', null, { initialValue: '' });
     const { value: email } = useField('email', null, { initialValue: '' });
     const { value: password } = useField('password', null, { initialValue: '' });
-    const { value: postCode } = useField('postCode', null, { initialValue: '' });
+    // const { value: postCode } = useField('postCode', null, { initialValue: '' });
     const { value: cellPhone } = useField('cellPhone', null, { initialValue: '' });
     const { value: companyName } = useField('companyName', null, { initialValue: '' });
     const { value: position } = useField('position', null, { initialValue: '' });
@@ -161,7 +161,7 @@
         name,
         email,
         password,
-        postCode,
+        // postCode,
         cellPhone,
         companyName,
         position,
@@ -181,7 +181,7 @@
         user.id = postData.value.id
         user.name = postData.value.name
         user.email = postData.value.email,
-        user.postCode = postData.value.postCode,
+        // user.postCode = postData.value.postCode,
         user.cellPhone = postData.value.cellPhone,
         user.companyName = postData.value.companyName,
         user.position = postData.value.position

@@ -182,7 +182,7 @@ watchEffect(()=> getResults(currentPage.value))
         { text: t('name'), value: 'name' },
         { text: t('email'), value: 'email' },
         { text: t('cellPhone'), value: 'cellPhone' },
-        { text: t('postCode'), value: 'postCode' },
+        // { text: t('postCode'), value: 'postCode' },
         { text: t('companyName'), value: 'companyName' },
         { text: t('position'), value: 'position' },
         { text: t('actions'), value: 'actions' },

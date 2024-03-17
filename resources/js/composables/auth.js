@@ -81,29 +81,34 @@ export default function useAuth() {
     }
 
     const submitRegister = async () => {
-        if (processing.value) return
 
-        processing.value = true
-        validationErrors.value = {}
-        await axios.post('/register', registerForm)
-            .then(async response => {
-                await store.dispatch('auth/getUser')
-                await loginUser()
-                    swal({
-                        position: "top-end",
-                        icon: 'success',
-                        title: t('registrationSuccessMessage'),
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                await router.push({ name: 'auth.login' })
-            })
-            .catch(error => {
-                if (error.response?.data) {
-                    validationErrors.value = error.response.data.errors
-                }
-            })
-            .finally(() => processing.value = false)
+        if (!registerForm.terms) {
+            alert(t('termsNotAccepted'))
+        } else {
+            if (processing.value) return
+    
+            processing.value = true
+            validationErrors.value = {}
+            await axios.post('/register', registerForm)
+                .then(async response => {
+                    await store.dispatch('auth/getUser')
+                    await loginUser()
+                        swal({
+                            position: "top-end",
+                            icon: 'success',
+                            title: t('registrationSuccessMessage'),
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    await router.push({ name: 'auth.login' })
+                })
+                .catch(error => {
+                    if (error.response?.data) {
+                        validationErrors.value = error.response.data.errors
+                    }
+                })
+                .finally(() => processing.value = false)
+        }
     }
 
     const submitForgotPassword = async () => {

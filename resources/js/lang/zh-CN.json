@@ -172,6 +172,7 @@
     "footerAgent": "代表者",
     "footerRegistrationNumber": "营业执照号码",
     "footerAddress": "地址",
-    "footerEmail": "电子邮件"
+    "footerEmail": "电子邮件",
+    "termsNotAccepted": "您必须同意条款和条件'"
 
 }

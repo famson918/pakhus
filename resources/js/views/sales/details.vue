@@ -100,8 +100,8 @@
                     <p>{{ $t('sampleOrderPrice') }}: {{good.sampleOrderPrice}}元/套餐</p>
                     <p>{{ $t('sampleOrderDeliveryTime') }}: {{good.sampleOrderDeliveryTime}}{{ $t('withinADay') }}</p>
                     <button @click="openModal" type="button" class="btn btn-primary" style="float: right;">{{ $t('consult') }}</button>
-                    <div :class="{ 'modal': true, 'show': isModalOpen }">
-                        <div class="modal-content">
+                    <div :class="{ 'modal1': true, 'show': isModalOpen }">
+                        <div class="modal-content1">
                         <div class="modal-header" style="background-color: lightblue;">
                             <h5 class="modal-title" id="exampleModalLabel">{{ $t('contactTitle') }}</h5>
                             <button  @click="closeModal" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -179,9 +179,9 @@ onMounted(async () => {
 })
 </script>
 <style>
-.modal {
+.modal1 {
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   left: 0;
   top: 0;
   width: 100%;
@@ -190,7 +190,7 @@ onMounted(async () => {
   display: none;
 }
 
-.modal-content {
+.modal-content1 {
   background-color: white;
   margin: 10% auto;
   border: 1px solid #888;

@@ -172,5 +172,6 @@
     "footerAgent": "Agent",
     "footerRegistrationNumber": "Registration Number",
     "footerAddress": "Address",
-    "footerEmail": "E-mail"
+    "footerEmail": "E-mail",
+    "termsNotAccepted": "You must to accept the terms and conditions."
 }
