@@ -32,7 +32,8 @@ class Proposal extends Model implements HasMedia
         'KC_certification',
         'postEventManagement',
         "status",
-        'user_id'
+        'delegatedId',
+        'userId'
 
     ];
 

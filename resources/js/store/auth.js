@@ -43,8 +43,8 @@ export default {
                     console.log('getUser success ', data.data)
                     commit('SET_USER', data.data)
                     commit('SET_AUTHENTICATED', true)
-                    const inputString = data.data.email;
-                    console.log('data.data.email', data.data.email)
+                    const inputString = data.data.role;
+                    console.log('data.data.email', data.data.role)
                     const isAdmin = inputString.toLowerCase().includes("admin");
                     if (isAdmin) {
                         commit('CHECK_ADMIN', 'admin')

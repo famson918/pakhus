@@ -310,7 +310,7 @@ const { value: file2 } = useField('file2', null, { initialValue: ''})
 const { value: file3 } = useField('file3', null, { initialValue: ''})
 const { storeProposal, updateProposal, validationErrors, isLoading, getProposals } = useProposals()
 const proposal = reactive({
-    user_id: user.value.id.toString().padStart(5, '0'),
+    user_id: user.value.id * 1000,
     productName,
     itemName,
     contactInformation,

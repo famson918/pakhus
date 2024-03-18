@@ -7,27 +7,27 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6 p-2">
-                                <img :src="good.media[0] ? good.media[0].original_url : ''" class="img-fluid" alt="Large Image">
+                                <img :src="image1" class="img-fluid" alt="Large Image">
                             </div>
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-6 p-2">
-                                        <img :src="good.media[0] ? good.media[0].original_url : ''" class="img-fluid" alt="Image 1">
+                                        <img @click="changeURL(good.media[0])" :src="good.media[0] ? good.media[0].original_url : ''" class="img-fluid" alt="Image 1">
                                     </div>
                                     <div class="col-6 p-2">
-                                        <img :src="good.media[1] ? good.media[1].original_url : ''" class="img-fluid" alt="Image 2">
+                                        <img  @click="changeURL(good.media[1])" :src="good.media[1] ? good.media[1].original_url : ''" class="img-fluid" alt="Image 2">
                                     </div>
                                     <div class="col-6 p-2">
-                                        <img :src="good.media[2] ? good.media[2].original_url : ''" class="img-fluid" alt="Image 3">
+                                        <img  @click="changeURL(good.media[2])" :src="good.media[2] ? good.media[2].original_url : ''" class="img-fluid" alt="Image 3">
                                     </div>
                                     <div class="col-6 p-2">
-                                        <img :src="good.media[3] ? good.media[3].original_url : ''" class="img-fluid" alt="Image 4">
+                                        <img  @click="changeURL(good.media[3])" :src="good.media[3] ? good.media[3].original_url : ''" class="img-fluid" alt="Image 4">
                                     </div>
                                     <div class="col-6 p-2">
-                                        <img :src="good.media[4] ? good.media[4].original_url : ''" class="img-fluid" alt="Image 5">
+                                        <img @click="changeURL(good.media[4])" :src="good.media[4] ? good.media[4].original_url : ''" class="img-fluid" alt="Image 5">
                                     </div>
                                     <div class="col-6 p-2">
-                                        <img :src="good.media[5] ? good.media[5].original_url : ''" class="img-fluid" alt="Image 6">
+                                        <img @click="changeURL(good.media[5])" :src="good.media[5] ? good.media[5].original_url : ''" class="img-fluid" alt="Image 6">
                                     </div>
                                 </div>
                             </div>
@@ -154,7 +154,7 @@ const good = ref();
 const route = useRoute()
 const store = useStore();
 const router = useRouter();
-
+const image1 = ref();
 const authenticated = computed(()=> store.state.auth.authenticated)
 const isModalOpen = ref(false);
 
@@ -171,12 +171,17 @@ function closeModal() {
 }
 
 onMounted(async () => {
-    console.log('route', route)
+    console.log('routedd', route)
     await axios.get('/api/get-good/' + route.params.id).then(({ data }) => {
         console.log('data', data)
         good.value = data;
+        image1.value = data.media[0].original_url
     })
 })
+
+const changeURL = (item) => {
+    image1.value = item.original_url
+}
 </script>
 <style>
 .modal1 {

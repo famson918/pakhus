@@ -22,8 +22,27 @@ class ProposalController extends Controller
 
     public function store(Request $request)
     {
-        var_dump($request->all());
+        
+   
+        $lastProposal = Proposal::where('userId', $request['user_id'])->latest()->first();
+        $data = 0;
+        $numberString = '';
+        
+        if ($lastProposal) {
+            $numberString = (string)$lastProposal->delegatedId;
+            $desiredNumber = substr($numberString, 3);
+            $number = (int)$desiredNumber;
+            $data = ++$number; // Pre-increment the number and assign it to data
+        } else {
+            $data++;
+        }
+        $id = $request['user_id'] + $data;
+
+        // Get the substring from the 0th to the 3rd position (excluding the 0th position)
+        $desiredNumber = substr($numberString, 3);
         $proposal = Proposal::create([
+            'delegatedId' => $id,
+            'userId' => $request['user_id'],
             'productName' => $request['productName'],
             'itemName' => $request['itemName'],
             'email' => $request['email'],

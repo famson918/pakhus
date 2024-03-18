@@ -28,6 +28,7 @@ class ProposalResource extends JsonResource
             'contactInformation' => $this->contactInformation,
             'email' => $this->email,
             'others' => $this->others,
+            'delegatedId' => $this->delegatedId,
             'productDevelopment' => $this->productDevelopment,
             'developmentProgram' => $this->developmentProgram,
             'productionQuotationSurvey' => $this->productionQuotationSurvey,

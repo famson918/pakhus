@@ -78,7 +78,7 @@
                             <span v-else-if="item.status === 'cancel'" class="badge badge-light-info fs-7 fw-bold">{{ format(item, column.value) }}</span>
                           </div>
                           <div class="d-flex justify-content-start flex-column" v-else>
-                              {{ format(item, column.value) }}
+                            {{ format(item, column.value) }}
                           </div>
                       </div>
                   </td>
@@ -149,7 +149,6 @@ onMounted(async()=>{
   getProposals();
   getResults(currentPage.value)
   checkRole(user);
-  console.log('user.value :>> ', user.value);
 })
 
 
@@ -205,7 +204,7 @@ watchEffect(()=> getResults(currentPage.value))
 const updateColumns = () => {
   if (role.value) {
     columns.value = [
-      { text: t('id'), value: 'id' },
+      { text: t('id'), value: 'delegatedId' },
       { text: t('productName'), value: 'productName' },
       { text: t('contactInformation'), value: 'contactInformation' },
       { text: t('created_at'), value: 'created_at' },
@@ -215,7 +214,7 @@ const updateColumns = () => {
   } else {
     console.log('locale--', proposals.value)
     columns.value = [
-      { text: t('id'), value: 'id' },
+      { text: t('id'), value: 'delegatedId' },
       { text: t('productName'), value: 'productName' },
       { text: t('contactInformation'), value: 'contactInformation' },
       { text: t('created_at'), value: 'created_at' },
@@ -268,8 +267,8 @@ const apply = () => {
 }
 
 const format = (item, column) => {
-  if (column === 'id') {
-    return item[column].toString().padStart(8, '0');
+  if (column === 'delegatedId') {
+    return item[column] ? item[column].toString().padStart(8, '0') :'';
   }
   if (column === "status") {
     if (locale.value === 'en') {

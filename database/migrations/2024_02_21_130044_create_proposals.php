@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('itemName');
             $table->string('contactInformation');
             $table->string('email');
+            $table->string('delegatedId')->nullable();
+            $table->string('userId')->nullable();
             $table->string('productManual')->nullable();
             $table->string('productDrawings')->nullable();
             $table->string('photos')->nullable();
