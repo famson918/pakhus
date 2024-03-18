@@ -176,5 +176,9 @@
     "termsNotAccepted": "You must to accept the terms and conditions.",
     "user": "User",
     "admin": "Administrator",
-    "role": "Role"
+    "role": "Role",
+    "the": "The",
+    "field": "field is required!",
+    "mustBeAtLeast": "must be at least",
+    "characters": "characters!"
 }

@@ -153,12 +153,11 @@
   import { useRouter } from 'vue-router';
   import { useStore } from 'vuex';
   import { onMounted } from 'vue';
-  import { required, min } from "@/validation/rules";
+  import useRules from "@/validation/rules";
   import useGoods from '../../composables/goods'
   
 
   const store = useStore();
-  
   const  router = useRouter();
   const goods = computed(()=> store.state.good.goods)
   const locale = computed(() => store.state.lang.locale);
@@ -174,7 +173,6 @@
   
   onMounted(async()=>{
     await getGoods();
-    console.log('goods :>> ', goods.value);
     getResults(currentPage.value)
   })
   const searchTerm = ref('');
@@ -223,7 +221,6 @@
   
     // Computed property to sort items based on the column and direction
     const sortedItems = computed(() => {
-      console.log('filteredItems.value :>> ', filteredItems.value);
         if (filteredItems.value) {
         if (sortedColumn) {
             return filteredItems.value.slice().sort((a, b) => {
@@ -238,8 +235,6 @@
     const displayedItems = computed(() => {
         if (sortedItems.value) {
             const startIndex = (currentPage.value - 1) * itemsPerPage.value;
-            console.log('sortedItems.value :>> ', sortedItems.value);
-            console.log('object :>> ',  sortedItems.value.slice(startIndex, startIndex + itemsPerPage.value));
             return sortedItems.value.slice(startIndex, startIndex + itemsPerPage.value);
         }
     });

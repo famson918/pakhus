@@ -116,6 +116,7 @@
               <div class="col-sm-9">
               <input v-model="faq.question" type="text" class="form-control" id="inputPassword">
               <div class="text-danger mt-1">
+                  {{ errors.question }}
               </div>
               <div class="text-danger mt-1">
                   <div >
@@ -130,6 +131,9 @@
                 <label for="inputPassword" class="col-sm-3 col-form-label "><span class="">{{ $t('answer') }}</span></label>
                 <div class="col-sm-9">
                     <textarea v-model="faq.answer" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                    <div class="text-danger mt-1">
+                        {{ errors.answer }}
+                    </div>
                 </div>
                 <div class="text-danger mt-1">
                     <div >
@@ -164,11 +168,11 @@
   import { useRouter } from 'vue-router';
   import { useStore } from 'vuex';
   import { onMounted } from 'vue';
-  import { required, min } from "@/validation/rules";
+  import useRules from "@/validation/rules";
   import useFaqs from '../../composables/faqs';
   
+  const { required } = useRules();
   defineRule('required', required)
-
   const  router = useRouter();
   const store = useStore();
   const locale = computed(() => store.state.lang.locale);

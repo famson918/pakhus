@@ -96,7 +96,7 @@
                             </select>
                         </div>
                         <div class="mt-4">
-                            <router-link to="/admin/users" class="btn btn-light btn-active-light-primary me-2" >
+                            <router-link to="/users" class="btn btn-light btn-active-light-primary me-2" >
                                 <span>{{ $t('cancel') }}</span>
                             </router-link>
                             <button :disabled="isLoading" class="btn btn-primary">
@@ -120,8 +120,9 @@
     const { storeUser, validationErrors, isLoading } = useUsers();
 
     import { useForm, useField, defineRule } from "vee-validate";
-    import { required, min } from "@/validation/rules";
+    import useRules from "@/validation/rules";
     
+    const { required, min } = useRules();
     defineRule('required', required);
     defineRule('min', min);
 

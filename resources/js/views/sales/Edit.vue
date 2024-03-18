@@ -378,11 +378,12 @@ import UploadInput from '../../components/UploadInput.vue';
 import { useStore } from 'vuex';
 import { defineRule, useField, useForm } from "vee-validate";
 import useGoods from '../../composables/goods';
-import { required } from "@/validation/rules";
+import useRules from "@/validation/rules";
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
+const { required } = useRules();
 
 defineRule('required', required)
 

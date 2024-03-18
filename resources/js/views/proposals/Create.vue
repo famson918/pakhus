@@ -237,19 +237,19 @@ import { defineRule, useField, useForm } from "vee-validate";
 import UploadInput from "../../components/UploadInput.vue"
 import DownloadInput from '../../components/DownloadInput.vue'
 import useProposals from "../../composables/proposals"
-import { required, min } from "@/validation/rules";
+import useRules from "@/validation/rules";
 import { reactive, onMounted, ref, computed, watch } from "vue";
 import { useStore } from 'vuex';
 import { watchEffect } from "vue";
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
+const { required, min } = useRules();
 
 defineRule('required', required)
 defineRule('min', min)
 
 const store = useStore();
-
 const { edit, editableData } = defineProps(['edit', 'editableData'])
 const locale = computed(() => store.state.lang.locale);
 const user = computed(() => store.state.auth.user);
