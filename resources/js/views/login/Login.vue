@@ -10,7 +10,7 @@
                 <!--begin::Wrapper-->
                 <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
                     <!--begin::Form-->
-                    <form @submit.prevent="submitLogin" class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="#">
+                    <form @submit.prevent="submit" class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="#">
                         <!--begin::Heading-->
                         <div class="text-center mb-10">
                             <!--begin::Title-->
@@ -29,6 +29,9 @@
                             <!--end::Label-->
                             <!--begin::Input-->
                             <input v-model="loginForm.email" :placeholder="$t('email')" class="form-control form-control-lg form-control-solid" type="text" name="email" autocomplete="off" />
+                            <div class="text-danger mt-1">
+                                {{ errors.email }}
+                            </div>
                             <div class="text-danger mt-1">
                                 <div v-for="message in validationErrors?.email">
                                     {{ message }}
@@ -51,6 +54,9 @@
                             <!--end::Wrapper-->
                             <!--begin::Input-->
                             <input  v-model="loginForm.password" :placeholder="$t('password')" class="form-control form-control-lg form-control-solid" type="password" name="password" autocomplete="off" />
+                            <div class="text-danger mt-1">
+                                {{ errors.password }}
+                            </div>
                             <div class="text-danger-600 mt-1">
                                 <div v-for="message in validationErrors?.password">
                                     {{ message }}
@@ -112,8 +118,45 @@
 
 import useAuth from '@/composables/auth'
 import { useRouter } from 'vue-router'
+import { useForm, useField, defineRule } from "vee-validate";
+import useRules from '../../validation/rules';
+import { reactive } from 'vue';
+import { watchEffect, computed } from 'vue';
+import { useStore } from 'vuex';
 
-const { loginForm, validationErrors, processing, submitLogin } = useAuth();
+const store = useStore()
+const locale = computed(() => store.state.lang.locale)
+
+const { required, min, checkEmail } = useRules();
+defineRule('required', required);
+defineRule('min', min);
+defineRule('checkEmail', checkEmail);
+// Define a validation schema
+const schema = {
+    email: 'required|checkEmail',
+    password: 'required|min:8',
+}
+// Create a form context with the validation schema
+const { validate, errors } = useForm({ validationSchema: schema })
+const { value: email } = useField('email', null, { initialValue: '' });
+const { value: password } = useField('password', null, { initialValue: '' });
+
+const loginForm = reactive({
+    email,
+    password
+})
+
+watchEffect(()=>{
+    console.log(locale.value)
+    validate();
+    errors
+})
+function submit() {
+    console.log('called :>> ');
+    validate().then(form => { if (form.valid) submitLogin(loginForm) })
+}
+
+const { validationErrors, processing, submitLogin } = useAuth();
 const  router = useRouter();
 
 const goRegister = () => {

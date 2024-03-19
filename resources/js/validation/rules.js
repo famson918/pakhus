@@ -13,10 +13,16 @@ export default function useRules() {
         return true
     }
     
-    const email = (value, args, { field }) => {
+    const checkEmail = (value, args, { field }) => {
         if (!value) {
             let msg = t('the') + " " + t(field) + " " + t('field')
             return msg
+        }
+
+           // Regular expression for basic email format validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(value)) {
+            return t('validEmail');
         }
     
         return true
@@ -37,7 +43,7 @@ export default function useRules() {
 
     return {
         required,
-        email,
+        checkEmail,
         min
     }
 }

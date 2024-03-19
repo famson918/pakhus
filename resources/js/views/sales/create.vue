@@ -392,8 +392,7 @@ import { watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
-const { required } = useRules();
-
+const { required  }  = useRules();
 defineRule('required', required)
 
 const store = useStore();

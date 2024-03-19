@@ -25,8 +25,8 @@
         <div class="aside-menu flex-column-fluid">
         <!--begin::Aside Menu-->
         <div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="0">
-            <a class="d-md-none p-7 text-center">
-                <h1 style="color: white;">Pakhus</h1>
+            <a @click="hideSidebar" class="d-md-none p-7 text-center">
+                <router-link to="/home"><h1 style="color: white;">Pakhus</h1></router-link>
             </a>
             <!--begin::Menu-->
             <span @click="hideSidebar" class="svg-icon svg-icon-1 rotate-180 float-end m-3 d-md-none">

@@ -118,7 +118,7 @@
     "alreadyAccount": "Already have an account?",
     "signHere": "Sign in here",
     "passwordRule": "Use 8 or more characters with a mix of letters, numbers &amp; symbols.",
-    "terms": "Privacy Policy",
+    "terms": "Terms and Conditions",
     "iAgree": "I Agree",
     "processing": "Processing...",
     "salesList": "Sales List",
@@ -177,8 +177,12 @@
     "user": "User",
     "admin": "Administrator",
     "role": "Role",
+    "message_error_reqiure": "* Required",
     "the": "The",
     "field": "field is required!",
     "mustBeAtLeast": "must be at least",
-    "characters": "characters!"
+    "characters": "characters!",
+    "password_confirmation": "password confirmation",
+    "validEmail": "Please enter a valid email address"
+    
 }

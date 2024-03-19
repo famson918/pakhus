@@ -48,15 +48,18 @@ const user = computed(()=> store.state.auth.user)
 let paginationData = ref([]);
 const currentPage = ref(localStorage.getItem('currentSalesPage')? localStorage.getItem('currentSalesPage') : 1);
 const role = ref(false);
+const itemsPerPage = ref(5);
 
 onMounted(async()=> {
     console.log('goods :>> ', goods.value);
     await getGoods();
     getResults(currentPage.value);
     checkRole(user);
+    updateItemsPerPage()
+    window.addEventListener('resize', updateItemsPerPage);
 })
 
-const itemsPerPage = role.value ? 4 : 5;
+
 
 const getResults = (page) => {
     localStorage.setItem('currentSalesPage', page);
@@ -69,20 +72,33 @@ const getResults = (page) => {
         current_page: page,
         data: data,
         from: page,
-        last_page: data.length / itemsPerPage + 1,
-        next_page_url: page < data.length /itemsPerPage ? '' : null,
+        last_page: data.length / itemsPerPage.value + 1,
+        next_page_url: page < data.length /itemsPerPage.value ? '' : null,
         per_page: 1,
         prev_page_url: page > 1 ? '' : null,
         to: page + 1,
-        total: data.length / itemsPerPage
+        total: data.length / itemsPerPage.value
     };
 }
 
+
+
+const updateItemsPerPage = () => {
+    if (window.innerWidth >= 684) { // Desktop size (lg and up)
+    itemsPerPage.value = 5;
+  } else {
+    console.log('called--', window.innerWidth)
+
+    itemsPerPage.value = 2;
+  }
+  getResults()
+};
+
 // Computed property to paginate items
 const displayedItems = computed(() => {
-  const startIndex = (currentPage.value - 1) * itemsPerPage;
+  const startIndex = (currentPage.value - 1) * itemsPerPage.value;
   let data = goods.value ? goods.value : []
-  return data.slice(startIndex, startIndex + itemsPerPage);
+  return data.slice(startIndex, startIndex + itemsPerPage.value);
 });
 
 

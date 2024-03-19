@@ -8,7 +8,7 @@
                 </p>
                 <hr>
                 <p style="padding-top:10px; padding-bottom:15px; text-align:center;">
-                    <!-- <span class="footer-span-bold">{{ $t('footerCompany') }}</span><span class="footer-span-normal">파쿠스</span><span class="footer-span-bold">{{ $t('footerAgent') }}</span><span class="footer-span-normal">이우종</span><span class="footer-span-bold">{{ $t('footerRegistrationNumber') }}</span><span class="footer-span-normal">344-22-01522</span><span class="footer-span-bold">{{ $t('footerAddress') }}</span><span class="footer-span-normal">성남시 중원구 갈마치로 302, 3층 B동 302호</span><span class="footer-span-bold">{{ $t('footerEmail') }}</span><span class="footer-span-normal">Pakhus@nave.com</span> -->
+                    <span class="footer-span-bold">{{ $t('footerCompany') }}</span><span class="footer-span-normal">파쿠스</span><span class="footer-span-bold">{{ $t('footerAgent') }}</span><span class="footer-span-normal">이우종</span><span class="footer-span-bold">{{ $t('footerRegistrationNumber') }}</span><span class="footer-span-normal">344-22-01522</span><span class="footer-span-bold">{{ $t('footerAddress') }}</span><span class="footer-span-normal">중원구 갈마치로 302, 3층 B동 302호</span><span class="footer-span-bold">{{ $t('footerEmail') }}</span><span class="footer-span-normal">Pakhus@nave.com</span>
                 </p>
 
                 <!-- Modal -->

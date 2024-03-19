@@ -37,10 +37,9 @@ class UserController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->role = $request->role;
         $user->cellPhone = $request->cellPhone;
-        // $user->postCode = $request->postCode;
         $user->companyName = $request->companyName;
+        $user->role = $request->role;
         $user->position = $request->position;
         $user->password = Hash::make($request->password);
 
@@ -78,7 +77,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->cellPhone = $request->cellPhone;
-        $user->role = $request->role;
+        $user->postCode = $request->postCode;
         $user->companyName = $request->companyName;
         $user->position = $request->position;
         if(!empty($request->password)) {

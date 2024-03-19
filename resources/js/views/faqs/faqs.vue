@@ -116,7 +116,7 @@
               <div class="col-sm-9">
               <input v-model="faq.question" type="text" class="form-control" id="inputPassword">
               <div class="text-danger mt-1">
-                  {{ errors.question }}
+                {{ errors.question }}
               </div>
               <div class="text-danger mt-1">
                   <div >
@@ -132,7 +132,7 @@
                 <div class="col-sm-9">
                     <textarea v-model="faq.answer" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
                     <div class="text-danger mt-1">
-                        {{ errors.answer }}
+                      {{ errors.answer }}
                     </div>
                 </div>
                 <div class="text-danger mt-1">
@@ -173,6 +173,7 @@
   
   const { required } = useRules();
   defineRule('required', required)
+
   const  router = useRouter();
   const store = useStore();
   const locale = computed(() => store.state.lang.locale);

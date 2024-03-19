@@ -23,7 +23,6 @@ class ProposalController extends Controller
     public function store(Request $request)
     {
         
-   
         $lastProposal = Proposal::where('userId', $request['user_id'])->latest()->first();
         $data = 0;
         $numberString = '';
@@ -37,12 +36,9 @@ class ProposalController extends Controller
             $data++;
         }
         $id = $request['user_id'] + $data;
-
-        // Get the substring from the 0th to the 3rd position (excluding the 0th position)
-        $desiredNumber = substr($numberString, 3);
         $proposal = Proposal::create([
             'delegatedId' => $id,
-            'userId' => $request['user_id'],
+            'userId'=> $request['user_id'],
             'productName' => $request['productName'],
             'itemName' => $request['itemName'],
             'email' => $request['email'],

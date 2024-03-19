@@ -9,7 +9,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -24,7 +23,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        // 'postCode',
         'cellPhone',
         'position',
         'companyName',
@@ -53,10 +51,5 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new UserResetPasswordNotification($token));
-    }
-
-    public function proposals()
-    {
-        return $this->hasMany(Proposal::class);
     }
 }

@@ -33,7 +33,7 @@ class Proposal extends Model implements HasMedia
         'postEventManagement',
         "status",
         'delegatedId',
-        'userId'
+        'userId',
 
     ];
 

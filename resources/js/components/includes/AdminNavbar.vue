@@ -18,7 +18,7 @@
         <!--end::Aside mobile toggle-->
         <!--begin::Mobile logo-->
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0 d-lg-none">
-            <h1 style="color: darkgray;">Pakhus</h1>
+            <router-link to="/home"><h1 style="color: darkgray;">Pakhus</h1></router-link>
             <!-- <a href="../../demo1/dist/index.html" class="d-lg-none">
                 <img alt="Logo" src="../../assets/media/logos/logo-2.svg" class="h-30px" />
             </a> -->

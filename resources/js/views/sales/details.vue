@@ -7,7 +7,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6 p-2">
-                                <img :src="image1" class="img-fluid" alt="Large Image">
+                                <img v-if="image1" :src="image1" class="img-fluid" alt="Large Image">
                             </div>
                             <div class="col-md-6">
                                 <div class="row">
@@ -180,7 +180,9 @@ onMounted(async () => {
 })
 
 const changeURL = (item) => {
+    console.log('item', item.original_url)
     image1.value = item.original_url
+    console.log('image1', image1.value)
 }
 </script>
 <style>

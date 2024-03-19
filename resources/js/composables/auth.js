@@ -52,13 +52,13 @@ export default function useAuth() {
         password_confirmation: ''
     })
 
-    const submitLogin = async () => {
+    const submitLogin = async (login) => {
         if (processing.value) return
 
         processing.value = true
         validationErrors.value = {}
 
-        await axios.post('/login', loginForm)
+        await axios.post('/login', login)
             .then(async response => {
                 localStorage.setItem('token', response.data.token)
                 await store.dispatch('auth/getUser')
@@ -80,16 +80,15 @@ export default function useAuth() {
             .finally(() => processing.value = false)
     }
 
-    const submitRegister = async () => {
-
-        if (!registerForm.terms) {
+    const submitRegister = async (register) => {
+        if (!register.terms) {
             alert(t('termsNotAccepted'))
         } else {
             if (processing.value) return
     
             processing.value = true
             validationErrors.value = {}
-            await axios.post('/register', registerForm)
+            await axios.post('/register', register)
                 .then(async response => {
                     await store.dispatch('auth/getUser')
                     await loginUser()

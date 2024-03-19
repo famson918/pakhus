@@ -44,8 +44,9 @@
 <script setup>
 import { onMounted, reactive, watchEffect } from "vue";
 import { useForm, useField, defineRule } from "vee-validate";
-import { required, min } from "@/validation/rules"
+import useRules from "@/validation/rules"
 import useProfile from "@/composables/profile";
+const { required, min } = useRules();
 defineRule('required', required)
 // defineRule('email', email)
 defineRule('min', min);

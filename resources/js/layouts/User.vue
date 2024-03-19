@@ -3,7 +3,7 @@
         <UserSideBar/>
         <div class="container-fluid">
             <AdminNavbar />
-            <div class="main d-flex justify-content-center mt-5 content flex-fill overflow-auto" style="height: 75vh;">
+            <div class="main d-flex justify-content-center mt-5 content flex-fill overflow-auto" style="height: -webkit-calc(100vh - 180px);">
                 <router-view></router-view>
             </div>
             <Footer></Footer>

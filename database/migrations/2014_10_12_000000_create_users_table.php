@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('postCode')->nullable();
             $table->string('cellPhone')->nullable();
             $table->string('position')->nullable();
-            $table->string('companyName')->nullable();
             $table->string('role')->nullable();
+            $table->string('companyName')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

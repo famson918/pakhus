@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::apiResource('proposals', ProposalController::class);
     Route::apiResource('faqs', FaqController::class);
     Route::apiResource('goods', GoodController::class);
+    Route::get('get-good/{id}', [GoodController::class, 'getGood']);
     Route::put('/proposals', [ProposalController::class, 'updateProposal']);
     Route::put('/faqs', [FaqController::class, 'updateFaq']);
     Route::post('/goods-update', [GoodController::class, 'updateGood']);
@@ -50,10 +51,11 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
             ->toArray();
     });
 });
-Route::get('get-goods', [GoodController::class, 'index']);
-Route::get('get-good/{id}', [GoodController::class, 'getGood']);
-Route::get('get-proposals', [ProposalController::class, 'index']);
+
 Route::get('category-list', [CategoryController::class, 'getList']);
+Route::get('get-proposals', [ProposalController::class, 'index']);
+Route::get('get-good/{id}', [GoodController::class, 'getGood']);
+Route::get('get-goods', [GoodController::class, 'index']);
 Route::get('get-posts', [PostController::class, 'getPosts']);
 Route::get('get-faqs', [FaqController::class, 'index']);
 Route::get('get-category-posts/{id}', [PostController::class, 'getCategoryByPosts']);

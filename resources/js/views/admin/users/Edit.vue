@@ -137,8 +137,8 @@
     const { updateUser, getUser, user: postData, validationErrors, isLoading } = useUsers();
 
     import { useForm, useField, defineRule } from "vee-validate";
-    import useRules from "@/validation/rules"
-
+    import useRules from "@/validation/rules";
+    
     const { required, min } = useRules();
     defineRule('required', required)
     defineRule('min', min);

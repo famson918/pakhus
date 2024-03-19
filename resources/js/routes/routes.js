@@ -1,13 +1,13 @@
 import Cookies from 'js-cookie'
 import store from "../store";
 
-const AuthenticatedLayout = () => import('../layouts/Authenticated.vue')
-const GuestLayout = ()  => import('../layouts/Guest.vue');
+// const AuthenticatedLayout = () => import('../layouts/Authenticated.vue')
+// const GuestLayout = ()  => import('../layouts/Guest.vue');
 const UserLayout = () => import("../layouts/User.vue");
 
-const PostsIndex  = ()  => import('../views/admin/posts/Index.vue');
-const PostsCreate  = ()  => import('../views/admin/posts/Create.vue');
-const PostsEdit  = ()  => import('../views/admin/posts/Edit.vue');
+// const PostsIndex  = ()  => import('../views/admin/posts/Index.vue');
+// const PostsCreate  = ()  => import('../views/admin/posts/Create.vue');
+// const PostsEdit  = ()  => import('../views/admin/posts/Edit.vue');
 
 function requireLogin(to, from, next) {
     let isLogin = false;

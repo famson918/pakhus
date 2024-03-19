@@ -1,9 +1,9 @@
 <template>
     <div class="container card p-7" style="max-height: 100vh; overflow-y: auto;">
         <div v-if="!edit" class="row justify-content-center">
-            <div class="col-6 mb-2 text-center">
+            <div class="col-12 mb-2 text-center">
             <p class="fs-1 fw-7">{{ $t('what_is_your_item') }}</p>
-            <p class="fs-8 fw-5">{{ $t('createText') }}</p>
+            <p class="fs-4 fw-3">{{ $t('createText') }}</p>
             </div>
         </div>
         <div v-if="edit">
@@ -31,7 +31,7 @@
         </div>
         <form @submit.prevent="submitForm">
             <div class="mb-3 row">
-                <label for="inputPassword" class="col-sm-3 col-form-label"><span>{{$t('desiredService')}}</span>{{ $t('canSelectManyTimes') }}</label>
+                <label for="inputPassword" class="col-sm-12 col-form-label"><span>{{$t('desiredService')}}</span>{{ $t('canSelectManyTimes') }}</label>
                 <div class="col-sm-9">
                     <div class="row">
                         <div class="col-sm-4">
@@ -173,21 +173,21 @@
                 <label for="inputPassword" class="col-sm-3 col-form-label"><span class="">{{ $t('productManual') }}</span><span>{{ $t('freeStyle') }}</span></label>
                 <div class="col-sm-9">
                 <DownloadInput v-if="edit" :buttonLabel="attachment" :file="editableData.productManual" />
-                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected1" :error="errors.file1"/>
+                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected1" :error="errors.file1" style="margin-left:-0.15rem"/>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="inputPassword" class="col-sm-3 col-form-label ">{{ $t('productDrawings') }}</label>
                 <div class="col-sm-9">
                 <DownloadInput v-if="edit" :buttonLabel="attachment" :file="editableData.productDrawings" />
-                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected2" :error="errors.file2"/>
+                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected2" :error="errors.file2" style="margin-left:-0.15rem"/>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="inputPassword" class="col-sm-3 col-form-label ">{{ $t('photoData_pictures') }}</label>
                 <div class="col-sm-9">
                 <DownloadInput v-if="edit" :buttonLabel="attachment" :file="editableData.photos"/>
-                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected3" :error="errors.file3" />
+                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected3" :error="errors.file3" style="margin-left:-0.15rem"/>
                 </div>
             </div>
             <div class="mb-3 row">
@@ -197,10 +197,10 @@
                 </div>
             </div>
             <div v-if="!edit" class="mb-3 row justify-content-center">
-                <router-link to="/proposals" class="col-4 btn btn-light btn-active-light-primary me-2">
+                <router-link to="/proposals" class="col-sm-3 btn btn-light btn-active-light-primary me-2">
                     <span >{{ $t('cancel') }}</span>
                 </router-link>
-                <button :disabled="isLoading" class="btn btn-primary col-4">
+                <button :disabled="isLoading" class="btn btn-primary col-sm-3">
                     <div v-show="isLoading" class=""></div>
                     <span v-if="isLoading">{{ $t('processing') }}</span>
                     <span v-else>{{ $t('register1') }}</span>
@@ -244,12 +244,13 @@ import { watchEffect } from "vue";
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
-const { required, min } = useRules();
 
+const { required, min } = useRules();
 defineRule('required', required)
 defineRule('min', min)
 
 const store = useStore();
+
 const { edit, editableData } = defineProps(['edit', 'editableData'])
 const locale = computed(() => store.state.lang.locale);
 const user = computed(() => store.state.auth.user);

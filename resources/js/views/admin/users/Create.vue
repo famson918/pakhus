@@ -89,7 +89,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">{{ $t('position') }}</label>
+                            <label for="password" class="form-label">{{ $t('role') }}</label>
                             <select v-model="post.role" @change="changeRole" class="form-select  col-2" aria-label="Default select example">
                                 <option value="user">{{ $t('user') }}</option>
                                 <option value="admin">{{ $t('admin') }}</option>
@@ -123,6 +123,7 @@
     import useRules from "@/validation/rules";
     
     const { required, min } = useRules();
+    
     defineRule('required', required);
     defineRule('min', min);
 
