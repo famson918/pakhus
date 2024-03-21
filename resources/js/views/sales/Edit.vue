@@ -67,9 +67,9 @@
                 </div>       
             </div>
             <div class="mb-3 row">
-                <div class="row col-6">
+                <div class="row col-12">
                     <label for="inputPassword" class="col-sm-2 col-form-label">{{ $t('timeRequired') }}</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-12">
                         <table class="table">
                         <thead>
                             <tr>
@@ -174,7 +174,7 @@
                 </div>       
             </div>
             <div class="mb-3 row">
-                <div class="row col-6">
+                <div class="row col-12">
                     <label for="inputPassword" class="col-sm-2 col-form-label">{{ $t('customization') }}</label>
                     <div class="col-sm-10">
                         <table class="table">
@@ -381,7 +381,7 @@ import useGoods from '../../composables/goods';
 import useRules from "@/validation/rules";
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-
+import { useRouter } from 'vue-router';
 const { t } = useI18n();
 
 const { required } = useRules();
@@ -389,7 +389,7 @@ defineRule('required', required)
 
 const store = useStore();
 const route = useRoute()
-
+const router = useRouter()
 const locale = computed(() => store.state.lang.locale);
 let attachment = ref();
 
@@ -520,6 +520,9 @@ watchEffect(() => {
         goods.option13 = good.value.option13;
     }
 })
+const goGoods = () => {
+    router.push({ name: 'salesManager.index'})
+}
 </script>
 <style>
 .lightBlue {

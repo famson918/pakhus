@@ -183,6 +183,9 @@
     "mustBeAtLeast": "must be at least",
     "characters": "characters!",
     "password_confirmation": "password confirmation",
-    "validEmail": "Please enter a valid email address"
+    "validEmail": "Please enter a valid email address",
+    "file1": "file1",
+    "file2": "file1",
+    "file3": "file1"
     
 }

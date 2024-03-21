@@ -270,6 +270,7 @@ updateText();
 watchEffect(()=> { updateText() });
 
 onMounted(() => {
+    console.log('editableData.productName :>> ', editableData);
      if (edit && editableData) {
         proposal.id = editableData.id
         proposal.productName = editableData.productName;
@@ -288,6 +289,9 @@ onMounted(() => {
         proposal.productDevelopment = editableData.productDevelopment === 1 ? true : false;
         proposal.applicationDate = editableData.created_at.split('T')[0];
         proposal.status = editableData.status;
+        selectedFiles.file1 = editableData.productManual;
+        selectedFiles.file2 = editableData.productDrawings;
+        selectedFiles.file3 = editableData.photos;
         formattedNumber.value = editableData.id.toString().padStart(8, '0')
     }
 });
@@ -337,18 +341,17 @@ const selectedFiles = reactive({
 function submitForm() {
     validate().then( async form => {
         if (form.valid) {
-            const proposalWithFiles = {
-                ...proposal,
-                productManual: selectedFiles.file1,
-                productDrawings: selectedFiles.file2,
-                photos: selectedFiles.file3
-            };
             if (edit) {
                 updateProposal(proposal)
                 getProposals();
                 updateEdit()
             } else {
-                console.log('proposalWithFiles :>> ', proposalWithFiles);
+                const proposalWithFiles = {
+                    ...proposal,
+                    productManual: selectedFiles.file1,
+                    productDrawings: selectedFiles.file2,
+                    photos: selectedFiles.file3
+                };
                 await storeProposal(proposalWithFiles);
                 getProposals()
             }

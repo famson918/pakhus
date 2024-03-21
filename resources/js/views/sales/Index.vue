@@ -8,15 +8,15 @@
             <p class="fs-4 fw-7">{{ $t('explanation') }}</p>
         </div>
         </div>
-        <div class="d-flex">
-            <div v-for="good in displayedItems" :key="good" class="card m-2 shadow-sm" style="width: 18rem; border-radius: 5%; text-align: center;">
+        <div class="d-flex" :class="{ 'flex-wrap': !isLargeScreen }">
+            <div v-for="good in displayedItems" :key="good" class="card m-2 shadow-sm" :style="itemStyle">
                 <img :src="good.picture1" height="200" class="card-img-to p-4" alt="...">
-                   <p class="fs-3 fw-8">{{ good.productName }}</p>
-                   <p class="fs-3 fw-8">{{ good.startPrice}}$ ~  {{ good.endPrice}}$</p>
-                   <p class="fs-3 fw-8">Min Order: {{ good.minimumOrderQuantity }}</p>
+                    <p class="fs-3 fw-8">{{ good.productName }}</p>
+                    <p class="fs-3 fw-8">{{ good.startPrice}}$ ~  {{ good.endPrice}}$</p>
+                    <p class="fs-3 fw-8">Min Order: {{ good.minimumOrderQuantity }}</p>
                     <!-- <button @click="goDetails(good)" class="btn btn-primary m-3">{{ $t('viewDetails') }}</button> -->
                     <router-link :to="{ name: 'sales.details', params: { id: good.id } }"
-                                    class="btn btn-primary m-3">{{ $t('viewDetails') }}
+                        class="btn btn-primary m-3">{{ $t('viewDetails') }}
                     </router-link>
             </div>
         </div>
@@ -31,7 +31,7 @@
     </div>
 </template>
 <script setup>
-import { onMounted, computed, watchEffect } from 'vue';
+import { onMounted, computed } from 'vue';
 import useGoods from '../../composables/goods'
 import { Bootstrap5Pagination } from 'laravel-vue-pagination';
 import { ref } from 'vue';
@@ -49,17 +49,22 @@ let paginationData = ref([]);
 const currentPage = ref(localStorage.getItem('currentSalesPage')? localStorage.getItem('currentSalesPage') : 1);
 const role = ref(false);
 const itemsPerPage = ref(5);
-
+const isLargeScreen =ref(true)
 onMounted(async()=> {
-    console.log('goods :>> ', goods.value);
     await getGoods();
     getResults(currentPage.value);
     checkRole(user);
     updateItemsPerPage()
     window.addEventListener('resize', updateItemsPerPage);
 })
-
-
+ 
+const itemStyle = computed(() => {
+    return {
+    borderRadius: '5%',
+    textAlign: 'center',
+    width: isLargeScreen.value? '25%' : '45.33%',
+    };
+});
 
 const getResults = (page) => {
     localStorage.setItem('currentSalesPage', page);
@@ -86,10 +91,10 @@ const getResults = (page) => {
 const updateItemsPerPage = () => {
     if (window.innerWidth >= 684) { // Desktop size (lg and up)
     itemsPerPage.value = 5;
+    isLargeScreen.value = true;
   } else {
-    console.log('called--', window.innerWidth)
-
-    itemsPerPage.value = 2;
+    isLargeScreen.value = false;
+    itemsPerPage.value = 10;
   }
   getResults()
 };

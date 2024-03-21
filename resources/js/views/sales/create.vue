@@ -67,13 +67,13 @@
                 </div>       
             </div>
             <div class="mb-3 row">
-                <div class="row col-11">
+                <div class="row col-12">
                     <label for="inputPassword" class="col-sm-2 col-form-label">{{ $t('timeRequired') }}</label>
                     <div class="col-sm-10">
                         <table class="table">
                         <thead>
                             <tr>
-                            <th scope="col" class="col-sm-3" style="background-color: lightblue;">{{ $t('amountperset') }}</th>
+                            <th scope="col" style="background-color: lightblue; min-width: 80px;">{{ $t('amountperset') }}</th>
                             <th scope="col" style="background-color: lightblue;">
                                 <input v-model="goods.time11" type="text" class="form-control" id="inputPassword">
                                 <div class="text-danger mt-1">
@@ -107,7 +107,7 @@
                                     </div>
                                 </div>
                             </th>
-                            <th scope="col" style="background-color: lightblue;">
+                            <th scope="col" style="background-color: lightblue; padding-right: 14px;">
                                 <input v-model="goods.time14" type="text" class="form-control" id="inputPassword">
                                 <div class="text-danger mt-1">
                                     {{ errors.time14 }}
@@ -122,7 +122,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                            <th scope="row">{{ $t('predicttime') }}</th>
+                            <th scope="row" style="min-width: 90px;">{{ $t('predicttime') }}</th>
                             <td>
                                 <input v-model="goods.time1" type="text" class="form-control" id="inputPassword">
                                 <div class="text-danger mt-1">
@@ -156,7 +156,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
+                            <td style="padding-right: 14px;">
                                 <input v-model="goods.time4" type="text" class="form-control" id="inputPassword">
                                 <div class="text-danger mt-1">
                                     {{ errors.time4 }}
@@ -174,13 +174,13 @@
                 </div>       
             </div>
             <div class="mb-3 row">
-                <div class="row col-11">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">{{ $t('customization') }}</label>
-                    <div class="col-sm-10">
+                <div class="row col-12">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">{{ $t('customization') }}</label>
+                    <div class="col-sm-8">
                         <table class="table">
                         <thead>
                             <tr>
-                            <th scope="col" calss="col-sm-3" style="background-color: lightblue;">{{ $t('amountperset') }}</th>
+                            <th scope="col" style="background-color: lightblue; min-width: 80px;">{{ $t('amountperset') }}</th>
                             <th scope="col" style="background-color: lightblue;">
                                 <input v-model="goods.option11" type="text" class="form-control" id="inputPassword">
                                 <div class="text-danger mt-1">
@@ -203,7 +203,7 @@
                                     </div>
                                 </div>
                             </th>
-                            <th scope="col" style="background-color: lightblue;">
+                            <th scope="col" style="background-color: lightblue; padding-right: 14px;">
                                 <input v-model="goods.option13" type="text" class="form-control" id="inputPassword">
                                 <div class="text-danger mt-1">
                                     {{ errors.option13 }}
@@ -218,7 +218,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                            <th scope="row">{{ $t('optional') }}</th>
+                            <th scope="row" style="min-width: 80px;">{{ $t('optional') }}</th>
                             <td>
                                 <input v-model="goods.option1" type="text" class="form-control" id="inputPassword">
                                 <div class="text-danger mt-1">
@@ -241,7 +241,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
+                            <td style="padding-right: 14px;">
                                 <input v-model="goods.option3" type="text" class="form-control" id="inputPassword">
                                 <div class="text-danger mt-1">
                                     {{ errors.option3 }}
@@ -541,7 +541,7 @@ const handleFileSelected6 = (file) => {
   selectedPictures.file6 = file;
 };
 const goGoods = () => {
-    router.push({ name: 'sales.index'})
+    router.push({ name: 'salesManager.index'})
 }
 </script>
 <style>

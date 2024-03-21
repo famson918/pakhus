@@ -129,7 +129,7 @@
                                             <i class="fa-regular fa-comment" style="font-size: 100px; padding-top  : 100px;"></i>
                                         </div>
                                         <div class="col-12 d-flex justify-content-center">
-                                            <p class="fs-1">http://pf.com/_GIsJG/chat</p>
+                                            <a class="fs-1 text-truncate-link" href="http://pf.kakao.com/_GIsJG/chat" target="_blank" >http://pf.kakao.com/_GIsJG/chat</a>
                                         </div>
                                         <div class="col-12 d-flex justify-content-center">
                                             <img src="../../../../public/images/barcode.png">
@@ -213,5 +213,17 @@ const changeURL = (item) => {
   float: right;
   font-size: 28px;
   font-weight: bold;
+}
+.text-truncate-link {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .text-truncate-link {
+    max-width: 150px; /* Adjust as needed for mobile */
+  }
 }
 </style>
