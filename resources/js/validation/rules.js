@@ -41,9 +41,23 @@ export default function useRules() {
         return true
     }
 
+    const max = (value, [limit], { field }) => {
+        if (!value || !value.length) {
+            return true
+        }
+    
+        if (value.length > limit) {
+            let msg = t('the') + " " + t(field) + " " + t('musthave') + " " + limit + t('characters');
+            return msg
+        }
+    
+        return true
+    }
+
     return {
         required,
         checkEmail,
-        min
+        min,
+        max
     }
 }

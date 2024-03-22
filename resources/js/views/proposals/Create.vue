@@ -173,27 +173,30 @@
                 <label for="inputPassword" class="col-sm-3 col-form-label"><span class="">{{ $t('productManual') }}</span><span>{{ $t('freeStyle') }}</span></label>
                 <div class="col-sm-9">
                 <DownloadInput v-if="edit" :buttonLabel="attachment" :file="editableData.productManual" />
-                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected1" :error="errors.file1" style="margin-left:-0.15rem"/>
+                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected1" style="margin-left:-0.15rem"/>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="inputPassword" class="col-sm-3 col-form-label ">{{ $t('productDrawings') }}</label>
                 <div class="col-sm-9">
                 <DownloadInput v-if="edit" :buttonLabel="attachment" :file="editableData.productDrawings" />
-                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected2" :error="errors.file2" style="margin-left:-0.15rem"/>
+                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected2" style="margin-left:-0.15rem"/>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="inputPassword" class="col-sm-3 col-form-label ">{{ $t('photoData_pictures') }}</label>
                 <div class="col-sm-9">
                 <DownloadInput v-if="edit" :buttonLabel="attachment" :file="editableData.photos"/>
-                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected3" :error="errors.file3" style="margin-left:-0.15rem"/>
+                <UploadInput v-else :buttonLabel="attachment" @fileSelected="handleFileSelected3" style="margin-left:-0.15rem"/>
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="inputPassword" class="col-sm-3 col-form-label "><span class="">{{ $t('otherRequestQuestions') }}</span><span>{{ $t('textLimit') }}</span></label>
                 <div class="col-sm-9">
                     <textarea v-model="proposal.others" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <div class="text-danger mt-1">
+                        {{ errors.others }}
+                    </div>
                 </div>
             </div>
             <div v-if="!edit" class="mb-3 row justify-content-center">
@@ -245,9 +248,10 @@ import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 
-const { required, min } = useRules();
+const { required, min, max } = useRules();
 defineRule('required', required)
 defineRule('min', min)
+defineRule('max', max)
 
 const store = useStore();
 
@@ -301,18 +305,14 @@ const schema = {
     itemName: 'required',
     contactInformation: 'required',
     email: 'required',
-    file1: 'required',
-    file2: 'required',
-    file3: 'required',
+    others: 'required|max:500',
 }
 const { validate, errors } = useForm({validationSchema: schema})
 const { value: productName } = useField('productName', null, { initialValue: ''})
 const { value: itemName } = useField('itemName', null, { initialValue: ''})
 const { value: contactInformation } = useField('contactInformation', null, { initialValue: ''})
 const { value: email } = useField('email', null, { initialValue: ''})
-const { value: file1 } = useField('file1', null, { initialValue: ''})
-const { value: file2 } = useField('file2', null, { initialValue: ''})
-const { value: file3 } = useField('file3', null, { initialValue: ''})
+const { value: others } = useField('others', null, { initialValue: ''})
 const { storeProposal, updateProposal, validationErrors, isLoading, getProposals } = useProposals()
 const proposal = reactive({
     user_id: user.value.id * 1000,
@@ -320,6 +320,7 @@ const proposal = reactive({
     itemName,
     contactInformation,
     email,
+    others,
     productDevelopment: false,
     developmentProgram: false,
     productQuotationSurvey: false,
@@ -333,9 +334,9 @@ const proposal = reactive({
 })
 
 const selectedFiles = reactive({
-  file1,
-  file2,
-  file3
+  file1: null,
+  file2: null,
+  file3: null
 });
 
 function submitForm() {

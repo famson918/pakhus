@@ -206,7 +206,7 @@ const updateColumns = () => {
     columns.value = [
       { text: t('id'), value: 'delegatedId' },
       { text: t('productName'), value: 'productName' },
-      { text: t('contactInformation'), value: 'contactInformation' },
+      { text: t('itemName'), value: 'itemName' },
       { text: t('created_at'), value: 'created_at' },
       { text: t('confirm'), value: 'confirm' },
       { text: t('status'), value: 'status' },
@@ -216,7 +216,7 @@ const updateColumns = () => {
     columns.value = [
       { text: t('id'), value: 'delegatedId' },
       { text: t('productName'), value: 'productName' },
-      { text: t('contactInformation'), value: 'contactInformation' },
+      { text: t('itemName'), value: 'itemName' },
       { text: t('created_at'), value: 'created_at' },
       { text: t('status'), value: 'status' },
     ];

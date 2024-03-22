@@ -181,11 +181,13 @@
     "the": "The",
     "field": "field is required!",
     "mustBeAtLeast": "must be at least",
+    "musthave": "must have less than ",
     "characters": "characters!",
     "password_confirmation": "password confirmation",
     "validEmail": "Please enter a valid email address",
     "file1": "file1",
     "file2": "file1",
-    "file3": "file1"
+    "file3": "file1",
+    "others": "Explanation"
     
 }
